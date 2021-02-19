@@ -12,7 +12,8 @@ in {
     user.packages = with pkgs; [
       clang
       gcc
-      # bear
+      valgrind
+      bear
       gdb
       cmake
       llvmPackages.libcxx
