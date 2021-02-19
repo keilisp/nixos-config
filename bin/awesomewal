@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+read -r -p "Enter the name of your current awesome theme...: " THEME
+
+fg_normal=$(cat ~/.cache/wal/colors | sed '16q;d' | tr -d '\n')
+fg_focus=$(cat ~/.cache/wal/colors | sed '3q;d' | tr -d '\n')
+fg_urgent=$(cat ~/.cache/wal/colors | sed '2q;d' | tr -d '\n')
+bg_normal=$(cat ~/.cache/wal/colors | sed '1q;d' | tr -d '\n')
+bg_focus=$(cat ~/.cache/wal/colors | sed '9q;d' | tr -d '\n')
+bg_urgent=$(cat ~/.cache/wal/colors | sed '4q;d' | tr -d '\n')
+border_normal=$(cat ~/.cache/wal/colors | sed '4q;d' | tr -d '\n')
+border_focus=$(cat ~/.cache/wal/colors | sed '3q;d' | tr -d '\n')
+border_marked=$(cat ~/.cache/wal/colors | sed '5q;d' | tr -d '\n')
+tasklist_bg_focus=$(cat ~/.cache/wal/colors | sed '1q;d' | tr -d '\n')
+
+sed -ir "s/^theme.fg_normal\s*=\s*\"\S*\"$/theme.fg_normal = \"$fg_normal\"/g" ~/.config/awesome/themes/"$THEME"/theme.lua
+sed -ir "s/^theme.fg_focus\s*=\s*\"\S*\"$/theme.fg_focus = \"$fg_focus\"/g" ~/.config/awesome/themes/"$THEME"/theme.lua
+sed -ir "s/^theme.fg_urgent\s*=\s*\"\S*\"$/theme.fg_urgent = \"$fg_urgent\"/g" ~/.config/awesome/themes/"$THEME"/theme.lua
+sed -ir "s/^theme.bg_normal\s*=\s*\"\S*\"$/theme.bg_normal = \"$bg_normal\"/g" ~/.config/awesome/themes/"$THEME"/theme.lua
+sed -ir "s/^theme.bg_focus\s*=\s*\"\S*\"$/theme.bg_focus = \"$bg_focus\"/g" ~/.config/awesome/themes/"$THEME"/theme.lua
+sed -ir "s/^theme.bg_urgent\s*=\s*\"\S*\"$/theme.bg_urgent = \"$bg_urgent\"/g" ~/.config/awesome/themes/"$THEME"/theme.lua
+sed -ir "s/^theme.border_normal\s*=\s*\"\S*\"$/theme.border_normal = \"$border_normal\"/g" ~/.config/awesome/themes/"$THEME"/theme.lua
+sed -ir "s/^theme.border_focus\s*=\s*\"\S*\"$/theme.border_focus = \"$border_focus\"/g" ~/.config/awesome/themes/"$THEME"/theme.lua
+sed -ir "s/^theme.border_marked\s*=\s*\"\S*\"$/theme.border_marked = \"$border_marked\"/g" ~/.config/awesome/themes/"$THEME"/theme.lua
+sed -ir "s/^theme.tasklist_bg_focus\s*=\s*\"\S*\"$/theme.tasklist_bg_focus = \"$tasklist_bg_focus\"/g" ~/.config/awesome/themes/"$THEME"/theme.lua

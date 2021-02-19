@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [ ../personal.nix ./hardware-configuration.nix ];
 
   ## Modules
@@ -81,6 +81,16 @@
     dev = {
       cc.enable = true;
       python.enable = true;
+    };
+  };
+
+  ## Dotfiles in .config
+  home.configFile = {
+    "dotfiles".source = pkgs.fetchFromGitHub {
+      owner = "mediocreeee";
+      repo = "nixos-config";
+      rev = "807b54ca8852da8c479db034c66f136dc5869e5b";
+      sha256 = "0zqn1fc8wz0kl04bxicxi9dkxiqjw349gasjzq845z66yxrnyz4l";
     };
   };
 

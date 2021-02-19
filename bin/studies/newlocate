@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+locatedb="/var/locate.db"
+
+exec grep "$@" $locatedb

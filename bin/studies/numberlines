@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+for filename in "$@"; do
+	linecount="1"
+	while IFS="\n" read -r line; do
+		echo "${linecount}: $line"
+		linecount="$((linecount + 1))"
+	done <"$filename"
+done
+
+exit 0

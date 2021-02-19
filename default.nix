@@ -112,7 +112,7 @@ with lib.my; {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     bind
-    # cached-nix-shell
+    cached-nix-shell
     coreutils
     git
     vim

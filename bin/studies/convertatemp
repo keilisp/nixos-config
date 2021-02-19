@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+	cat >&2 <<EOF
+"Usage: $0 temperature[F|C|K]
+where the suffix:
+	  F	  indicates input is in Fahrengeit
+	  C	  indicates input is in Celsius (default)
+	  K	  indicates input is in Kelvin"
+EOF
+	exit 1
+fi
+
+unit="$(echo "$1" | sed -e 's/[-[:digit:]]*//g' | tr '[:lower:]' '[:upper:]')"
+temp="$(echo "$1" | sed -e 's/[^-[:digit:]]*//g')"
+
+case ${unit:=C} in
+F)
+	farn="$temp"
+	cels="$(echo "scale=2;($farn - 32) / 1.8" | bc)"
+	kelv="$(echo "scale=2;$cels + 273.15" | bc)"
+	;;
+C)
+	cels=$temp
+	kelv="$(echo "scale=2;$cels + 273.15" | bc)"
+	farn="$(echo "scale=2;(1.8 * $cels) + 32" | bc)"
+	;;
+K)
+	kelv=$temp
+	cels="$(echo "scale=2; $kelv - 273.15" | bc)"
+	farn="$(echo "scale=2; (1.8 * $cels) + 32" | bc)"
+	;;
+*)
+	echo "Given temperature unit is not supported"
+	exit 1
+	;;
+esac
+
+echo "Fahrenheit = $farn"
+echo "Celcius = $cels"
+echo "Kelvin = $kelv"
+
+exit 0

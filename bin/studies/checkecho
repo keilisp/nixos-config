@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+echon="./echon"
+counter=$(echo -n hi | wc -c)
+
+case $counter in
+2) $echon "plain text" ;;
+3) $echon "text + line feed char" ;;
+4) $echon "-n + text" ;;
+5) $echon "-n + text + line feed char" ;;
+*) $echon "idk monkaS" ;;
+esac

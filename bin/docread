@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+dox="$HOME/dox/"
+
+categories=$(/usr/bin/ls -d "$dox"*/ | xargs -n1 basename)
+declare -a category_options
+for category in $categories; do
+	if [[ $(/usr/bin/ls "$dox/$category" | grep ".*\.pdf$") ]]; then
+		category_options+=("$category")
+	fi
+done
+
+if [[ -d $dox ]]; then
+	category_choice=$(printf '%s\n' "${category_options[@]}" |
+		dmenu -i -l 15 -p "Dox..." -nb '#282828' -sf '#fabd2f' -sb '#504945' -nf '#a89984' -fn 'Mononoki Nerd Font:bold:pixelsize=13')
+	if [[ $category_choice ]]; then
+		category_folder="$dox/$category_choice"
+
+		doc_choice=$(/usr/bin/ls $category_folder | grep '.*\.pdf$' |
+			sed -e 's/\.[[:alpha:]]*$//' |
+			dmenu -i -l 15 -p "Dox..." -nb '#282828' -sf '#fabd2f' -sb '#504945' -nf '#a89984' -fn 'Mononoki Nerd Font:bold:pixelsize=13')
+
+		if [[ ($doc_choice) && (-e $category_folder/$doc_choice.pdf) ]]; then
+			zathura "$category_folder/$doc_choice.pdf"
+		else
+			notify-send "💣 Error during oppening the document"
+		fi
+	else
+		notify-send "💣 Error during watching the category"
+	fi
+else
+	notify-send "💣 Directory $dox doesn't exist"
+fi

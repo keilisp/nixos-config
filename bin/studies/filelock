@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+retries="10"
+action="lock"
+
+while getopts "lur:" opt; do
+	case $opt in
+	l) action="lock" ;;
+	u) action="unlock" ;;
+	r) retries="$OPTARG" ;;
+	*)
+		cat >&2 <<EOF
+"Usage: $0 [-l|-u] [-r retries] LOCKFILE"
+Where -l requests a lock (the default), -u requets an unlock, -r X
+specifies a max number of retries before it fails (default = $retries)
+EOF
+		exit 1
+		;;
+	esac
+done
+shift $(("$OPTIND" - 1))
+
+if [ $# -eq 0 ]; then
+	cat >&2 <<EOF
+"Usage: $0 [-l|-u] [-r retries] LOCKFILE"
+Where -l requests a lock (the default), -u requets an unlock, -r X
+specifies a max number of retries before it fails (default = $retries)
+EOF
+	exit 1
+fi
+
+if [ -z "$(which lockfile 2>/dev/null | grep -v '^no ')" ]; then
+	echo "$0 failed: 'lockfile' utility not found in PATH." >&2
+	exit 1
+fi
+
+if [ "$action" = "lock" ]; then
+	lockfile -1 -r "$retries" "$1" 2>/dev/null || echo "$0: Failed: Couldn't create lockfile in time." >&2 && exit 1
+else
+	if [ ! -f "$1" ]; then
+		echo "$0: Warning: lockfile $1 doesn't exists to unlock." >&2
+		exit 1
+	fi
+	rm -f "$1"
+fi
+
+exit 0

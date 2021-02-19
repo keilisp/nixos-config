@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+scriptbc=$(which scriptbc)
+ls=$(which ls)
+
+KB2GB=1048576
+KB2MB=1024
+readablesize() {
+	if [ "$1" -ge $KB2GB ]; then
+		echo "$($scriptbc -p 2 "$1" / $KB2GB)GB"
+	elif [ "$1" -ge $KB2MB ]; then
+		echo "$($scriptbc -p 2 "$1" / $KB2MB)MB"
+	else
+		echo "${1}KB"
+	fi
+}
+
+if [ $# -gt 1 ]; then
+	echo "Usage: $0 [dirname]" >&2
+	exit 1
+elif [ $# -eq 1 ]; then
+	if ! cd "$@"; then
+		exit 1
+	fi
+fi
+
+for file in *; do
+	if [ -d "$file" ]; then
+		size=$($ls "$file" | wc -l | sed 's/[^[:digit:]]//g')
+		if [ "$size" -eq 1 ]; then
+			echo "$file ($size entry)|"
+		else
+			echo "$file ($size entries)|"
+		fi
+	else
+		size="$($ls -sk "$file" | awk '{ print $1 }')"
+		echo "$file ($(readablesize "$size "))|"
+	fi
+done |
+	sed 's/ /^^^^^/g' |
+	xargs -n 2 |
+	sed 's/\^\^\^\^\^/ /g' |
+	awk -F\| '{ printf "%-39s %-39s\n", $1, $2 }'
+
+exit 0

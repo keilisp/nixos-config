@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+rememberfile="$HOME/.remember"
+
+if [ ! -f "$rememberfile" ]; then
+	cat >&2 <<EOF
+"$0: You don't seem to have a .remember file
+To remedy this, please use 'remember' to add reminders"
+EOF
+	exit 1
+fi
+
+if [ $# -eq 0 ]; then
+	more "$rememberfile"
+else
+	grep -- "$@" "$rememberfile" | ${PAGER:=less}
+fi
+
+exit 0

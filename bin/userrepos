@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+read -r -p "Enter username whose repos you want do download: " USER
+
+REPOS=$(curl https://api.github.com/users/"$USER"/repos |
+	jq 'map(.full_name)' | grep -v '\[\|\]' | tr -d \" | tr -d ,)
+
+for repo in $REPOS; do
+	git clone https://github.com/"$repo"
+done

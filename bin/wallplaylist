@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+ps aux |
+	grep -P ${BASH_SOURCE[0]} |
+	grep -v $$ |
+	grep -P "bash" |
+	grep -oP "^[[:alnum:]]+\s+\d+\s" |
+	grep -oP "\d+" |
+	xargs kill -9
+
+while true; do
+	find $HOME/pix/wallpapers -type f -name '*.jpg' -o -name '*.png' | shuf -n 1 | xargs feh --bg-fill
+	sleep 30m
+done &

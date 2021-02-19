@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+nicenumber() {
+	separator="$(echo "$1" | sed 's/[[:digit:]]//g')"
+	if [ -n "$separator" ] && [ "$separator" != "$DD" ]; then
+		echo "$0: Unknown decimal separator $separator encountered." >&2
+		exit 1
+	fi
+	integer=$(echo "$1" | cut -d. -f1)
+	decimal=$(echo "$1" | cut -d. -f2)
+
+	# Check for decimal part
+	# [ "$decimal" -ne "$1" ] && result="${DD:= '.'}$decimal"
+	if [ "$decimal" != "$1" ]; then
+		result="${DD:= '.'}$decimal"
+	fi
+
+	thousands=$integer
+
+	while [ "$thousands" -gt 999 ]; do
+		remainder=$((thousands % 1000)) # Three last digits
+
+		while [ ${#remainder} -lt 3 ]; do
+			remainder="0$remainder"
+		done
+
+		result="${TD:=","}${remainder}${result}"
+		thousands=$((thousands / 1000))
+	done
+
+	nicenum="${thousands}${result}"
+
+	[ -n "$2" ] && echo "$nicenum"
+}
+
+DD="." # To separate integer and decimal
+TD="," # Bit group separato
+
+# Main part
+# ===================
+
+while getopts "d:t:" opt; do
+	case $opt in
+	d) DD="$OPTARG" ;;
+	t) TD="$OPTARG" ;;
+	esac
+done
+shift $((OPTIND - 1))
+
+if [ $# -eq 0 ]; then
+	cat <<EOF
+"Usage: $(basename "$0") [-d c] [-t c] number
+		-d specifies the decimal point delimiter
+		-t specifies the thousands delimiter"
+EOF
+	exit 0
+fi
+
+nicenumber "$1" 1
+
+exit 0

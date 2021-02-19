@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+if [[ $# -lt 3 ]]; then
+	echo "$0 expected 3 arguments!
+Usage: $0 FOLDER_PATH DEVICE_PATH MOUNT_PATH"
+	exit 1
+fi
+
+folder=$1
+device=$2
+mount_dir=$3
+
+if [[ ! -e $device ]]; then
+	echo "Error! No such device: $device"
+	exit 1
+fi
+if [[ ! -e $folder ]]; then
+	echo "Error! No such directory: $folder"
+	exit 1
+fi
+
+echo "Checking if mount directory exists..."
+if [[ ! -e "$mount_dir" ]]; then
+	echo "Creating directory for ebook..."
+	if ! sudo mkdir "$mount_dir"; then
+		echo "Something went wrong during creating the directory!..."
+		exit 1
+	fi
+fi
+
+echo "Mounting $device to $mount_dir..."
+if ! sudo mount "$device" "$mount_dir"; then
+	echo "Something went wrong during mounting the $device!..."
+	exit 1
+fi
+
+echo "Syncing $device with $folder..."
+if ! sudo rsync -avu "$folder/" "$mount_dir/documents"; then
+	echo "Something went wrong during syncing the folder!..."
+	# FIXME
+	# exit 1
+fi
+
+echo "Unmounting $device..."
+if ! sudo umount "$device"; then
+	echo "Something went wrong during unomunting the $device"
+	exit 1
+fi
+
+echo "Finishing up..."
+exit 0

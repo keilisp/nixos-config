@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+
+# set -x
+
+. validint
+
+validfloat() {
+	fvalue="$1"
+
+	if [ -n "$(echo "$fvalue" | sed 's/[^.]//g')" ]; then
+
+		decimalPart="$(echo "$fvalue" | cut -d. -f1)"
+		fractionalPart="$(echo "$fvalue" | cut -d. -f2)"
+
+		estring=$(echo "$fvalue" | sed 's/[^e]//g')
+
+		if [ ${#estring} -gt 1 ]; then
+			echo "Only one e can be used" >&2
+			return 1
+		fi
+
+		validE() {
+
+			Einteger=$(echo "$1" | cut -d "e" -f1)
+			Edegrees=$(echo "$1" | cut -d "e" -f2-)
+
+			if ! validint "$Einteger"; then
+				echo "Something wrong with: $Einteger" >&2
+				return 1
+			fi
+
+			if ! validint "$Edegrees"; then
+				echo "Something wrong with: $Edegrees" >&2
+				return 1
+			fi
+
+			Edegreesnodigits=$(echo "$Edegrees" | sed 's/-//g')
+			if [ "${Edegreesnodigits%${Edegreesnodigits#?}}" = "0" ]; then
+				echo "e degree can't start with 0" >&2
+				return 1
+			fi
+
+		}
+
+		if [ -n "$decimalPart" ]; then
+
+			if [ -n "$(echo "$decimalPart" | sed 's/[^e]//g')" ]; then
+				validE "$decimalPart"
+			else
+				if ! validint "$decimalPart"; then
+					return 1
+				fi
+
+			fi
+		fi
+
+		if [ "${fractionalPart%${fractionalPart#?}}" = "-" ]; then
+			echo "Invalid floating-point number: '-' not allowed after decimal point." >&2
+			return 1
+		fi
+
+		if [ -n "$(echo "$fractionalPart" | sed 's/[^e]//g')" ]; then
+			validE "$fractionalPart"
+		fi
+
+	else
+		if [ "$fvalue" = "-" ]; then
+			echo "Invalid floating-point format." >&2
+			return 1
+		fi
+
+		if ! validint "$fvalue"; then
+			return 1
+		fi
+	fi
+	return 0
+}
+
+if validfloat "$1"; then
+	echo "Input is a valid float within yout constraints."
+fi

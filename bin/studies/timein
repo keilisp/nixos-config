@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+zonedir="/usr/share/zoneinfo"
+
+if [ ! -d $zonedir ]; then
+	echo "No time zone database at $zonedir." >&2
+	exit 1
+fi
+
+if [ -d "$zonedir/posix" ]; then
+	zonedir=$zonedir/posix
+fi
+
+if [ $# -eq 0 ]; then
+	timezone="UTC"
+	mixedzone="UTC"
+elif [ "$1" = "list" ]; then
+	(
+		echo "All known time zones and regions defined on this system:"
+		cd $zonedir || exit 1
+		find -L ./* -type f -print | xargs -n 2 |
+			awk '{ printf " %-38s %-38s\n", $1, $2 }'
+	) | less
+	exit 0
+else
+	region=$(dirname "$1")
+	zone=$(basename "$1")
+
+	matchcount="$(find -L $zonedir -name "$zone" -type f -print |
+		wc -l | sed 's/[^[:digit:]]//g')"
+
+	if [ "$matchcount" -gt 0 ]; then
+		if [ "$matchcount" -gt 1 ]; then
+			cat <&2 <<EOF
+"\$1\" matches more than one possilbe time zone record.
+Please use 'list' to see all known regions and time zones.
+EOF
+			exit 1
+		fi
+		match="$(find -L $zonedir -name "$zone" -type f -print)"
+		mixedzone="$zone"
+	else
+		mixedregion="$(echo "${region%${region#?}}" |
+			tr '[:lower:]' '[:upper:]')\
+			$(echo "${region#?}" | tr '[:upper:]' '[:lower:]')"
+		mixedzone="$(echo "${zone%${zone#?}}" | tr '[:lower:]' '[:upper:]') \
+			$(echo "${zone#?}" | tr '[:upper:]' '[:lower:]')"
+
+		if [ "$mixedregion" != "." ]; then
+			match="$(find -L $zonedir/$mixedregion -type f -name "$mixedzone" -print)"
+		else
+			match="$(find -L $zonedir -name "$mixedzone" -type f -print)"
+		fi
+
+		if [ -z "$match" ]; then
+			if [ -n "$(find -L $zonedir -name "$mixedzone" -type d -print)" ]; then
+				echo "The region \"$1\" has more than one time zone." >&2
+			else
+				echo "Can't find an exact match for \"$1\"." >&2
+			fi
+			echo "Please use 'list' to see all known regions and time zones." >&2
+			exit 1
+		fi
+	fi
+	timezone="$match"
+fi
+
+nicetz=$(echo "$timezone" | sed "s|$zonedir/||g")
+
+echo "It's $(TZ=$timezone date '+%A, %B %e %Y, at %k:%M') in $nicetz"
+
+exit 0

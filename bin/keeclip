@@ -1,0 +1,114 @@
+#!/usr/bin/env bash
+
+# set -e
+# TODO handle erorrs
+# TODO add help function
+# TODO add flags
+# TODO add list of all dbs
+# TODO maybe add var for pass attempts
+# TODO add >/dev/null
+
+pass_attempts=1
+entry=""
+dbpass=""
+
+call_dm() {
+	dmenu -i -p "$action..." "$@" -nb '#ffffff' -sf '#0030a6' -sb '#f8f8f8' -nf '#282828' -fn 'Hack:bold:pixelsize=13'
+
+}
+
+check_db() {
+	if [[ -f "$db" ]]; then
+		return 0
+	else
+		notify-send "Database $db is not found!" && exit 1
+	fi
+}
+
+ask_pass() {
+	action="Enter password"
+	if [[ $pass_attempts -gt 3 ]]; then
+		notify-send "You ran out of attempts!" && exit 1
+	fi
+	dbpass=$(call_dm -l 0 -P <&-)
+	# || exit 1
+	[ ! "$dbpass" ] && notify-send "💣 Something went wrong" && exit 1
+	if echo "$dbpass" | keepassxc-cli db-info "$db"; then
+		return 0
+	else
+		((pass_attempts += 1))
+		notify-send "💣 Wrong password" && ask_pass
+	fi
+}
+
+list_entries() {
+	action="Choose entry"
+	entry_choice=$(echo "$dbpass" | keepassxc-cli ls "$db" "$entry" | call_dm -l 20)
+	[ ! "$entry_choice" ] && notify-send "💣 Something went wrong" && exit 1
+	entry+="$entry_choice"
+
+	case "$entry_choice" in
+	*/)
+		list_entries
+		;;
+	*)
+		choose_option
+		;;
+	esac
+}
+
+clip_pass() { echo "$dbpass" | keepassxc-cli clip "$db" "$entry"; }
+clip_username() { echo "$dbpass" | keepassxc-cli show "$db" "$entry" | grep 'UserName:' | cut -b 11- | xclip -sel clip; }
+
+choose_option() {
+	options=("Password
+Username")
+
+	action="Clip"
+	clip_choice=$(echo -e "${options[@]}" | call_dm -l 5)
+	[ ! "$clip_choice" ] && notify-send "💣 Something went wrong" && exit 1
+
+	case "$clip_choice" in
+	"Password")
+		clip_pass
+		;;
+	"Username")
+		clip_username
+		;;
+	esac
+}
+
+print_help() {
+	printf "usage: $0 [-h] [-d]
+
+	arguments:
+	-h, --help			show this help message and exit
+	-d, --database [file]		specify keepass database file path
+"
+}
+
+[ ! "$1" ] && {
+	print_help
+	exit 1
+}
+while [ "$1" ]; do
+	case "$1" in
+	-h | --help)
+		print_help
+		exit 0
+		;;
+	-d | --database)
+		db="$2"
+		check_db
+		shift
+		shift
+		;;
+	*)
+		echo "[E] Invalid argument."
+		exit 1
+		;;
+	esac
+done
+
+ask_pass
+list_entries
