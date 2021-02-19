@@ -5,13 +5,13 @@
   modules = {
     desktop = {
       # bspwm.enable = true;
+      awesome.enable = true;
       apps = {
         telegram.enable = true;
-        dmenu.enable = true;
         thunar.enable = true;
         lxappearance.enable = true;
         # betterlockscreen.enable = true;
-        # dmenu.enable = true;
+        dmenu.enable = true;
         # etcher.enable = true;
         # flameshot.enable = true;
         # keepassxc.enable = true;
@@ -23,7 +23,6 @@
         # rofi.enable = true;
         # godot.enable = true;
       };
-      awesome.enable = true;
       browsers = {
         default = "brave";
         brave.enable = true;
@@ -77,8 +76,8 @@
     # theme.active = "tomorrow-day";
     # theme.active = "modus-operandi";
     # theme.active = "nord-dark";
-    # theme.active = "gruvbox-dark";
-    theme.active = "solarized-light";
+    theme.active = "gruvbox-dark";
+    # theme.active = "solarized-light";
     dev = {
       cc.enable = true;
       python.enable = true;

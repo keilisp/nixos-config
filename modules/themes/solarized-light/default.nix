@@ -80,9 +80,11 @@ in {
       # Login screen theme
       services.xserver.displayManager.lightdm.greeters.mini.extraConfig = ''
         text-color = "#d33682"
+        password-color = "#d33682"
         password-background-color = "#fdf6e3"
         window-color = "#eee8d5"
         border-color = "#eee8d5"
+        error-color = "#dc322f"
       '';
 
       # GTK Themes

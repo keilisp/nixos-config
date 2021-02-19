@@ -74,10 +74,12 @@ in {
 
       # Login screen theme
       services.xserver.displayManager.lightdm.greeters.mini.extraConfig = ''
-        text-color = "#b48ead"
-        password-background-color = "#81a1c1"
-        window-color = "#5e81ac"
-        border-color = "#5e81ac"
+        text-color = "#eceff4"
+        password-color = "#eceff4"
+        password-background-color = "#4c566a"
+        window-color = "#3b4252"
+        border-color = "#3b4252"
+        error-color = "#bf616a"
       '';
 
       # Other dotfiles
