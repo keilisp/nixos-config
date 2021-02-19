@@ -42,64 +42,8 @@ in {
 
     };
 
-    # home-manager.users.${config.user.name}.programs.zsh = {
-    # plugins = [
-    #   {
-    #     name = "zsh-autosuggestions";
-    #     file = "zsh-autosuggestions.zsh";
-    #     src = pkgs.fetchFromGitHub {
-    #       owner = "zsh-users";
-    #       repo = "zsh-autosuggestions";
-    #       rev = "v0.6.4";
-    #       sha256 = "0h52p2waggzfshvy1wvhj4hf06fmzd44bv6j18k3l9rcx6aixzn6";
-    #     };
-    #   }
-    #   {
-    #     name = "zsh-abbrev-alias";
-    #     file = "abbrev-alias.plugin.zsh";
-    #     src = fetchFromGitHub {
-    #       owner = "momo-lab";
-    #       repo = "zsh-abbrev-alias";
-    #       rev = "b9fecabca3798785f262976d5ffb315a134e1344";
-    #       sha256 = "0gcc9017yyz0kf7lwqaqgaxw23pl5icwsx44w4fkhx8whqn5yxw1";
-    #     };
-    #   }
-
-    #   {
-    #     name = "zsh-abbr";
-    #     file = "zsh-abbr.plugin.zsh";
-    #     src = fetchFromGitHub {
-    #       owner = "olets";
-    #       repo = "zsh-abbr";
-    #       rev = "3a3a63054745e429f6a15fcc876dfa7bce5deebd";
-    #       sha256 = "0jyn6k5l89hhj78ylbi40nk0p8xgxkgaqj957bnbybx9khvhn88s";
-    #     };
-    #   }
-
-    #   {
-    #     name = "geometry";
-    #     file = "geometry.plugin.zsh";
-    #     src = fetchFromGitHub {
-    #       owner = "geometry-zsh";
-    #       repo = "geometry";
-    #       rev = "a8033e0e9a987c1a6ee1813b7cad7f28cfd3c869";
-    #       sha256 = "sha256-BepZ2+E4feT65tWLoI7gZisD5IW1KDKgUo+0F+Mg39k=";
-    #       # date = 2019-09-02T11:00:58-04:00;
-    #     };
-    #   }
-    #   {
-    #     name = "z";
-    #     file = "zsh-z.plugin.zsh";
-    #     src = fetchFromGitHub {
-    #       owner = "agkozak";
-    #       repo = "zsh-z";
-    #       rev = "09209db2daf4b0e7f180cea04d1344fcc06a9410";
-    #       sha256 = "06z96v3w998hcws13lj6332154aqg1qg3ignv2x835frq677yfzm";
-    #       # date = 2020-09-18T18:25:43-07:00;
-    #     };
-    #   }
-    # ];
-    # };
+    # Clone ${dotFilesDir} to XDG_CONFIG_HOME (for scripts)
+    home.configFile = { "dotfiles".source = "${dotFilesDir}"; };
 
     user.packages = with pkgs; [
       zsh
