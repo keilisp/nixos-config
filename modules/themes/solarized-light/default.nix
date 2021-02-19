@@ -108,27 +108,19 @@ in {
           (mkIf desktop.awesome.enable {
             "awesome/themes/current-theme".source =
               ./config/awesome/themes/current-theme;
-            # "bspwm/rc.d/polybar".source = ./config/polybar/run.sh;
-            # "bspwm/rc.d/theme".source = ./config/bspwmrc;
           })
 
           (mkIf desktop.term.alacritty.enable {
             "alacritty/current-theme.yml".source =
               ./config/alacritty/current-theme.yml;
-            # "bspwm/rc.d/polybar".source = ./config/polybar/run.sh;
-            # "bspwm/rc.d/theme".source = ./config/bspwmrc;
           })
 
           (mkIf editors.emacs.enable {
             "doom/current-theme.el".source = ./config/emacs/current-theme.el;
-            # "bspwm/rc.d/polybar".source = ./config/polybar/run.sh;
-            # "bspwm/rc.d/theme".source = ./config/bspwmrc;
           })
 
           (mkIf editors.vim.enable {
             "vim/current-theme.vim".source = ./config/vim/current-theme.vim;
-            # "bspwm/rc.d/polybar".source = ./config/polybar/run.sh;
-            # "bspwm/rc.d/theme".source = ./config/bspwmrc;
           })
 
           # (mkIf desktop.apps.rofi.enable {

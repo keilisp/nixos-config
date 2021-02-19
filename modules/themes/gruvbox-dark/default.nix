@@ -14,7 +14,7 @@ in {
           wallpaper = mkDefault ./config/wallpaper.png;
           gtk = {
             theme = "Gruvbox-Dark-Yellow";
-            iconTheme = "Arc";
+            iconTheme = "Gruvbox";
             cursorTheme = "Breeze";
           };
         };
@@ -89,22 +89,23 @@ in {
 
       # GTK Themes
       home.dataFile = with pkgs;
-        mkMerge [{
-          "themes/Gruvbox-Dark-Yellow".source = fetchFromGitHub {
-            owner = "4rtzel";
-            repo = "Gruvbox-Dark-Yellow";
-            rev = "da38ec8c41cb88b7c4450c387960e12e4f5ac7fa";
-            sha256 = "12z7q18ky0nw9j0hyqkn9h0si0b2wcx1izlz7bcfmils9dykflri";
-          };
-        }
-        # {
-        #   "icons/Gruvbox".source = fetchFromGitHub {
-        #     owner = "jkehler";
-        #     repo = "gruvbox-icons";
-        #     rev = "c55ceb452883d8f999a01731a74c72e1813119a5";
-        #     sha256 = "12z7q18ky0nw9j0hyqkn9h0si0b2wcx1izlz7bcfmils9dykflri";
-        #   };
-        # }
+        mkMerge [
+          {
+            "themes/Gruvbox-Dark-Yellow".source = fetchFromGitHub {
+              owner = "4rtzel";
+              repo = "Gruvbox-Dark-Yellow";
+              rev = "da38ec8c41cb88b7c4450c387960e12e4f5ac7fa";
+              sha256 = "12z7q18ky0nw9j0hyqkn9h0si0b2wcx1izlz7bcfmils9dykflri";
+            };
+          }
+          {
+            "icons/Gruvbox".source = fetchFromGitHub {
+              owner = "jkehler";
+              repo = "gruvbox-icons";
+              rev = "c55ceb452883d8f999a01731a74c72e1813119a5";
+              sha256 = "12z7q18ky0nw9j0hyqkn9h0si0b2wcx1izlz7bcfmils9dykflri";
+            };
+          }
         ];
 
       # Other dotfiles
