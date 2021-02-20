@@ -121,6 +121,7 @@ local modkey1 = "Control"
 --change these variables if you want
 local browser = "brave"
 local editor = os.getenv("EDITOR") or "nvim"
+local HOME = os.getenv("HOME")
 local editorgui = "Emacs"
 local filemanager = "thunar"
 local mailclient = "geary"
@@ -663,7 +664,7 @@ local utilsmap = {
         function()
             awful.util.spawn(
                 -- "passmenu -nb '#3b4252' -sf '#88c0d0' -sb '#4c566a' -nf '#a89984' -fn 'Mononoki Nerd Font:bold:pixelsize=13'"
-                "keeclip -d /home/mediocre/passwrds/passwrds.kdbx"
+                "keeclip -d " .. HOME .. "/passwrds/passwrds.kdbx"
             )
         end,
         "clip password or username"
