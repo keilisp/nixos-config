@@ -2,9 +2,9 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.shell.youtube-dl;
+let cfg = config.modules.shell.youtube-dl;
 in {
-  options.modules.desktop.shell.youtube-dl = { enable = mkEnableOption false; };
+  options.modules.shell.youtube-dl = { enable = mkEnableOption false; };
 
   config = mkIf cfg.enable { user.packages = with pkgs; [ youtube-dl ]; };
 }

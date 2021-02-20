@@ -40,20 +40,20 @@ with lib.my; {
     useSandbox = true;
   };
 
-  boot.loader = {
-    # systemd-boot.enable = true;
-    efi = {
-      #canTouchEfiVariables = mkDefault true;
-      canTouchEfiVariables = true;
-    };
-    grub = {
-      enable = true;
-      version = 2;
-      efiSupport = true;
-      # efiInstallAsRemovable = true;
-      device = "nodev";
-    };
-  };
+  # boot.loader = {
+  #   # systemd-boot.enable = true;
+  #   efi = {
+  #     #canTouchEfiVariables = mkDefault true;
+  #     # canTouchEfiVariables = true;
+  #   };
+  #   grub = {
+  #     enable = true;
+  #     version = 2;
+  #     #efiSupport = true;
+  #     # efiInstallAsRemovable = true;
+  #     device = "/dev/sda";
+  #   };
+  # };
 
   # networking.hostName = "mono"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -100,7 +100,7 @@ with lib.my; {
   # hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kei = {

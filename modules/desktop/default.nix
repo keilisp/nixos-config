@@ -54,7 +54,8 @@ in {
       config.user.name;
 
     services.picom = {
-      backend = "glx";
+      # backend = "glx";
+      backend = "xrender";
       vSync = true;
       opacityRules = [
         # "100:class_g = 'Firefox'"
@@ -67,7 +68,6 @@ in {
         "100:class_g = 'krita'"
         "100:class_g = 'feh'"
         "100:class_g = 'mpv'"
-        "80:class_g = 'Alacritty'"
         "100:class_g = 'Rofi'"
         "100:class_g = 'Peek'"
         "99:_NET_WM_STATE@:32a = '_NET_WM_STATE_FULLSCREEN'"

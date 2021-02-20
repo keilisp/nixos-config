@@ -2,9 +2,9 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.shell.newsboat;
+let cfg = config.modules.shell.newsboat;
 in {
-  options.modules.desktop.shell.newsboat = { enable = mkEnableOption false; };
+  options.modules.shell.newsboat = { enable = mkEnableOption false; };
 
   config = mkIf cfg.enable { user.packages = with pkgs; [ newsboat ]; };
 }

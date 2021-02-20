@@ -21,10 +21,7 @@ let $MYVIMRC="$XDG_CONFIG_HOME/vim/.vimrc"
 " Vundle settings(idk really)
 " set the runtime path to include Vundle and initialize
 set rtp+=$XDG_CONFIG_HOME/vim/.vim/bundle/Vundle.vim
-# call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
 call vundle#begin("$HOME/.config/vim/.vim/bundle")
-
 " let Vundle manage Vundle, required
 Plugin 'dylanaraps/wal.vim'
 Plugin 'VundleVim/Vundle.vim'
