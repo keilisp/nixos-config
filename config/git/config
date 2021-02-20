@@ -3,6 +3,7 @@
 	email = druksasha@ukr.net
 [core]
 	whitespace = trailing-space
+	askpass = ''
 [init]
 	defaultBranch = main
 [github]
