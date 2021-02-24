@@ -39,7 +39,19 @@ in {
       histSize = 1000000;
 
       ohMyZsh = { enable = true; };
+    };
 
+    home-manager.users.${config.user.name}.programs.zsh = {
+      plugins = [{
+        name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "chisui";
+          repo = "zsh-nix-shell";
+          rev = "v0.1.0";
+          sha256 = "0snhch9hfy83d4amkyxx33izvkhbwmindy0zjjk28hih1a9l2jmx";
+        };
+      }];
     };
 
     # Clone ${dotFilesDir} to XDG_CONFIG_HOME (for scripts)

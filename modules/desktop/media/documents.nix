@@ -19,5 +19,7 @@ in {
       zathura
     ];
 
+    home.configFile = { "zathura".source = "${configDir}/zathura"; };
+
   };
 }

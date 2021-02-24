@@ -10,6 +10,7 @@ if ! zgen saved; then
   zgen load zsh-users/zsh-completions src
   zgen load junegunn/fzf shell
   zgen load momo-lab/zsh-abbrev-alias
+  # zgen load chisui/zsh-nix-shell plugins/nix-shell
   [ -z "$SSH_CONNECTION" ] && zgen load zdharma/fast-syntax-highlighting
   zgen save
 fi

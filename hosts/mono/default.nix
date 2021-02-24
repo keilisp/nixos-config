@@ -15,6 +15,7 @@
         betterlockscreen.enable = true;
         flameshot.enable = true;
         etcher.enable = true;
+        # grub-customizer.enable = true;
         # zoom.enable = true;
         # msteams.enable = true;
         # libreoffice.enable = true;
@@ -64,6 +65,7 @@
       # adl.enable = true;
       # bitwarden.enable = true;
       direnv.enable = true;
+      newsboat.enable = true;
       git.enable = true;
       # gnupg.enable  = true;
       # tmux.enable   = true;
@@ -76,9 +78,9 @@
     };
     # theme.active = "tomorrow-day";
     # theme.active = "modus-operandi";
-    # theme.active = "nord-dark";
+    theme.active = "nord-dark";
     # theme.active = "gruvbox-dark";
-    theme.active = "solarized-light";
+    # theme.active = "solarized-light";
     dev = {
       cc.enable = true;
       python.enable = true;
