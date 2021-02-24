@@ -18,6 +18,8 @@
         libreoffice.enable = true;
         discord.enable = true;
         zathura.enable = true;
+        zoom.enable = true;
+        msteams.enable = true;
         # betterlockscreen.enable = true;
         # skype.enable = true;
         # unity3d.enable = true;

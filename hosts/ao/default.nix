@@ -19,6 +19,8 @@
         discord.enable = true;
         zathura.enable = true;
         betterlockscreen.enable = true;
+        zoom.enalbe = true;
+        msteams.enable = true;
         # skype.enable = true;
         # unity3d.enable = true;
         # rofi.enable = true;

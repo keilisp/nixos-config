@@ -20,8 +20,8 @@ in {
 
     user.packages = with pkgs; [
       ## Emacs itself
-      emacsGit # 27
-      (mkIf (cfg.native-comp) emacsPgtkGcc) # 28 + pgtk + native-comp
+      # emacsGit # 27
+      # (mkIf (cfg.native-comp) emacsPgtkGcc) # 28 + pgtk + native-comp
       binutils # native-comp needs 'as', provided by this
 
       ## Doom dependencies
@@ -38,10 +38,13 @@ in {
 
       ## Module dependencies
       # :term vterm
-      # libvterm
-      # libvterm-neovim
-      # ((emacsPackagesNgGen emacs).emacsWithPackages
-      #   (epkgs: [ epkgs.vterm epkgs.emacs-libvterm ]))
+      ((emacsPackagesNgGen emacsGit).emacsWithPackages
+        (epkgs: [ epkgs.emacs-libvterm ]))
+
+      (mkIf (cfg.native-comp)
+        ((emacsPackagesNgGen emacsPgtkGcc).emacsWithPackages
+          (epkgs: [ epkgs.emacs-libvterm ])))
+
       libtool
       # :checkers spell
       (aspellWithDicts (ds: with ds; [ en en-computers en-science ru ]))

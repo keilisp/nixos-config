@@ -388,6 +388,8 @@
   (setq org-log-done 'time)
   (setq org-hide-emphasis-markers t)
 
+  (setq org-file-apps '(("\\.pdf\\'" . emacs)))
+
   (setq org-todo-keywords
 	'((sequence
 	   "INPROGRESS(p)"

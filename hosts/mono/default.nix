@@ -10,8 +10,10 @@
         telegram.enable = true;
         thunar.enable = true;
         lxappearance.enable = true;
-        # betterlockscreen.enable = true;
+        betterlockscreen.enable = true;
         dmenu.enable = true;
+        # zoom.enable = true;
+        # msteams.enable = true;
         # etcher.enable = true;
         # flameshot.enable = true;
         # keepassxc.enable = true;

@@ -58,17 +58,28 @@ in {
         source = "${configDir}/awesome";
         recursive = true;
       };
-      "awesome/modalbind".source = pkgs.fetchFromGitHub {
-        owner = "crater2150";
-        repo = "awesome-modalbind";
-        rev = "0ba5c286ace89e2fbb600383ba9e988af42a9250";
+      # "awesome/modalbind".source = pkgs.fetchFromGitHub {
+      #   owner = "crater2150";
+      #   repo = "awesome-modalbind";
+      #   rev = "0ba5c286ace89e2fbb600383ba9e988af42a9250";
+      #   sha256 = "0sdabnhzms226sg878bylpp8z78xh5wi21vy26bj3ihda453jhpp";
+      # };
+      # "awesome/awesome-wm-widgets".source = pkgs.fetchFromGitHub {
+      #   owner = "streetturtle";
+      #   repo = "awesome-wm-widgets";
+      #   rev = "ccd6bd4359593195a84458857efa7a9670b1b4cd";
+      #   sha256 = "1kym67h5c9q72pabnhk0qcqyxpinjycrfc9b0cgq6azjlqw87j8d";
+      # };
+
+      "awesome/modalbind".source = pkgs.fetchzip {
+        url =
+          "https://github.com/crater2150/awesome-modalbind/archive/master.zip";
         sha256 = "0sdabnhzms226sg878bylpp8z78xh5wi21vy26bj3ihda453jhpp";
       };
-      "awesome/awesome-wm-widgets".source = pkgs.fetchFromGitHub {
-        owner = "streetturtle";
-        repo = "awesome-wm-widgets";
-        rev = "ccd6bd4359593195a84458857efa7a9670b1b4cd";
-        sha256 = "1kym67h5c9q72pabnhk0qcqyxpinjycrfc9b0cgq6azjlqw87j8d";
+      "awesome/awesome-wm-widgets".source = pkgs.fetchzip {
+        url =
+          "https://github.com/streetturtle/awesome-wm-widgets/archive/master.zip";
+        sha256 = "1h2km2vfhzwgbnchbwrchz9g3cgram66fc6c4q9fq0nmrk1m4hsr";
       };
     };
 
