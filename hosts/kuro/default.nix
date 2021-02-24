@@ -12,19 +12,17 @@
         dmenu.enable = true;
         thunar.enable = true;
         lxappearance.enable = true;
+        libreoffice.enable = true;
+        discord.enable = true;
+        zoom.enable = true;
+        msteams.enable = true;
         etcher.enable = true;
         flameshot.enable = true;
         keepassxc.enable = true;
-        libreoffice.enable = true;
-        discord.enable = true;
-        zathura.enable = true;
-        zoom.enable = true;
-        msteams.enable = true;
-        # betterlockscreen.enable = true;
+        betterlockscreen.enable = true;
         # skype.enable = true;
         # unity3d.enable = true;
         # rofi.enable = true;
-        # godot.enable = true;
       };
       browsers = {
         default = "brave";
@@ -78,14 +76,14 @@
       zsh.enable = true;
     };
     services = {
-      # ssh.enable = true;
+      ssh.enable = true;
+      syncthing.enable = true;
       # calibre.enable = true;
       # docker.enable = true;
       # fail2ban.enable = true;
       # gitea.enable = true;
       # jellyfin.enable = true;
       # nginx.enable = true;
-      syncthing.enable = true;
       # transmission.enable = true;
       # Needed occasionally to help the parental units with PC problems
       # teamviewer.enable = true;

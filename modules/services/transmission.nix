@@ -4,14 +4,12 @@ with lib;
 with lib.my;
 let cfg = config.modules.services.transmission;
 in {
-  options.modules.services.transmission = {
-    enable = mkBoolOpt false;
-  };
+  options.modules.services.transmission = { enable = mkBoolOpt false; };
 
   config = mkIf cfg.enable {
     services.transmission = {
       enable = true;
-      home = "${config.user.home}/torrents";
+      home = "${config.user.home}/dwnlds/torrents";
       settings = {
         incomplete-dir-enabled = true;
         rpc-whitelist = "127.0.0.1,192.168.*.*";

@@ -13,13 +13,11 @@ in {
       passwordAuthentication = false;
     };
 
-    user.openssh.authorizedKeys.keys =
-      # TODO edit for my self
-      if config.user.name == "hlissner" then
-        [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB71rSnjuC06Qq3NLXQJwSz7jazoB+umydddrxL6vg1a henrik@lissner.net"
-        ]
-      else
-        [ ];
+    user.openssh.authorizedKeys.keys = if config.user.name == "kei" then
+      [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJq23EnlbR2Q1lcClwnPylX5Dgw+dtpQhVlT4PLjDWnI druksasha@ukr.net"
+      ]
+    else
+      [ ];
   };
 }

@@ -7,10 +7,9 @@ in {
   options.modules.desktop.awesome = { enable = mkBoolOpt false; };
 
   config = mkIf cfg.enable {
-    # modules.theme.onReload.bspwm = ''
-    #   ${pkgs.bspwm}/bin/bspc wm -r
-    #   source $XDG_CONFIG_HOME/bspwm/bspwmrc
-    # '';
+    modules.theme.onReload.awesome = ''
+      echo 'awesome.restart()' | ${pkgs.awesome}/bin/awesome-client 
+    '';
 
     environment.systemPackages = with pkgs; [
       lightdm

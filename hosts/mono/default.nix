@@ -10,20 +10,19 @@
         telegram.enable = true;
         thunar.enable = true;
         lxappearance.enable = true;
-        betterlockscreen.enable = true;
         dmenu.enable = true;
+        keepassxc.enable = true;
+        betterlockscreen.enable = true;
+        flameshot.enable = true;
+        etcher.enable = true;
         # zoom.enable = true;
         # msteams.enable = true;
-        # etcher.enable = true;
-        # flameshot.enable = true;
-        # keepassxc.enable = true;
         # libreoffice.enable = true;
         # discord.enable = true;
         # skype.enable = true;
         # unity3d.enable = true;
         # zathura.enable = true;
         # rofi.enable = true;
-        # godot.enable = true;
       };
       browsers = {
         default = "brave";
@@ -73,13 +72,13 @@
     services = {
       ssh.enable = true;
       # Needed occasionally to help the parental units with PC problems
-      # teamviewer.enable = true;
+      teamviewer.enable = true;
     };
     # theme.active = "tomorrow-day";
     # theme.active = "modus-operandi";
     # theme.active = "nord-dark";
-    theme.active = "gruvbox-dark";
-    # theme.active = "solarized-light";
+    # theme.active = "gruvbox-dark";
+    theme.active = "solarized-light";
     dev = {
       cc.enable = true;
       python.enable = true;

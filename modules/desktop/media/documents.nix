@@ -15,10 +15,9 @@ in {
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
       (mkIf cfg.ebook.enable calibre)
-      (mkIf cfg.pdf.enable   evince)
-      # zathura
+      (mkIf cfg.pdf.enable evince)
+      zathura
     ];
 
-    # TODO calibre/evince/zathura dotfiles
   };
 }

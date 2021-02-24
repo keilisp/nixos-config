@@ -38,12 +38,11 @@ in {
 
       ## Module dependencies
       # :term vterm
-      ((emacsPackagesNgGen emacsGit).emacsWithPackages
-        (epkgs: [ epkgs.emacs-libvterm ]))
+      ((emacsPackagesNgGen emacsGit).emacsWithPackages (epkgs: [ epkgs.vterm ]))
 
       (mkIf (cfg.native-comp)
         ((emacsPackagesNgGen emacsPgtkGcc).emacsWithPackages
-          (epkgs: [ epkgs.emacs-libvterm ])))
+          (epkgs: [ epkgs.vterm ])))
 
       libtool
       # :checkers spell
