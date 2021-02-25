@@ -12,13 +12,13 @@ done
 
 if [[ -d $dox ]]; then
 	category_choice=$(printf '%s\n' "${category_options[@]}" |
-		dmenu -i -l 15 -p "Dox..." -nb '#282828' -sf '#fabd2f' -sb '#504945' -nf '#a89984' -fn 'Mononoki Nerd Font:bold:pixelsize=13')
+		dmenu -i -l 15 -p "Dox...")
 	if [[ $category_choice ]]; then
 		category_folder="$dox/$category_choice"
 
 		doc_choice=$(/usr/bin/ls $category_folder | grep '.*\.pdf$' |
 			sed -e 's/\.[[:alpha:]]*$//' |
-			dmenu -i -l 15 -p "Dox..." -nb '#282828' -sf '#fabd2f' -sb '#504945' -nf '#a89984' -fn 'Mononoki Nerd Font:bold:pixelsize=13')
+			dmenu -i -l 15 -p "Dox...")
 
 		if [[ ($doc_choice) && (-e $category_folder/$doc_choice.pdf) ]]; then
 			zathura "$category_folder/$doc_choice.pdf"

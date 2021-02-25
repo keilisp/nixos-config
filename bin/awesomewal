@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO refactor to nixos-config
+
 read -r -p "Enter the name of your current awesome theme...: " THEME
 
 fg_normal=$(cat ~/.cache/wal/colors | sed '16q;d' | tr -d '\n')

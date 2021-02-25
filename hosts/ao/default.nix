@@ -4,31 +4,32 @@
   ## Modules
   modules = {
     desktop = {
-      # bspwm.enable = true;
       awesome.enable = true;
+      # bspwm.eanble = true;
+      # stumpwm.eanble = true;
       apps = {
         telegram.enable = true;
+        dmenu.enable = true;
         thunar.enable = true;
         lxappearance.enable = true;
-        dmenu.enable = true;
+        libreoffice.enable = true;
+        discord.enable = true;
+        zoom.enable = true;
+        msteams.enable = true;
+        libreoffice.enable = true;
+        etcher.enable = true;
+        flameshot.enable = true;
         keepassxc.enable = true;
         betterlockscreen.enable = true;
-        flameshot.enable = true;
-        etcher.enable = true;
         # grub-customizer.enable = true;
-        # zoom.enable = true;
-        # msteams.enable = true;
-        # libreoffice.enable = true;
-        # discord.enable = true;
         # skype.enable = true;
         # unity3d.enable = true;
-        # zathura.enable = true;
         # rofi.enable = true;
       };
       browsers = {
         default = "brave";
         brave.enable = true;
-        # firefox.enable = true;
+        firefox.enable = true;
         # qutebrowser.enable = true;
       };
       # gaming = {
@@ -37,54 +38,80 @@
       # emulators.psx.enable = true;
       # };
       media = {
-        # daw.enable = true;
         documents.enable = true;
         # graphics.enable = true;
         mpv.enable = true;
+        ncmpcpp.enable = true;
+        pavucontrol.enable = true;
         # recording.enable = true;
-        # spotify.enable = true;
       };
       term = {
         default = "alacritty";
         alacritty.enable = true;
         # st.enable = true;
       };
-      # vm = {
-      # qemu.enable = true;
-      # };
+      vm = {
+        # lxd.enable = true;
+        qemu.enable = true;
+        virtualbox.enable = true;
+      };
     };
     editors = {
       default = "nvim";
       emacs = {
         enable = true;
-        # native-comp = true;
+        native-comp = true;
       };
       vim.enable = true;
     };
     shell = {
-      # adl.enable = true;
-      # bitwarden.enable = true;
+      adl.enable = true;
       direnv.enable = true;
-      newsboat.enable = true;
       git.enable = true;
-      youtube-dl.enable = true;
       # gnupg.enable  = true;
       # tmux.enable   = true;
+      newsboat.enable = true;
+      # pass.enable   = true;
+      ranger.enable = true;
+      youtube-dl.enable = true;
       zsh.enable = true;
     };
     services = {
       ssh.enable = true;
+      syncthing.enable = true;
+      calibre.enable = true;
+      # docker.enable = true;
+      # fail2ban.enable = true;
+      # gitea.enable = true;
+      # jellyfin.enable = true;
+      # nginx.enable = true;
+      transmission.enable = true;
       # Needed occasionally to help the parental units with PC problems
       teamviewer.enable = true;
     };
     # theme.active = "tomorrow-day";
-    # theme.active = "modus-operandi";
-    theme.active = "nord-dark";
+    theme.active = "modus-operandi";
+    # theme.active = "nord-dark";
     # theme.active = "gruvbox-dark";
     # theme.active = "solarized-light";
     dev = {
       cc.enable = true;
       python.enable = true;
+      clojure.enable = true;
+      common-lisp.enable = true;
+      lua.enable = true;
+      node.enable = true;
+      rust.enable = true;
+      # scala.enable = true;
+      shell.enable = true;
+    };
+
+    hardware = {
+      audio.enable = true;
+      nvidia.enable = true;
+      sensors.enable = true;
+      # fs.enable = true;
+      # bluetooth.enable = true;
     };
   };
 
@@ -94,6 +121,7 @@
     grub = {
       enable = true;
       version = 2;
+      useOSProber = true;
       efiSupport = true;
       # efiInstallAsRemovable = true;
       device = "nodev";
@@ -118,4 +146,5 @@
   # generated config replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.enp0s3.useDHCP = true;
+
 }

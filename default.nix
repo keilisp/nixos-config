@@ -65,7 +65,7 @@ with lib.my; {
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   # networking.useDHCP = false;
-  # networking.interfaces.enp0s3.useDHCP = false;
+  # networking.interfaces.enp0s3.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

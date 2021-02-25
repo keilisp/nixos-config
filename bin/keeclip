@@ -13,7 +13,8 @@ entry=""
 dbpass=""
 
 call_dm() {
-	dmenu -i -p "$action..." "$@" -nb '#ffffff' -sf '#0030a6' -sb '#f8f8f8' -nf '#282828' -fn 'Hack:bold:pixelsize=13'
+	# dmenu -i -p "$action..." "$@" -nb '#ffffff' -sf '#0030a6' -sb '#f8f8f8' -nf '#282828' -fn 'Hack:bold:pixelsize=13'
+	dmenu -i -p "$action..." "$@"
 
 }
 
