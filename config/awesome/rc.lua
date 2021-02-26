@@ -774,7 +774,8 @@ local appsmap = {
     {
         "e",
         function()
-            awful.util.spawn("emacs --with-profile doomacs")
+            -- awful.util.spawn("emacs --with-profile doomacs")
+            awful.util.spawn("emacs")
         end,
         "doom emacs"
     },
@@ -789,7 +790,7 @@ local appsmap = {
     {
         "d",
         function()
-            awful.util.spawn("discord")
+            awful.util.spawn("Discord")
         end,
         "discord-gui"
     },

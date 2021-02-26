@@ -42,11 +42,14 @@ in {
           fira-code
           fira-code-symbols
           ibm-plex
+          hack-font
           font-awesome-ttf
         ];
         fontconfig.defaultFonts = {
-          sansSerif = [ "IBM Plex Mono" ];
-          monospace = [ "IBM Plex Mono" ];
+          # sansSerif = [ "IBM Plex Mono" ];
+          # monospace = [ "IBM Plex Mono" ];
+          sansSerif = [ "Hack" ];
+          monospace = [ "Hack" ];
         };
       };
 
@@ -59,7 +62,7 @@ in {
         shadowOffsets = [ (-10) (-10) ];
         shadowOpacity = 0.22;
         activeOpacity = 1.0;
-        inactiveOpacity = 0.9;
+        inactiveOpacity = 0.8;
         settings = {
           shadow-radius = 12;
           # blur-background = true;

@@ -38,9 +38,13 @@ in {
 
       ## Module dependencies
       # :term vterm
-      ((emacsPackagesNgGen emacsGit).emacsWithPackages (epkgs: [ epkgs.vterm ]))
+      # ((emacsPackagesNgGen emacsGit).emacsWithPackages (epkgs: [ epkgs.vterm ]))
 
-      (mkIf (cfg.native-comp)
+      (mkIf (cfg.native-comp == false)
+        ((emacsPackagesNgGen emacsGit).emacsWithPackages
+          (epkgs: [ epkgs.vterm ])))
+
+      (mkIf (cfg.native-comp == true)
         ((emacsPackagesNgGen emacsPgtkGcc).emacsWithPackages
           (epkgs: [ epkgs.vterm ])))
 

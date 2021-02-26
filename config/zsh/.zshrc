@@ -15,9 +15,6 @@ if ! zgen saved; then
   zgen save
 fi
 
-# TODO Fix in hosts/*.nix
-xset r rate 300 50
-
 source $ZDOTDIR/config.zsh
 if [[ $TERM != dumb ]]; then
   source $ZDOTDIR/keybinds.zsh

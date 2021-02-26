@@ -19,7 +19,7 @@ run "blueberry-tray"
 # run "barrier"
 # run "devmon"
 # run "unclutter &"
-# run "$HOME/scripts/wallplaylist"
+run "wallplaylist"
 # run "cargo run --manifest-path=$HOME/code/rust/markust/Cargo.toml"
 
 # run "volumeicon"

@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [ ../personal.nix ./hardware-configuration.nix ];
 
   ## Modules
@@ -12,7 +12,6 @@
         dmenu.enable = true;
         thunar.enable = true;
         lxappearance.enable = true;
-        libreoffice.enable = true;
         discord.enable = true;
         zoom.enable = true;
         msteams.enable = true;
@@ -60,12 +59,12 @@
       default = "nvim";
       emacs = {
         enable = true;
-        native-comp = true;
+        native-comp = false;
       };
       vim.enable = true;
     };
     shell = {
-      adl.enable = true;
+      # adl.enable = true;
       direnv.enable = true;
       git.enable = true;
       # gnupg.enable  = true;
@@ -79,7 +78,7 @@
     services = {
       ssh.enable = true;
       syncthing.enable = true;
-      calibre.enable = true;
+      # calibre.enable = true;
       # docker.enable = true;
       # fail2ban.enable = true;
       # gitea.enable = true;
@@ -90,9 +89,9 @@
       teamviewer.enable = true;
     };
     # theme.active = "tomorrow-day";
-    theme.active = "modus-operandi";
+	theme.active = "modus-operandi";
     # theme.active = "nord-dark";
-    # theme.active = "gruvbox-dark";
+	# theme.active = "gruvbox-dark";
     # theme.active = "solarized-light";
     dev = {
       cc.enable = true;
@@ -121,7 +120,7 @@
     grub = {
       enable = true;
       version = 2;
-      useOSProber = true;
+      # useOSProber = true;
       efiSupport = true;
       # efiInstallAsRemovable = true;
       device = "nodev";
@@ -137,14 +136,21 @@
   services.xserver.xkbOptions = "grp:caps_toggle";
 
   # xset r rate 300 50
-  services.xserver.autoRepeatDelay = 300;
-  services.xserver.autoRepeatInterval = 50;
+  # services.xserver.autoRepeatDelay = 300;
+  # services.xserver.autoRepeatInterval = 50;
 
   networking.networkmanager.enable = true;
   # The global useDHCP flag is deprecated, therefore explicitly set to false
   # here. Per-interface useDHCP will be mandatory in the future, so this
   # generated config replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp0s3.useDHCP = true;
+  # networking.useDHCP = false;
+  # networking.interfaces.enp0s3.useDHCP = true;
+
+  ### TODO export (seems not working )
+  services.xserver.displayManager.setupCommands = ''
+    ${pkgs.xlibs.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --off --output DP-1 --off
+    ${pkgs.xlibs.xset}/bin/xset r rate 300 50
+    ${pkgs.xlibs.xinput}/bin/xinput --set-prop 'SINOWEALTH Wired Gaming Mouse' 'libinput Accel Speed' -0.8
+  '';
 
 }

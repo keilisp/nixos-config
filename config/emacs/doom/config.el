@@ -2,15 +2,15 @@
 
 (setq user-full-name "Druk Alexander" user-mail-address "druksasha@ukr.net")
 
-(setq doom-font (font-spec :family "IBM Plex Mono" :size 13)
-      doom-big-font (font-spec :family "IBM Plex Mono")
-      doom-variable-pitch-font (font-spec :family "IBM Plex Mono" :size 13)
-      doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light))
+;; (setq doom-font (font-spec :family "IBM Plex Mono" :size 13)
+;;       doom-big-font (font-spec :family "IBM Plex Mono")
+;;       doom-variable-pitch-font (font-spec :family "IBM Plex Mono" :size 13)
+;;       doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light))
 
-;; (setq doom-font (font-spec :family "Hack" :size 12)
-;;       doom-big-font (font-spec :family "Hack")
-;;       doom-variable-pitch-font (font-spec :family "Hack" :size 12)
-;;       doom-serif-font (font-spec :family "Hack" :weight 'light))
+(setq doom-font (font-spec :family "Hack" :size 12)
+      doom-big-font (font-spec :family "Hack")
+      doom-variable-pitch-font (font-spec :family "Hack" :size 12)
+      doom-serif-font (font-spec :family "Hack" :weight 'light))
 
 ;; (setq doom-font (font-spec :family "FiraCode" :size 12)
 ;;       doom-big-font (font-spec :family "FiraCode")

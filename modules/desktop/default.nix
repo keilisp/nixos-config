@@ -42,8 +42,10 @@ in {
         ubuntu_font_family
         dejavu_fonts
         symbola
+        open-sans
         noto-fonts
         noto-fonts-cjk
+        hack-font
         ibm-plex
         nerdfonts
       ];
