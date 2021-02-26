@@ -68,6 +68,7 @@ in {
         "100:class_g = 'Inkscape'"
         "100:class_g = 'aseprite'"
         "100:class_g = 'krita'"
+        "100:class_g = 'dmenu'"
         "100:class_g = 'feh'"
         "100:class_g = 'mpv'"
         "100:class_g = 'Rofi'"
