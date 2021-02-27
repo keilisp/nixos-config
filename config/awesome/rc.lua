@@ -870,7 +870,7 @@ local appsmap = {
     {
         "V",
         function()
-            awful.util.spawn("virtualbox")
+            awful.util.spawn("VirtualBox")
         end,
         "VirtualBox"
     },
