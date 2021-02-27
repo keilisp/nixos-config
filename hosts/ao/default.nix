@@ -120,7 +120,7 @@
     grub = {
       enable = true;
       version = 2;
-      # useOSProber = true;
+      useOSProber = true;
       efiSupport = true;
       # efiInstallAsRemovable = true;
       device = "nodev";
