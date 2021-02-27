@@ -7,6 +7,8 @@ in {
   options.modules.services.transmission = { enable = mkBoolOpt false; };
 
   config = mkIf cfg.enable {
+    user.packages = with pkgs; [ transmission_gtk ];
+
     services.transmission = {
       enable = true;
       home = "${config.user.home}/dwnlds/torrents";
