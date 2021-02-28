@@ -57,6 +57,15 @@ in {
       editorconfig-core-c # per-project style config
       # :tools lookup & :lang org +roam
       sqlite
+      # :tools pdf
+      (mkIf (cfg.native-comp == false)
+        ((emacsPackagesNgGen emacsGit).emacsWithPackages
+          (epkgs: [ epkgs.pdf-tools ])))
+
+      (mkIf (cfg.native-comp == true)
+        ((emacsPackagesNgGen emacsPgtkGcc).emacsWithPackages
+          (epkgs: [ epkgs.pdf-tools ])))
+
       # :lang cc
       ccls
       # :lang javascript
