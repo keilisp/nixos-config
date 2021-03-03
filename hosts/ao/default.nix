@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   imports = [ ../personal.nix ./hardware-configuration.nix ];
 
   ## Modules
@@ -89,9 +89,9 @@
       teamviewer.enable = true;
     };
     # theme.active = "tomorrow-day";
-	theme.active = "modus-operandi";
+    theme.active = "modus-operandi";
     # theme.active = "nord-dark";
-	# theme.active = "gruvbox-dark";
+    # theme.active = "gruvbox-dark";
     # theme.active = "solarized-light";
     dev = {
       cc.enable = true;
@@ -152,5 +152,13 @@
     ${pkgs.xlibs.xset}/bin/xset r rate 300 50
     ${pkgs.xlibs.xinput}/bin/xinput --set-prop 'SINOWEALTH Wired Gaming Mouse' 'libinput Accel Speed' -0.8
   '';
+
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "*/15 * * * *      ${config.user.name}    ${pkgs.newsboat}/bin/newsboat -x reload >/dev/null 2>&1"
+      # "*/15 * * * *      ${config.user.name}    date >> /tmp/cron.log"
+    ];
+  };
 
 }

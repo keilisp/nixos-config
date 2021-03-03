@@ -50,7 +50,7 @@ in {
 
       libtool
       # :checkers spell
-      (aspellWithDicts (ds: with ds; [ en en-computers en-science ru ]))
+      (aspellWithDicts (ds: with ds; [ en en-computers en-science ru uk ]))
       # :checkers grammar
       languagetool
       # :tools editorconfig

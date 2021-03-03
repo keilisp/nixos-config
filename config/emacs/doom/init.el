@@ -72,7 +72,9 @@
        term              ; basic terminal emulator for Emacs
        vterm                         ; the best terminal emulation in Emacs
        :checkers syntax              ; tasing you for every semicolon you forget
-       (spell +flyspell +hunspell)   ; tasing you for misspelling mispelling
+       (spell +flyspell
+              ;; +hunspell
+              +aspell)   ; tasing you for misspelling mispelling
        grammar           ; tasing grammar mistake every you make
        :tools
        ;;ansible

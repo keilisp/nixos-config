@@ -282,14 +282,14 @@
       "[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
       "[^АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
       "[-']"  nil ("-d" "uk_UA,ru_RU,en_US") nil utf-8)))
-  ;; (ispell-program-name "aspell")
-  (ispell-program-name "hunspell")
+  (ispell-program-name "aspell")
+  ;; (ispell-program-name "hunspell")
   (ispell-dictionary "english")
   ;; (ispell-dictionary "russian")
-  ;; (ispell-really-aspell t)
-  ;; (ispell-really-hunspell nil)
-  (ispell-really-aspell nil)
-  (ispell-really-hunspell t)
+  (ispell-really-aspell t)
+  (ispell-really-hunspell nil)
+  ;; (ispell-really-aspell nil)
+  ;; (ispell-really-hunspell t)
   (ispell-encoding8-command t)
   (ispell-silently-savep t))
 
@@ -882,12 +882,12 @@
       "C-j" 'next-line
       "C-k" 'previous-line)
 
-;; (use-package vterm
-;;   :config
-;;   (map! :leader
-;; 	:desc "Toggle vterm popup" "ov" '+vterm/toggle
-;; 	:desc "Toggle vterm here" "oV" '+vterm/here)
-;;   )
+(use-package vterm
+  :config
+  (map! :leader
+	:desc "Toggle vterm popup" "ov" '+vterm/toggle
+	:desc "Toggle vterm here" "oV" '+vterm/here)
+  )
 
 ;;; ERC
 (defun mediocre/on-erc-track-list-changed ()
