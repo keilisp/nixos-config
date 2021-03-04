@@ -4,7 +4,10 @@
   ## Modules
   modules = {
     desktop = {
-      awesome.enable = true;
+      awesome = {
+        enable = true;
+        laptop = true;
+      };
       # bspwm.eanble = true;
       # stumpwm.eanble = true;
       apps = {

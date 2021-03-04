@@ -4,7 +4,10 @@ with lib;
 with lib.my;
 let cfg = config.modules.desktop.awesome;
 in {
-  options.modules.desktop.awesome = { enable = mkBoolOpt false; };
+  options.modules.desktop.awesome = {
+    enable = mkBoolOpt false;
+    laptop = mkBoolOpt false;
+  };
 
   config = mkIf cfg.enable {
     modules.theme.onReload.awesome = ''
@@ -51,12 +54,42 @@ in {
 
     # link recursively so other modules can link files in their folders
 
-    home.configFile = {
+    home.configFile = mkMerge [
+
       # "sxhkd".source = "${configDir}/sxhkd";
-      "awesome" = {
-        source = "${configDir}/awesome";
-        recursive = true;
-      };
+      {
+        "awesome" = {
+          source = "${configDir}/awesome";
+          recursive = true;
+        };
+
+        "awesome/modalbind".source = pkgs.fetchzip {
+          url =
+            "https://github.com/crater2150/awesome-modalbind/archive/master.zip";
+          sha256 = "0sdabnhzms226sg878bylpp8z78xh5wi21vy26bj3ihda453jhpp";
+        };
+        "awesome/awesome-wm-widgets".source = pkgs.fetchzip {
+          url =
+            "https://github.com/streetturtle/awesome-wm-widgets/archive/master.zip";
+          sha256 = "1h2km2vfhzwgbnchbwrchz9g3cgram66fc6c4q9fq0nmrk1m4hsr";
+        };
+      }
+
+      (mkIf (cfg.laptop == true) {
+        "awesome/rc.lua" = { source = "${configDir}/awesome/laptop/rc.lua"; };
+
+        "awesome/autostart.sh" = mkIf cfg.laptop {
+          source = "${configDir}/awesome/laptop/autostart.sh";
+        };
+      })
+
+      (mkIf (cfg.laptop == false) {
+        "awesome/rc.lua" = { source = "${configDir}/awesome/desktop/rc.lua"; };
+        "awesome/autostart.sh" = {
+          source = "${configDir}/awesome/desktop/autostart.sh";
+        };
+      })
+
       # "awesome/modalbind".source = pkgs.fetchFromGitHub {
       #   owner = "crater2150";
       #   repo = "awesome-modalbind";
@@ -70,17 +103,7 @@ in {
       #   sha256 = "1kym67h5c9q72pabnhk0qcqyxpinjycrfc9b0cgq6azjlqw87j8d";
       # };
 
-      "awesome/modalbind".source = pkgs.fetchzip {
-        url =
-          "https://github.com/crater2150/awesome-modalbind/archive/master.zip";
-        sha256 = "0sdabnhzms226sg878bylpp8z78xh5wi21vy26bj3ihda453jhpp";
-      };
-      "awesome/awesome-wm-widgets".source = pkgs.fetchzip {
-        url =
-          "https://github.com/streetturtle/awesome-wm-widgets/archive/master.zip";
-        sha256 = "1h2km2vfhzwgbnchbwrchz9g3cgram66fc6c4q9fq0nmrk1m4hsr";
-      };
-    };
+    ];
 
   };
 }
