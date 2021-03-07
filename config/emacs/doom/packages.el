@@ -38,7 +38,7 @@
 (package! plan9-theme)
 (package! modus-operandi-theme)
 (package! modus-vivendi-theme)
-(package! telega)
+;; (package! telega)
 (package! elisp-format)
 (package! try)
 (package! dired-rainbow)

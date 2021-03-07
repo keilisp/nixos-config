@@ -6,5 +6,6 @@ let cfg = config.modules.desktop.apps.etcher;
 in {
   options.modules.desktop.apps.etcher = { enable = mkBoolOpt false; };
 
-  config = mkIf cfg.enable { user.packages = with pkgs; [ etcher ]; };
+  config =
+    mkIf cfg.enable { user.packages = with pkgs; [ etcher polkit_gnome ]; };
 }

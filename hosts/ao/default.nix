@@ -4,7 +4,10 @@
   ## Modules
   modules = {
     desktop = {
-      awesome.enable = true;
+      awesome = {
+        enable = true;
+        laptop = false;
+      };
       # bspwm.eanble = true;
       # stumpwm.eanble = true;
       apps = {
@@ -59,7 +62,7 @@
       default = "nvim";
       emacs = {
         enable = true;
-        native-comp = false;
+        native-comp = true;
       };
       vim.enable = true;
     };
@@ -109,6 +112,7 @@
       audio.enable = true;
       nvidia.enable = true;
       sensors.enable = true;
+      udiskie.enable = true;
       # fs.enable = true;
       # bluetooth.enable = true;
     };
@@ -159,6 +163,44 @@
       "*/15 * * * *      ${config.user.name}    ${pkgs.newsboat}/bin/newsboat -x reload >/dev/null 2>&1"
       # "*/15 * * * *      ${config.user.name}    date >> /tmp/cron.log"
     ];
+  };
+
+  hardware.pulseaudio.extraConfig =
+    "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
+
+  services.mpd = {
+    enable = true;
+    # FIXME
+    # user = "${config.user.name}";
+    # group = "users";
+    # musicDirectory = "/home/kei/musx";
+    # extraConfig = ''
+    #   music_directory     "~/musx"
+    #   bind_to_address     "any"
+    #   bind_to_address     "~/.config/mpd/socket"
+    #   port                "6600"
+    #   auto_update         "yes"
+    #   filesystem_charset  "UTF-8"
+    #   audio_output {
+    #     type    "alsa"
+    #             name    "mpd-alsa"
+    #             mixer_type    "software"
+    #   }
+    #   audio_output {
+    #   type      "fifo"
+    #             name        "toggle_visualizer"
+    #             path        "/tmp/mpd.fifo"
+    #             format      "44100:16:2"
+    #   }
+    # '';
+
+    extraConfig = ''
+      audio_output {
+        type "pulse"
+        name "Pulseaudio"
+        server "127.0.0.1"
+        }
+    '';
   };
 
 }
