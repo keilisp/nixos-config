@@ -45,7 +45,8 @@ in {
           (epkgs: [ epkgs.vterm ])))
 
       (mkIf (cfg.native-comp == true)
-        ((emacsPackagesNgGen emacsPgtkGcc).emacsWithPackages
+        ((emacsPackagesNgGen emacsGcc).emacsWithPackages
+          # ((emacsPackagesNgGen emacsPgtkGcc).emacsWithPackages
           (epkgs: [ epkgs.vterm ])))
 
       libtool
