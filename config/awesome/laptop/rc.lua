@@ -494,8 +494,10 @@ screen.connect_signal(
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(
     function(s)
-        screen_index = s.index
-        awful.tag(my_tags.tags[screen_index].names, s, my_tags.tags[screen_index].layout)
+        -- screen_index = s.index
+        -- awful.tag(my_tags.tags[screen_index].names, s, my_tags.tags[screen_index].layout)
+	-- FIXME
+        awful.tag(my_tags.tags[1].names, s, my_tags.tags[1].layout)
         beautiful.at_screen_connect(s)
     end
 )
