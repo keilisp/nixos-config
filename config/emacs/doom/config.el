@@ -388,7 +388,8 @@
   (setq org-log-done 'time)
   (setq org-hide-emphasis-markers t)
 
-  (setq org-file-apps '(("\\.pdf\\'" . emacs)))
+  (setq org-file-apps '(("\\.pdf\\'" . emacs)
+                        ("\\.mkv\\'" . mpv )))
 
   (setq org-todo-keywords
 	'((sequence
@@ -607,6 +608,15 @@
 
   (map! :leader
 	:desc "Browse org files" "fo" #'doom/find-file-in-org)
+
+  (defun doom/find-file-in-nix-doom ()
+    "Search file in private Doom config in nix config"
+    (interactive)
+    (doom/sudo-find-file "/etc/nixos/config/emacs/doom"))
+
+  (map! :leader
+	:desc "Browse doom config in nix config" "fp" #'doom/find-file-in-nix-doom)
+
   ;; :desc "Bookmarks" "b"  (lambda () (interactive) (find-file "~/org/bookmarks.org"))
   ;; :desc "Anime" "a"  (lambda () (interactive) (find-file "~/org/anime.org"))
   ;; :desc "Books" "B"  (lambda () (interactive) (find-file "~/org/books.org"))
@@ -776,27 +786,28 @@
       :desc "Zsh" "z"  (lambda () (interactive) (find-file "~/.zshrc")))
 
 ;;; Opeining Files Externally
-;; (use-package openwith
-;;   :config
-;;   (setq openwith-associations
-;;         (list
-;;          (list (openwith-make-extension-regexp
-;;                 '("mpg" "mpeg" "mp3" "mp4"
-;;                   "avi" "wmv" "wav" "mov" "flv"
-;;                   "ogm" "ogg" "mkv" "opus"))
-;;                "mpv"
-;;                '(file))
-;;          (list (openwith-make-extension-regexp
-;;                 '("xbm" "pbm" "pgm" "ppm" "pnm"
-;;                   "png" "gif" "bmp" "tif" "jpeg")) ;; Removed jpg because Telega was
-;;                ;; causing feh to be opened...
-;;                "feh"
-;;                '(file))
-;;          (list (openwith-make-extension-regexp
-;;                 '("pdf"))
-;;                "zathura"
-;;                '(file))))
-;;   (openwith-mode -1))
+(use-package openwith
+  :config
+  (setq openwith-associations
+        (list
+         (list (openwith-make-extension-regexp
+                '("mpg" "mpeg" "mp3" "mp4"
+                  "avi" "wmv" "wav" "mov" "flv"
+                  "ogm" "ogg" "mkv" "opus"))
+               "mpv"
+               '(file))
+         ;; (list (openwith-make-extension-regexp
+         ;;        '("xbm" "pbm" "pgm" "ppm" "pnm"
+         ;;          "png" "gif" "bmp" "tif" "jpeg")) ;; Removed jpg because Telega was
+         ;;       ;; causing feh to be opened...
+         ;;       "feh"
+         ;;       '(file))
+         ;; (list (openwith-make-extension-regexp
+         ;;        '("pdf"))
+         ;;       "zathura"
+         ;;       '(file))
+         ))
+  (openwith-mode 1))
 
 (use-package ranger
   :config

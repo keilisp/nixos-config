@@ -72,7 +72,11 @@ in {
       # :lang javascript
       nodePackages.javascript-typescript-langserver
       # :lang latex & :lang org (latex previews)
-      texlive.combined.scheme-medium
+      # texlive.combined.scheme-medium
+      (texlive.combine {
+        inherit (texlive) scheme-full wrapfig titling titlesec fontspec;
+      })
+
       # :lang rust
       rustfmt
       unstable.rust-analyzer

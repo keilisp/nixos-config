@@ -23,6 +23,7 @@
         flameshot.enable = true;
         keepassxc.enable = true;
         betterlockscreen.enable = true;
+        kodi.enable = true;
         # grub-customizer.enable = true;
         # skype.enable = true;
         # unity3d.enable = true;
@@ -41,11 +42,11 @@
       # };
       media = {
         documents.enable = true;
-        # graphics.enable = true;
+        graphics.enable = true;
         mpv.enable = true;
         ncmpcpp.enable = true;
         pavucontrol.enable = true;
-        # recording.enable = true;
+        recording.enable = true;
       };
       term = {
         default = "alacritty";
@@ -152,7 +153,9 @@
 
   ### TODO export (seems not working )
   services.xserver.displayManager.setupCommands = ''
-    ${pkgs.xlibs.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --off --output DP-1 --off
+    # ${pkgs.xlibs.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --off --output DP-1 --off
+    # temp 34 and 27(vert)
+    ${pkgs.xlibs.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080 --pos 2560x0 --rotate right --output HDMI-0 --primary --mode 2560x1080 --pos 0x240 --rotate normal --output DP-0 --off --output DP-1 --off
     ${pkgs.xlibs.xset}/bin/xset r rate 300 50
     ${pkgs.xlibs.xinput}/bin/xinput --set-prop 'SINOWEALTH Wired Gaming Mouse' 'libinput Accel Speed' -0.8
   '';
