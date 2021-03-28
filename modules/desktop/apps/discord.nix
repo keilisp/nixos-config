@@ -12,6 +12,7 @@ in {
         # If not installed from the bleeding edge, Discord will sometimes
         # soft-lock itself on a "there's an update for discord" screen.
         unstable.discord
+        # discord
       ];
   };
 }

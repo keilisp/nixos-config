@@ -21,10 +21,10 @@ bind-key U show-urls
 bind-key x pb-delete
 
 color listnormal blue default
-color listfocus black magenta bold
+color listfocus black default bold
 color listnormal_unread magenta default
-color listfocus_unread cyan default bold
-color info magenta white bold
+color listfocus_unread green default bold
+color info magenta default bold
 color article white default bold
 
 

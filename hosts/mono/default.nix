@@ -14,6 +14,7 @@
         keepassxc.enable = true;
         betterlockscreen.enable = true;
         flameshot.enable = true;
+        dar.enable = true;
         etcher.enable = true;
         # grub-customizer.enable = true;
         # zoom.enable = true;

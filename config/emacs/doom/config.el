@@ -1106,3 +1106,8 @@
 
 (map! :mode image-mode :map (image-mode-map) "zy" nil)
 (map! :mode image-mode :map (image-mode-map) "zy" 'x11-yank-image-at-point-as-image)
+
+;; Direnv
+(use-package direnv
+  :config
+  (direnv-mode))

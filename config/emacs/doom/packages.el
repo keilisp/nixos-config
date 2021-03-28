@@ -54,6 +54,7 @@
 (package! alarm-clock)
 (package! google-translate)
 (package! dashboard)
+(package! direnv)
 ;; (package! peep-dired)
 ;; (package! erc-image)
 ;; (package! lsp-lua-emmy)

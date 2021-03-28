@@ -164,146 +164,6 @@ awful.util.terminal = terminal
 -- Use this : https://fontawesome.com/cheatsheet
 --awful.util.tagnames = { "", "", "", "", "" }
 
--- HORIZONTAL SETUP
--- my_tags = {
---   tags = {
---	{
---	  names = {
---		"      ",
---		"      ",
---		"      ",
---		"      ",
---		"      ",
---		"      ",
---		"      ",
---		"      "
---	  },
---	  layout = {
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[2],
---		awful.layout.layouts[2],
---		awful.layout.layouts[2],
---		awful.layout.layouts[1],
---		awful.layout.layouts[3]
---	  }
---	},
---	{
---	  names = {
---		"      ",
---		"      ",
---		"      ",
---		"      ",
---		"      ",
---		"      "
---	  },
---	  layout = {
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[3],
---		awful.layout.layouts[1]
---	  }
---	}
---   }
--- }
-
--- my_tags = {
---   tags = {
---	{
---	  names = {
---		"   Ⅰ   ",
---		"   Ⅱ   ",
---		"   Ⅲ   ",
---		"   Ⅳ   ",
---		"   Ⅴ   ",
---		"   Ⅵ   ",
---		"   Ⅶ   ",
---		"   Ⅷ   "
---	  },
---	  layout = {
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1]
---	  }
---	},
---	{
---	  names = {
---		"   Ⅰ   ",
---		"   Ⅱ   ",
---		"   Ⅲ   ",
---		"   Ⅳ   ",
---		"   Ⅴ   ",
---		"   Ⅵ   ",
---		"   Ⅶ   ",
---		"   Ⅷ   "
---	  },
---	  layout = {
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1]
---	  }
---	}
---   }
--- }
-
--- VERTICAL SETUP
-
--- my_tags = {
---   tags = {
---	{
---	  names = {
---		"      ",
---		"      ",
---		"      ",
---		"      ",
---		"      ",
---		"      ",
---		"      ",
---		"      "
---	  },
---	  layout = {
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1],
---		awful.layout.layouts[2],
---		awful.layout.layouts[2],
---		awful.layout.layouts[2],
---		awful.layout.layouts[1],
---		awful.layout.layouts[1]
---	  }
---	},
---	{
---	  names = {
---		"      ",
---		"      ",
---		"      ",
---		"      ",
---		"      ",
---		"      "
---	  },
---	  layout = {
---		awful.layout.layouts[5],
---		awful.layout.layouts[5],
---		awful.layout.layouts[5],
---		awful.layout.layouts[5],
---		awful.layout.layouts[5],
---		awful.layout.layouts[5]
---	  }
---	}
---   }
--- }
-
 my_tags = {
     tags = {
         {
@@ -348,6 +208,28 @@ my_tags = {
                 awful.layout.layouts[5],
                 awful.layout.layouts[5],
                 awful.layout.layouts[5]
+            }
+        },
+        {
+            names = {
+                "   Ⅰ   ",
+                "   Ⅱ   ",
+                "   Ⅲ   ",
+                "   Ⅳ   ",
+                "   Ⅴ   ",
+                "   Ⅵ   ",
+                "   Ⅶ   ",
+                "   Ⅷ   "
+            },
+            layout = {
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1]
             }
         }
     }
@@ -1665,7 +1547,7 @@ awful.rules.rules = {
     },
     {
         rule = {class = "Steam"},
-        properties = {screen = 1, tag = my_tags.tags[1].names[7]}
+        properties = {screen = 3, tag = my_tags.tags[3].names[7]}
     },
     -- {
     --   rule = {class = "Sxiv"},
@@ -1673,7 +1555,7 @@ awful.rules.rules = {
     -- },
     {
         rule = {class = "Barrier"},
-        properties = {screen = 2, tag = my_tags.tags[2].names[6]}
+        properties = {screen = 3, tag = my_tags.tags[3].names[6]}
     },
     -- {
     --   rule = {class = "Zathura"},

@@ -21,6 +21,7 @@
         msteams.enable = true;
         etcher.enable = true;
         flameshot.enable = true;
+        dar.enable = true;
         keepassxc.enable = true;
         betterlockscreen.enable = true;
         # skype.enable = true;
