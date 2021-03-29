@@ -46,16 +46,16 @@ with lib; {
       };
     in {
       org = mkShare "personal_files" [ "kuro" "ao" "ako" "shiro" "aijiro" ]
-        "sendreceive" "${config.user.home}/sync/org";
+        "sendreceive" "${config.user.home}/org";
 
       passwrds = mkShare "personal_files" [ "kuro" "ao" "ako" "shiro" "aijiro" ]
-        "sendreceive" "${config.user.home}/sync/passwrds";
+        "sendreceive" "${config.user.home}/passwrds";
 
       dox = mkShare "dox" [ "kuro" "ao" "ako" "shiro" "aijiro" ] "sendreceive"
-        "${config.user.home}/sync/dox";
+        "${config.user.home}/dox";
 
       unik = mkShare "unik" [ "kuro" "ao" "ako" "shiro" "aijiro" ] "sendreceive"
-        "${config.user.home}/sync/unik";
+        "${config.user.home}/unik";
     };
   };
 }
