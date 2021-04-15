@@ -457,7 +457,7 @@ function theme.at_screen_connect(s)
         {
             -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            github_contributions_widget({username = "mediocreeee"}),
+            github_contributions_widget({username = "keilisp"}),
             spr,
             wibox.container.background(wibox.widget.systray(), theme.bg_focus),
             spr,
