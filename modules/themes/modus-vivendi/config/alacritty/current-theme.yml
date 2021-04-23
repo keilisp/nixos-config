@@ -1,0 +1,29 @@
+# Colors (Modus Vivendi)
+colors:
+  # Default colors
+  primary:
+    background: '#000000'
+    foreground: '#ffffff'
+
+  # Normal colors
+  normal:
+    black:   '#000000'
+    red:     '#ff8059'
+    green:   '#44bc44'
+    yellow:  '#eecc00'
+    blue:    '#29aeff'
+    magenta: '#feacd0'
+    cyan:    '#00d3d0'
+    white:   '#ffffff'
+
+  # Bright colors
+  bright:
+    black:   '#f2eff3'
+    red:     '#f4923b'
+    green:   '#80d200'
+    yellow:  '#cfdf30'
+    blue:    '#72a4ff'
+    magenta: '#f78fe7'
+    cyan:    '#4ae8fc'
+    white:   '#f2eff3'  
+

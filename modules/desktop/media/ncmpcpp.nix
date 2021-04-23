@@ -10,8 +10,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    user.packages = with pkgs;
-      [ (ncmpcpp.override { visualizerSupport = true; }) ];
+    user.packages = with pkgs; [
+      (ncmpcpp.override { visualizerSupport = true; })
+      cmus
+    ];
 
     env.NCMPCPP_HOME = "$XDG_CONFIG_HOME/ncmpcpp";
 

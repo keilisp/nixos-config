@@ -9,8 +9,8 @@ in {
   config = mkIf cfg.enable {
     # TODO mb export it to func
 
-    ### Modus Operandi
     user.packages = with pkgs; [
+      ### Modus Operandi
       (mkIf (config.modules.theme.active == "modus-operandi")
         (writeScriptBin "dmenu" ''
           #!${stdenv.shell}
@@ -18,7 +18,7 @@ in {
              pkgs.dmenu.overrideAttrs (oldAttrs: rec {
                patches = [ ./patches/dmenu-password-4.7.diff ];
              })
-           }/bin/dmenu -nb '#ffffff' -sf '#0030a6' -sb '#f8f8f8' -nf '#282828' -fn 'Hack:pixelsize=13' "$@"
+           }/bin/dmenu -nb '#ffffff' -sf '#721045' -sb '#f8f8f8' -nf '#282828' -fn 'Hack:pixelsize=13' "$@"
         ''))
       (mkIf (config.modules.theme.active == "modus-operandi")
         (writeScriptBin "dmenu_run" ''
@@ -27,7 +27,7 @@ in {
              pkgs.dmenu.overrideAttrs (oldAttrs: rec {
                patches = [ ./patches/dmenu-password-4.7.diff ];
              })
-           }/bin/dmenu_run -nb '#ffffff' -sf '#0030a6' -sb '#f8f8f8' -nf '#282828' -fn 'Hack:pixelsize=13' "$@"
+           }/bin/dmenu_run -nb '#ffffff' -sf '#721045' -sb '#f8f8f8' -nf '#282828' -fn 'Hack:pixelsize=13' "$@"
         ''))
       (mkIf (config.modules.theme.active == "modus-operandi")
         (writeScriptBin "dmenu_path" ''
@@ -36,7 +36,36 @@ in {
              pkgs.dmenu.overrideAttrs (oldAttrs: rec {
                patches = [ ./patches/dmenu-password-4.7.diff ];
              })
-           }/bin/dmenu_path -nb '#ffffff' -sf '#0030a6' -sb '#f8f8f8' -nf '#282828' -fn 'Hack:pixelsize=13' "$@"
+           }/bin/dmenu_path -nb '#ffffff' -sf '#721045' -sb '#f8f8f8' -nf '#282828' -fn 'Hack:pixelsize=13' "$@"
+        ''))
+
+      ### Modus Vivendi
+      (mkIf (config.modules.theme.active == "modus-vivendi")
+        (writeScriptBin "dmenu" ''
+          #!${stdenv.shell}
+           exec ${
+             pkgs.dmenu.overrideAttrs (oldAttrs: rec {
+               patches = [ ./patches/dmenu-password-4.7.diff ];
+             })
+           }/bin/dmenu -nb '#000000' -sf '#feacd0' -sb '#110b11' -nf '#ffffff' -fn 'Hack:pixelsize=13' "$@"
+        ''))
+      (mkIf (config.modules.theme.active == "modus-vivendi")
+        (writeScriptBin "dmenu_run" ''
+          #!${stdenv.shell}
+           exec ${
+             pkgs.dmenu.overrideAttrs (oldAttrs: rec {
+               patches = [ ./patches/dmenu-password-4.7.diff ];
+             })
+           }/bin/dmenu_run -nb '#000000' -sf '#feacd0' -sb '#110b11' -nf '#ffffff' -fn 'Hack:pixelsize=13' "$@"
+        ''))
+      (mkIf (config.modules.theme.active == "modus-vivendi")
+        (writeScriptBin "dmenu_path" ''
+          #!${stdenv.shell}
+           exec ${
+             pkgs.dmenu.overrideAttrs (oldAttrs: rec {
+               patches = [ ./patches/dmenu-password-4.7.diff ];
+             })
+           }/bin/dmenu_path -nb '#000000' -sf '#feacd0' -sb '#110b11' -nf '#ffffff' -fn 'Hack:pixelsize=13' "$@"
         ''))
 
       ### Solarized Light

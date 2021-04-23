@@ -12,11 +12,11 @@ in {
       modules = {
         theme = {
           wallpaper = mkDefault ./config/wallpaper.png;
-          gtk = {
-            theme = "Gruvbox-Dark-Yellow";
-            iconTheme = "oomox-gruvbox";
-            cursorTheme = "Breeze";
-          };
+          # gtk = {
+          #   theme = "Gruvbox-Dark-Yellow";
+          #   iconTheme = "oomox-gruvbox";
+          #   cursorTheme = "Breeze";
+          # };
         };
 
         shell.zsh.rcFiles = [ ./config/zsh/prompt.zsh ];
@@ -100,6 +100,7 @@ in {
               rev = "da38ec8c41cb88b7c4450c387960e12e4f5ac7fa";
               sha256 = "0fxk7vzmgvdshal3qagn731fyfmm7kzzlgqzam647b3q6lb1vg0f";
             };
+
             # "themes/Gruvbox-Dark-Yellow".source = fetchzip {
             #   url =
             #     "https://github.com/4rtzel/Gruvbox-Dark-Yellow/archive/master.zip";

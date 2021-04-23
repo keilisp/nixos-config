@@ -12,7 +12,8 @@ local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme = {}
-theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-solarized-light"
+-- theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-solarized-light"
+theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/current-theme"
 theme.wallpaper = theme.dir .. "/wall.png"
 theme.font = "Hack 8.5"
 theme.taglist_font = "Iosevka 9"

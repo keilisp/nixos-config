@@ -94,7 +94,8 @@
       teamviewer.enable = true;
     };
     # theme.active = "tomorrow-day";
-    theme.active = "modus-operandi";
+    # theme.active = "modus-operandi";
+    theme.active = "modus-vivendi";
     # theme.active = "nord-dark";
     # theme.active = "gruvbox-dark";
     # theme.active = "solarized-light";
@@ -173,39 +174,39 @@
   hardware.pulseaudio.extraConfig =
     "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
 
-  services.mpd = {
-    enable = true;
-    # FIXME
-    # user = "${config.user.name}";
-    # group = "users";
-    # musicDirectory = "/home/kei/musx";
-    # extraConfig = ''
-    #   music_directory     "~/musx"
-    #   bind_to_address     "any"
-    #   bind_to_address     "~/.config/mpd/socket"
-    #   port                "6600"
-    #   auto_update         "yes"
-    #   filesystem_charset  "UTF-8"
-    #   audio_output {
-    #     type    "alsa"
-    #             name    "mpd-alsa"
-    #             mixer_type    "software"
-    #   }
-    #   audio_output {
-    #   type      "fifo"
-    #             name        "toggle_visualizer"
-    #             path        "/tmp/mpd.fifo"
-    #             format      "44100:16:2"
-    #   }
-    # '';
+  # services.mpd = {
+  #   enable = true;
+  #   # FIXME
+  #   # user = "${config.user.name}";
+  #   # group = "users";
+  #   # musicDirectory = "/home/kei/musx";
+  #   # extraConfig = ''
+  #   #   music_directory     "~/musx"
+  #   #   bind_to_address     "any"
+  #   #   bind_to_address     "~/.config/mpd/socket"
+  #   #   port                "6600"
+  #   #   auto_update         "yes"
+  #   #   filesystem_charset  "UTF-8"
+  #   #   audio_output {
+  #   #     type    "alsa"
+  #   #             name    "mpd-alsa"
+  #   #             mixer_type    "software"
+  #   #   }
+  #   #   audio_output {
+  #   #   type      "fifo"
+  #   #             name        "toggle_visualizer"
+  #   #             path        "/tmp/mpd.fifo"
+  #   #             format      "44100:16:2"
+  #   #   }
+  #   # '';
 
-    extraConfig = ''
-      audio_output {
-        type "pulse"
-        name "Pulseaudio"
-        server "127.0.0.1"
-        }
-    '';
-  };
+  #   extraConfig = ''
+  #     audio_output {
+  #       type "pulse"
+  #       name "Pulseaudio"
+  #       server "127.0.0.1"
+  #       }
+  #   '';
+  # };
 
 }

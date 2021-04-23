@@ -12,11 +12,11 @@ in {
       modules = {
         theme = {
           wallpaper = mkDefault ./config/wallpaper.png;
-          gtk = {
-            theme = "Nordic";
-            iconTheme = "Arc";
-            cursorTheme = "Breeze";
-          };
+          # gtk = {
+          #   theme = "Nordic";
+          #   iconTheme = "Arc";
+          #   cursorTheme = "Breeze";
+          # };
         };
 
         shell.zsh.rcFiles = [ ./config/zsh/prompt.zsh ];
