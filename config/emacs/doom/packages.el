@@ -55,6 +55,8 @@
 (package! google-translate)
 (package! dashboard)
 (package! direnv)
+(package! sly-quicklisp)
+(package! sly-named-readtables)
 ;; (package! peep-dired)
 ;; (package! erc-image)
 ;; (package! lsp-lua-emmy)
