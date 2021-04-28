@@ -10,5 +10,8 @@ in {
 
   config = mkIf cfg.enable {
     user.packages = with pkgs; [ sbcl lispPackages.quicklisp ];
+
+    home.file.".sbclrc".source = "${configDir}/sbcl/sbclrc";
   };
+
 }
