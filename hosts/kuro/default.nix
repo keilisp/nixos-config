@@ -92,9 +92,10 @@
       # Needed occasionally to help the parental units with PC problems
       # teamviewer.enable = true;
     };
-    theme.active = "tomorrow-day";
+    # theme.active = "tomorrow-day";
     # theme.active = "modus-operandi";
-    # theme.active = "nord-dark";
+    # theme.active = "modus-vivendi";
+    theme.active = "nord-dark";
     # theme.active = "gruvbox-dark";
     # theme.active = "solarized-light";
     dev = {
