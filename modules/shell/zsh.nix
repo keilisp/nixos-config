@@ -73,6 +73,7 @@ in {
       ripgrep
       killall
       xorg.xkill
+      manix
     ];
 
     env = {
