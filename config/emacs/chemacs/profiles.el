@@ -1,0 +1,5 @@
+(("default" . ((user-emacs-directory . "$XDG_CONFIG_HOME/doom-emacs")
+	       (env . (("DOOMDIR" . "$XDG_CONFIG_HOME/doom")))))
+ ("keimacs" . ((user-emacs-directory . "$XDG_CONFIG_HOME/keimacs")))
+ ("doom" . ((user-emacs-directory . "$XDG_CONFIG_HOME/doom-emacs")
+	    (env . (("DOOMDIR" . "$XDG_CONFIG_HOME/doom"))))))

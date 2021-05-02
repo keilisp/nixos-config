@@ -13,9 +13,12 @@ in {
       enable = mkBoolOpt true;
       fromSSH = mkBoolOpt false;
     };
+    chemacs = { enable = mkBoolOpt false; };
+
+    keimacs = { enable = mkBoolOpt false; };
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf cfg.enable (mkMerge [{
 
     nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 
@@ -41,6 +44,7 @@ in {
       # :term vterm
       # ((emacsPackagesNgGen emacsGit).emacsWithPackages (epkgs: [ epkgs.vterm ]))
 
+      #FIXME
       (mkIf (cfg.native-comp == false)
         ((emacsPackagesNgGen emacsGit).emacsWithPackages
           (epkgs: [ epkgs.vterm ])))
@@ -60,6 +64,8 @@ in {
       # :tools lookup & :lang org +roam
       sqlite
       # :tools pdf
+
+      #FIXME
       (mkIf (cfg.native-comp == false)
         ((emacsPackagesNgGen emacsGit).emacsWithPackages
           (epkgs: [ epkgs.pdf-tools ])))
@@ -83,28 +89,68 @@ in {
       unstable.rust-analyzer
       # :lang nix
       nixfmt
-      # lang sh
+      # :lang sh
       shfmt
     ];
 
-    env.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ];
+    env.PATH = [ "$XDG_CONFIG_HOME/doom-emacs/bin" ];
 
     modules.shell.zsh.rcFiles = [ "${configDir}/emacs/aliases.zsh" ];
 
     fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];
 
-    home.configFile = mkIf cfg.doom.enable {
-      # "emacs".source = pkgs.fetchFromGitHub {
-      # owner = "hlissner";
-      # repo = "doom-emacs";
-      # rev = "cf5b7adb6352ff17c00d24febe4a4545c3a1170b";
-      # sha256 = "0kcjrghfqk3r32s4rmwk3alk3sb73hjdzc1ms2a3zf7nn64i41p9";
-      # };
-      "doom" = {
-        source = "${configDir}/emacs/doom";
-        recursive = true;
-      };
-    };
+    home.configFile = (mkMerge [
+      (mkIf cfg.chemacs.enable {
+        "emacs".source = pkgs.fetchFromGitHub {
+          owner = "plexus";
+          repo = "chemacs2";
+          rev = "30a20db";
+          sha256 = "0ghry3v05y31vgpwr2hc4gzn8s6sr6fvqh88fsnj9448lrim38f9";
+        };
+
+        "chemacs" = {
+          source = "${configDir}/emacs/chemacs";
+          recursive = true;
+        };
+      })
+
+      (mkIf cfg.keimacs.enable {
+        "keimacs" = {
+          source = "${configDir}/emacs/keimacs";
+          recursive = true;
+        };
+      })
+
+      (mkIf cfg.doom.enable {
+        "doom" = {
+          source = "${configDir}/emacs/doom";
+          recursive = true;
+        };
+      })
+
+    ]);
+
+    # home.configFile = mkIf cfg.chemacs.enable {
+    #   "emacs" = pkgs.fetchFromGitHub {
+    #     owner = "plexus";
+    #     repo = "chemacs2";
+    #     rev = "30a20db";
+    #     sha256 = "0ghry3v05y31vgpwr2hc4gzn8s6sr6fvqh88fsnj9448lrim38f9";
+    #   };
+    # };
+
+    # home.configFile = mkIf cfg.doom.enable {
+    #   # "emacs".source = pkgs.fetchFromGitHub {
+    #   # owner = "hlissner";
+    #   # repo = "doom-emacs";
+    #   # rev = "cf5b7adb6352ff17c00d24febe4a4545c3a1170b";
+    #   # sha256 = "0kcjrghfqk3r32s4rmwk3alk3sb73hjdzc1ms2a3zf7nn64i41p9";
+    #   # };
+    #   "doom" = {
+    #     source = "${configDir}/emacs/doom";
+    #     recursive = true;
+    #   };
+    # };
 
     # init.doomEmacs = (mkIf cfg.doom.enable ''
     #	if [ -d $HOME/.config/emacs ]; then
@@ -118,5 +164,5 @@ in {
     #	''}
     #	fi
     #	'');
-  };
+  }]);
 }
