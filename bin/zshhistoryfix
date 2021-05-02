@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+# Fixes a corrupt .zsh_history file
+
+mv ~/.cache/zhistory ~/.cache/zhistory_bad
+strings -eS ~/.cache/zhistory_bad >~/.cache/zhistory
+fc -R ~/.cache/zhistory
+rm ~/.cache/zhistory_bad
