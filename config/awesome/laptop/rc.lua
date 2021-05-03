@@ -727,9 +727,16 @@ local emacsmap = {
     {
         "k",
         function()
-            awful.util.spawn("emacs --daemon --with-profile doomacs")
+            awful.util.spawn("emacs --daemon --with-profile keimacs")
         end,
-        "start emacs daemon"
+        "start keimacs daemon"
+    },
+    {
+        "w",
+        function()
+            awful.util.spawn("emacs --daemon --with-profile doom")
+        end,
+        "start doom daemon"
     },
     {
         "K",
@@ -752,17 +759,17 @@ local appsmap = {
     {
         "e",
         function()
-            -- awful.util.spawn("emacs --with-profile doomacs")
-            awful.util.spawn("emacs")
+            awful.util.spawn("emacs --with-profile doomacs")
+            -- awful.util.spawn("emacs")
         end,
         "doom emacs"
     },
     {
         "E",
         function()
-            awful.util.spawn("emacs --with-profile mymacs")
+            awful.util.spawn("emacs --with-profile keimacs")
         end,
-        "custom emacs"
+        "keimacs"
     },
     {"separator", "Media"},
     {
