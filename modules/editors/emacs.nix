@@ -130,28 +130,6 @@ in {
 
     ]);
 
-    # home.configFile = mkIf cfg.chemacs.enable {
-    #   "emacs" = pkgs.fetchFromGitHub {
-    #     owner = "plexus";
-    #     repo = "chemacs2";
-    #     rev = "30a20db";
-    #     sha256 = "0ghry3v05y31vgpwr2hc4gzn8s6sr6fvqh88fsnj9448lrim38f9";
-    #   };
-    # };
-
-    # home.configFile = mkIf cfg.doom.enable {
-    #   # "emacs".source = pkgs.fetchFromGitHub {
-    #   # owner = "hlissner";
-    #   # repo = "doom-emacs";
-    #   # rev = "cf5b7adb6352ff17c00d24febe4a4545c3a1170b";
-    #   # sha256 = "0kcjrghfqk3r32s4rmwk3alk3sb73hjdzc1ms2a3zf7nn64i41p9";
-    #   # };
-    #   "doom" = {
-    #     source = "${configDir}/emacs/doom";
-    #     recursive = true;
-    #   };
-    # };
-
     # init.doomEmacs = (mkIf cfg.doom.enable ''
     #	if [ -d $HOME/.config/emacs ]; then
     #	${optionalString cfg.doom.fromSSH ''
