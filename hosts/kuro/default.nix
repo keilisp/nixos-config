@@ -132,8 +132,8 @@
   };
 
   ## Local config
-  # programs.ssh.startAgent = true;
-  # services.openssh.startWhenNeeded = true;
+  programs.ssh.startAgent = true;
+  services.openssh.startWhenNeeded = true;
 
   # Configure keymap
   services.xserver.layout = "us, ru, ua";
