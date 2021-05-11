@@ -85,8 +85,8 @@ with lib.my; {
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
-  services.xserver.layout = "us, ru, ua";
-  services.xserver.xkbOptions = "grp:caps_toggle";
+  # services.xserver.layout = "us, ru, ua";
+  # services.xserver.xkbOptions = "grp:caps_toggle";
 
   # xset r rate 300 50
   # services.xserver.autoRepeatDelay = 300;

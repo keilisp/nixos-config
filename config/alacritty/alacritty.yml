@@ -535,6 +535,12 @@ key_bindings:
 # (Windows, Linux, and BSD only)
 - { key: V,        mods: Alt,           action: Paste            }
 - { key: C,        mods: Alt,           action: Copy             }
+- { key: PageDown,  mods: Control, action: ScrollLineDown, mode: ~Alt       }
+- { key: PageUp,    mods: Control, action: ScrollLineUp,   mode: ~Alt       }
+- { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
+- { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
+- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
+- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
 #- { key: Insert,   mods: Shift,         action: PasteSelection   }
 #- { key: Key0,     mods: Control,       action: ResetFontSize    }
 #- { key: Equals,   mods: Control,       action: IncreaseFontSize }
@@ -564,7 +570,9 @@ key_bindings:
 #- { key: Copy,                     action: Copy                             }
 #- { key: L,         mods: Control, action: ClearLogNotice                   }
 #- { key: L,         mods: Control, chars: "\x0c"                            }
-#- { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
-#- { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
-#- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
-#- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
+# - { key: PageDown,  mods: Control, action: ScrollLineDown, mode: ~Alt       }
+# - { key: PageUp,    mods: Control, action: ScrollLineUp,   mode: ~Alt       }
+# - { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
+# - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
+# - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
+# - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }

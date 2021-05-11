@@ -141,7 +141,9 @@
   services.openssh.startWhenNeeded = true;
 
   # Configure keymap
-  services.xserver.layout = "us, ru, ua";
+  # services.xserver.layout = "us, ru, ua";
+  # FIXME temporarly disabling ua for testing qmk layout
+  services.xserver.layout = "us, ru";
   services.xserver.xkbOptions = "grp:caps_toggle";
 
   # xset r rate 300 50
