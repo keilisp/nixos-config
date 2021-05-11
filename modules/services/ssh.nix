@@ -13,13 +13,10 @@ in {
       passwordAuthentication = false;
     };
 
-    user.openssh.authorizedKeys.keys = if config.user.name == "kei" then
-      [
-        # Ao
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH9FT7tVSrQnp1SM7JKVIGuY3fDprmiIhoNwr2nnGBG3 druksasha@ukr.net "
-        # Kuro
-      ]
-    else
+    user.openssh.authorizedKeys.keys = if config.user.name == "kei" then [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJq23EnlbR2Q1lcClwnPylX5Dgw+dtpQhVlT4PLjDWnI druksasha@ukr.net"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINb/CqSUgRiZovS5a2CqtixJU4jgL7MbWrRxF3tOXjs6 druksasha@ukr.net "
+    ] else
       [ ];
   };
 }
