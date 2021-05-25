@@ -759,7 +759,7 @@ local appsmap = {
     {
         "e",
         function()
-            awful.util.spawn("emacs --with-profile doomacs")
+            awful.util.spawn("emacs --with-profile doom")
             -- awful.util.spawn("emacs")
         end,
         "doom emacs"
