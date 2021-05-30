@@ -65,8 +65,8 @@
       emacs = {
         enable = true;
         native-comp = true;
-        chemacs = { enable = true; };
-        keimacs = { enable = true; };
+        chemacs = { enable = false; };
+        keimacs = { enable = false; };
       };
       vim.enable = true;
     };
