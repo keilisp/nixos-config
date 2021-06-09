@@ -53,7 +53,7 @@ do
     awesome.connect_signal(
         "debug::error",
         function(err)
-            -- Make sure we don't go into an endless error loop
+            -- Make sure we don\'t go into an endless error loop
             if in_error then
                 return
             end
@@ -380,7 +380,7 @@ awful.util.mymainmenu =
 -- }}}
 
 -- {{{ Screen
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
+-- Re-set wallpaper when a screen\'s geometry changes (e.g. different resolution)
 screen.connect_signal(
     "property::geometry",
     function(s)
@@ -1383,7 +1383,7 @@ clientkeys =
         "n",
         function(c)
             -- The client currently has the input focus, so it cannot be
-            -- minimized, since minimized clients can't have the focus.
+            -- minimized, since minimized clients can\'t have the focus.
             c.minimized = true
         end,
         {description = "minimize", group = "client"}

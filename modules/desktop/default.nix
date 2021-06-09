@@ -62,8 +62,11 @@ in {
       opacityRules = [
         "100:class_g = 'Firefox'"
         "100:class_g = 'Brave-browser'"
-        # "100:class_g = 'Vivaldi-stable'"
+        "100:class_g = 'discord'"
+        "100:class_g = 'TelegramDesktop'"
         "100:class_g = 'VirtualBox Machine'"
+        "90:class_g = 'Alacritty'"
+        "100:class_g = 'Emacs'"
         # Art/image programs where we need fidelity
         "100:class_g = 'Gimp'"
         "100:class_g = 'Inkscape'"

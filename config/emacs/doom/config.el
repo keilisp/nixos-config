@@ -7,20 +7,20 @@
 ;;       doom-variable-pitch-font (font-spec :family "IBM Plex Mono" :size 13)
 ;;       doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light))
 
-(setq doom-font (font-spec :family "Hack" :size 12)
-      doom-big-font (font-spec :family "Hack")
-      doom-variable-pitch-font (font-spec :family "Hack" :size 12)
-      doom-serif-font (font-spec :family "Hack" :weight 'light))
+;; (setq doom-font (font-spec :family "Hack" :size 12)
+;;       doom-big-font (font-spec :family "Hack")
+;;       doom-variable-pitch-font (font-spec :family "Hack" :size 12)
+;;       doom-serif-font (font-spec :family "Hack" :weight 'light))
 
 ;; (setq doom-font (font-spec :family "FiraCode" :size 12)
 ;;       doom-big-font (font-spec :family "FiraCode")
 ;;       doom-variable-pitch-font (font-spec :family "FiraCode" :size 12)
 ;;       doom-serif-font (font-spec :family "FiraCode" :weight 'light))
 
-;; (setq doom-font (font-spec :family "Iosevka" :size 13)
-;;       doom-big-font (font-spec :family "Iosevka")
-;;       doom-variable-pitch-font (font-spec :family "Iosevka" :size 13)
-;;       doom-serif-font (font-spec :family "Iosevka" :weight 'light))
+(setq doom-font (font-spec :family "Iosevka" :size 13)
+      doom-big-font (font-spec :family "Iosevka")
+      doom-variable-pitch-font (font-spec :family "Iosevka" :size 13)
+      doom-serif-font (font-spec :family "Iosevka" :weight 'light))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t doom-themes-enable-italic t))

@@ -76,6 +76,7 @@ in {
 
       # :lang cc
       ccls
+      lldb
       # :lang javascript
       nodePackages.javascript-typescript-langserver
       # :lang latex & :lang org (latex previews)
@@ -91,6 +92,11 @@ in {
       nixfmt
       # :lang sh
       shfmt
+      nodePackages.bash-language-server
+      # :lang python
+      # black
+      # :lang lua
+      # luaformatter
     ];
 
     env.PATH = [ "$XDG_CONFIG_HOME/doom-emacs/bin" ];
@@ -101,12 +107,12 @@ in {
 
     home.configFile = (mkMerge [
       (mkIf cfg.chemacs.enable {
-        "emacs".source = pkgs.fetchFromGitHub {
-          owner = "plexus";
-          repo = "chemacs2";
-          rev = "30a20db";
-          sha256 = "0ghry3v05y31vgpwr2hc4gzn8s6sr6fvqh88fsnj9448lrim38f9";
-        };
+        # "emacs".source = pkgs.fetchFromGitHub {
+        #   owner = "plexus";
+        #   repo = "chemacs2";
+        #   rev = "30a20db";
+        #   sha256 = "0ghry3v05y31vgpwr2hc4gzn8s6sr6fvqh88fsnj9448lrim38f9";
+        # };
 
         "chemacs" = {
           source = "${configDir}/emacs/chemacs";
@@ -114,12 +120,12 @@ in {
         };
       })
 
-      (mkIf cfg.keimacs.enable {
-        "keimacs" = {
-          source = "${configDir}/emacs/keimacs";
-          recursive = true;
-        };
-      })
+      # (mkIf cfg.keimacs.enable {
+      #   "keimacs" = {
+      #     source = "${configDir}/emacs/keimacs";
+      #     recursive = true;
+      #   };
+      # })
 
       (mkIf cfg.doom.enable {
         "doom" = {
@@ -130,17 +136,28 @@ in {
 
     ]);
 
+    system.userActivationScripts.keimacs.text = ''
+
+      ${optionalString cfg.chemacs.enable ''
+        ${pkgs.git}/bin/git clone https://github.com/plexus/chemacs2.git $HOME/.config/emacs
+      ''}
+
+      ${optionalString cfg.keimacs.enable ''
+        ${pkgs.git}/bin/git clone https://github.com/keilisp/keimacs.git $HOME/.config/keimacs
+      ''}
+
+    '';
+
     # init.doomEmacs = (mkIf cfg.doom.enable ''
-    #	if [ -d $HOME/.config/emacs ]; then
-    #	${optionalString cfg.doom.fromSSH ''
-    #	git clone git@github.com:hlissner/doom-emacs.git $HOME/.config/emacs
-    # # git clone git@github.com:hlissner/doom-emacs-private.git $HOME/.config/doom
-    #	''}
-    #	${optionalString (cfg.doom.fromSSH == false) ''
-    #	git clone https://github.com/hlissner/doom-emacs $HOME/.config/emacs
-    # # git clone https://github.com/hlissner/doom-emacs-private $HOME/.config/doom
-    #	''}
-    #	fi
-    #	'');
+    #   if [ -d $HOME/.config/emacs ]; then
+    #   ${optionalString cfg.doom.fromSSH ''
+    #     	git clone https://github.com/keilisp/jiran_keimap $HOME/.config/emacs
+    #     	''}
+    #   ${optionalString (cfg.doom.fromSSH == false) ''
+    #     	git clone https://github.com/hlissner/doom-emacs $HOME/.config/emacs
+    #     # git clone https://github.com/hlissner/doom-emacs-private $HOME/.config/doom
+    #     	''}
+    #   fi
+    # '');
   }]);
 }

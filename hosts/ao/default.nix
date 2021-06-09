@@ -65,8 +65,8 @@
       emacs = {
         enable = true;
         native-comp = true;
-        chemacs = { enable = false; };
-        keimacs = { enable = false; };
+        chemacs = { enable = true; };
+        keimacs = { enable = true; };
       };
       vim.enable = true;
     };
@@ -105,6 +105,7 @@
       cc.enable = true;
       python.enable = true;
       clojure.enable = true;
+      scheme.enable = true;
       common-lisp.enable = true;
       lua.enable = true;
       node.enable = true;
@@ -145,8 +146,8 @@
   services.xserver.xkbOptions = "grp:caps_toggle";
 
   # xset r rate 300 50
-  # services.xserver.autoRepeatDelay = 300;
-  # services.xserver.autoRepeatInterval = 50;
+  services.xserver.autoRepeatDelay = 300;
+  services.xserver.autoRepeatInterval = 50;
 
   networking.networkmanager.enable = true;
   # The global useDHCP flag is deprecated, therefore explicitly set to false
@@ -175,40 +176,5 @@
 
   hardware.pulseaudio.extraConfig =
     "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
-
-  # services.mpd = {
-  #   enable = true;
-  #   # FIXME
-  #   # user = "${config.user.name}";
-  #   # group = "users";
-  #   # musicDirectory = "/home/kei/musx";
-  #   # extraConfig = ''
-  #   #   music_directory     "~/musx"
-  #   #   bind_to_address     "any"
-  #   #   bind_to_address     "~/.config/mpd/socket"
-  #   #   port                "6600"
-  #   #   auto_update         "yes"
-  #   #   filesystem_charset  "UTF-8"
-  #   #   audio_output {
-  #   #     type    "alsa"
-  #   #             name    "mpd-alsa"
-  #   #             mixer_type    "software"
-  #   #   }
-  #   #   audio_output {
-  #   #   type      "fifo"
-  #   #             name        "toggle_visualizer"
-  #   #             path        "/tmp/mpd.fifo"
-  #   #             format      "44100:16:2"
-  #   #   }
-  #   # '';
-
-  #   extraConfig = ''
-  #     audio_output {
-  #       type "pulse"
-  #       name "Pulseaudio"
-  #       server "127.0.0.1"
-  #       }
-  #   '';
-  # };
 
 }
