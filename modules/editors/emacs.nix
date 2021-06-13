@@ -143,7 +143,7 @@ in {
       ''}
 
       ${optionalString cfg.keimacs.enable ''
-        ${pkgs.git}/bin/git clone git@github.com:keilisp/keimacs.git $HOME/.config/keimacs
+        ${pkgs.git}/bin/git clone https://github.com/keilisp/keimacs.git $HOME/.config/keimacs
       ''}
 
     '';

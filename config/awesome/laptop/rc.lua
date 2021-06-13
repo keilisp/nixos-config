@@ -758,7 +758,7 @@ local appsmap = {
         "nvim"
     },
     {
-        "e",
+        "E",
         function()
             awful.util.spawn("emacs --with-profile doom")
             -- awful.util.spawn("emacs")
@@ -766,7 +766,7 @@ local appsmap = {
         "doom emacs"
     },
     {
-        "E",
+        "e",
         function()
             awful.util.spawn("emacs --with-profile keimacs")
         end,
