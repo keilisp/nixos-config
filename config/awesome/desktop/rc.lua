@@ -182,10 +182,10 @@ my_tags = {
                 awful.layout.layouts[2],
                 awful.layout.layouts[2],
                 awful.layout.layouts[2],
-                awful.layout.layouts[2],
-                awful.layout.layouts[2],
-                awful.layout.layouts[2],
-                awful.layout.layouts[2]
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1]
             }
         },
         {
@@ -1538,11 +1538,11 @@ awful.rules.rules = {
     -- },
     {
         rule = {class = "TelegramDesktop"},
-        properties = {screen = 2, tag = my_tags.tags[2].names[3]}
+        properties = {screen = 2, tag = my_tags.tags[2].names[4]}
     },
     {
         rule = {name = "tg"},
-        properties = {screen = 2, tag = my_tags.tags[2].names[3]}
+        properties = {screen = 2, tag = my_tags.tags[2].names[4]}
     },
     {
         rule = {class = "discord"},
