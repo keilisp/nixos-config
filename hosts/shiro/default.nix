@@ -18,7 +18,7 @@
         libreoffice.enable = true;
         discord.enable = true;
         zoom.enable = true;
-        msteams.enable = true;
+        # msteams.enable = true;
         etcher.enable = true;
         flameshot.enable = true;
         dar.enable = true;
@@ -40,7 +40,6 @@
       # emulators.psx.enable = true;
       # };
       media = {
-        # daw.enable = true;
         documents.enable = true;
         # graphics.enable = true;
         mpv.enable = true;
@@ -62,7 +61,7 @@
       default = "nvim";
       emacs = {
         enable = true;
-        # native-comp = true;
+        native-comp = true;
         chemacs = { enable = true; };
         keimacs = { enable = true; };
       };
@@ -90,9 +89,9 @@
       # gitea.enable = true;
       # jellyfin.enable = true;
       # nginx.enable = true;
-      # transmission.enable = true;
+      transmission.enable = true;
       # Needed occasionally to help the parental units with PC problems
-      # teamviewer.enable = true;
+      teamviewer.enable = true;
     };
     # theme.active = "tomorrow-day";
     theme.active = "modus-operandi";
@@ -103,7 +102,8 @@
     dev = {
       cc.enable = true;
       python.enable = true;
-      # clojure.enable = true;
+      clojure.enable = true;
+      scheme.enable = true;
       common-lisp.enable = true;
       lua.enable = true;
       node.enable = true;
