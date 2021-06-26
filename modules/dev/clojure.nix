@@ -12,5 +12,8 @@ in {
 
   config = mkIf cfg.enable {
     user.packages = with pkgs; [ openjdk clojure joker leiningen ];
+
+    home.file.".lein/profiles.clj".source = "${configDir}/lein/profiles.clj";
   };
+
 }
