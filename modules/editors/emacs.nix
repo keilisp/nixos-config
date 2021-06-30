@@ -85,6 +85,8 @@ in {
         inherit (texlive) scheme-full wrapfig titling titlesec fontspec;
       })
 
+      # :lang clojure
+      clojure-lsp
       # :lang rust
       rustfmt
       unstable.rust-analyzer
