@@ -34,6 +34,7 @@
         default = "brave";
         brave.enable = true;
         firefox.enable = true;
+        nyxt.enable = true;
         # qutebrowser.enable = true;
       };
       # gaming = {

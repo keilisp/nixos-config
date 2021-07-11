@@ -17,7 +17,7 @@ in {
       brave
       (makeDesktopItem {
         name = "brave-private";
-        desktopName = "Brave Web Browser";
+        desktopName = "Brave (Private)";
         genericName = "Open a private Brave window";
         icon = "brave";
         exec = "${brave}/bin/brave --incognito";
