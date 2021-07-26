@@ -84,6 +84,7 @@
     };
     services = {
       ssh.enable = true;
+      lorri.enable = true;
       # syncthing.enable = true;
       # calibre.enable = true;
       # docker.enable = true;

@@ -83,6 +83,7 @@
     services = {
       ssh.enable = true;
       syncthing.enable = true;
+      lorri.enable = true;
       # calibre.enable = true;
       # docker.enable = true;
       # fail2ban.enable = true;
