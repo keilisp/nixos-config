@@ -949,7 +949,7 @@ globalkeys =
         "e",
         function()
             modalbind.grab {keymap = emacsmap, name = "Emacs", layout = 0, stay_in_mode = false}
-        endjjj
+        end
     ),
     -- Volume map
     awful.key(
