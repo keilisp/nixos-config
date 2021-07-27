@@ -6,7 +6,7 @@
     desktop = {
       awesome = {
         enable = true;
-        laptop = true;
+        laptop = false;
       };
       # bspwm.eanble = true;
       # stumpwm.eanble = true;
