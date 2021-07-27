@@ -41,13 +41,22 @@ with lib.my; {
     registry = registryInputs // { dotfiles.flake = inputs.self; };
     autoOptimiseStore = true;
   };
-  system.configurationRevision = with inputs; mkIf (self ? rev) self.rev;
-  system.stateVersion = "21.05";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
+  };
 
   # Use the latest kernel
   boot = {
     kernelPackages = mkDefault pkgs.linuxPackages_5_10;
   };
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  services.xserver.libinput.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -61,5 +70,8 @@ with lib.my; {
     gnumake
     unzip
   ];
+
+  system.configurationRevision = with inputs; mkIf (self ? rev) self.rev;
+  system.stateVersion = "21.05";
 }
 
