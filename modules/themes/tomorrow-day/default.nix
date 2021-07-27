@@ -19,18 +19,22 @@ in {
           # };
         };
 
+        shell.zsh.rcInit = ''
+          export THEME="tomorrow-day"
+          export BAT_THEME="ansi-light"
+        '';
+
         shell.zsh.rcFiles = [ ./config/zsh/prompt.zsh ];
         # shell.tmux.rcFiles = [ ./config/tmux.conf ];
         desktop.browsers = {
           firefox.userChrome = concatMapStringsSep "\n" readFile
             [ ./config/firefox/userChrome.css ];
-          # qutebrowser.userStyles = concatMapStringsSep "\n" readFile
-          #   (map toCSSFile [
-          #     ./config/qutebrowser/userstyles/monospace-textareas.scss
-          #     ./config/qutebrowser/userstyles/stackoverflow.scss
-          #     ./config/qutebrowser/userstyles/xkcd.scss
-          #   ]);
         };
+      };
+
+      env = {
+        THEME = "tomorrow-day";
+        BAT_THEME = "ansi-light";
       };
     }
 
@@ -44,6 +48,7 @@ in {
       ];
       fonts = {
         fonts = with pkgs; [
+          iosevka
           fira-code
           fira-code-symbols
           ibm-plex
@@ -53,8 +58,10 @@ in {
         fontconfig.defaultFonts = {
           # sansSerif = [ "IBM Plex Mono" ];
           # monospace = [ "IBM Plex Mono" ];
-          sansSerif = [ "Hack" ];
-          monospace = [ "Hack" ];
+          # sansSerif = [ "Hack" ];
+          # monospace = [ "Hack" ];
+          sansSerif = [ "Iosevka" ];
+          monospace = [ "Iosevka" ];
         };
       };
 
@@ -78,8 +85,6 @@ in {
         };
       };
 
-      env = { THEME = "tomorrow-day"; };
-
       # Login screen theme
       services.xserver.displayManager.lightdm.greeters.mini.extraConfig = ''
         text-color = "#8959a8"
@@ -93,10 +98,6 @@ in {
       # Other dotfiles
       home.configFile = with config.modules;
         mkMerge [
-          {
-            # Sourced from sessionCommands in modules/themes/default.nix
-            # "xtheme/90-theme".source = ./config/Xresources;
-          }
           (mkIf desktop.awesome.enable {
             "awesome/themes/current-theme".source =
               ./config/awesome/themes/current-theme;
@@ -108,33 +109,17 @@ in {
           })
 
           (mkIf editors.emacs.enable {
-            "doom/current-theme.el".source = ./config/emacs/current-theme.el;
+            "emacs/current-theme.el".source = ./config/emacs/current-theme.el;
           })
 
           (mkIf editors.vim.enable {
             "vim/current-theme.vim".source = ./config/vim/current-theme.vim;
           })
 
-          # (mkIf desktop.apps.rofi.enable {
-          #   "rofi/theme" = {
-          #     source = ./config/rofi;
-          #     recursive = true;
-          #   };
-          # })
-          # (mkIf (desktop.bspwm.enable || desktop.stumpwm.enable) {
-          #   "polybar" = {
-          #     source = ./config/polybar;
-          #     recursive = true;
-          #   };
-          #   "dunst/dunstrc".source = ./config/dunstrc;
-          # })
           (mkIf desktop.media.graphics.vector.enable {
             "inkscape/templates/default.svg".source =
               ./config/inkscape/default-template.svg;
           })
-          # (mkIf desktop.browsers.qutebrowser.enable {
-          #   "qutebrowser/extra/theme.py".source = ./config/qutebrowser/theme.py;
-          # })
         ];
     })
   ]);

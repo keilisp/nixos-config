@@ -3,6 +3,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.desktop.awesome;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.desktop.awesome = {
     enable = mkBoolOpt false;
@@ -11,20 +12,15 @@ in {
 
   config = mkIf cfg.enable {
     modules.theme.onReload.awesome = ''
-      echo 'awesome.restart()' | ${pkgs.awesome}/bin/awesome-client 
+      ${pkgs.coreutils}/bin/echo 'awesome.restart()' | ${pkgs.awesome}/bin/awesome-client 
     '';
 
     environment.systemPackages = with pkgs; [
       lightdm
-      # dunst
       libnotify
       blueberry
       gnome3.networkmanagerapplet
       unclutter
-      # (polybar.override {
-      #   pulseSupport = true;
-      #   nlSupport = true;
-      # })
     ];
 
     services = {
@@ -43,20 +39,7 @@ in {
       };
     };
 
-    # systemd.user.services."dunst" = {
-    #   enable = true;
-    #   description = "";
-    #   wantedBy = [ "default.target" ];
-    #   serviceConfig.Restart = "always";
-    #   serviceConfig.RestartSec = 2;
-    #   serviceConfig.ExecStart = "${pkgs.dunst}/bin/dunst";
-    # };
-
-    # link recursively so other modules can link files in their folders
-
     home.configFile = mkMerge [
-
-      # "sxhkd".source = "${configDir}/sxhkd";
       {
         "awesome" = {
           source = "${configDir}/awesome";
@@ -76,17 +59,6 @@ in {
           rev = "ccd6bd4359593195a84458857efa7a9670b1b4cd";
           sha256 = "1kym67h5c9q72pabnhk0qcqyxpinjycrfc9b0cgq6azjlqw87j8d";
         };
-
-        # "awesome/modalbind".source = pkgs.fetchzip {
-        #   url =
-        #     "https://github.com/crater2150/awesome-modalbind/archive/master.zip";
-        #   sha256 = "0sdabnhzms226sg878bylpp8z78xh5wi21vy26bj3ihda453jhpp";
-        # };
-        # "awesome/awesome-wm-widgets".source = pkgs.fetchzip {
-        #   url =
-        #     "https://github.com/streetturtle/awesome-wm-widgets/archive/master.zip";
-        #   sha256 = "1h2km2vfhzwgbnchbwrchz9g3cgram66fc6c4q9fq0nmrk1m4hsr";
-        # };
       }
 
       (mkIf (cfg.laptop == true) {

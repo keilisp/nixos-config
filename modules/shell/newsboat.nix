@@ -3,6 +3,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.shell.newsboat;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.shell.newsboat = { enable = mkEnableOption false; };
 

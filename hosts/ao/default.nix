@@ -8,7 +8,6 @@
         enable = true;
         laptop = false;
       };
-      # bspwm.eanble = true;
       # stumpwm.eanble = true;
       apps = {
         telegram.enable = true;
@@ -25,23 +24,21 @@
         keepassxc.enable = true;
         betterlockscreen.enable = true;
         kodi.enable = true;
-        # grub-customizer.enable = true;
         # skype.enable = true;
         # unity3d.enable = true;
-        # rofi.enable = true;
       };
       browsers = {
         default = "brave";
         brave.enable = true;
         firefox.enable = true;
         nyxt.enable = true;
-        # qutebrowser.enable = true;
       };
       # gaming = {
       # steam.enable = true;
       # emulators.enable = true;
       # emulators.psx.enable = true;
       # };
+
       media = {
         documents.enable = true;
         graphics.enable = true;
@@ -50,10 +47,10 @@
         pavucontrol.enable = true;
         recording.enable = true;
       };
+
       term = {
         default = "alacritty";
         alacritty.enable = true;
-        # st.enable = true;
       };
       vm = {
         # lxd.enable = true;
@@ -66,11 +63,11 @@
       emacs = {
         enable = true;
         native-comp = true;
-        chemacs = { enable = true; };
-        keimacs = { enable = true; };
       };
+      
       vim.enable = true;
     };
+
     shell = {
       # adl.enable = true;
       direnv.enable = true;
@@ -90,7 +87,6 @@
       # calibre.enable = true;
       # docker.enable = true;
       # fail2ban.enable = true;
-      # gitea.enable = true;
       # jellyfin.enable = true;
       # nginx.enable = true;
       transmission.enable = true;
@@ -175,63 +171,5 @@
       # "*/15 * * * *      ${config.user.name}    date >> /tmp/cron.log"
     ];
   };
-
-  systemd.services = {
-    # tune-power-management = {
-    #   description = "Tune Power Management";
-    #   wantedBy = [ "multi-user.target" ];
-
-    #   serviceConfig = {
-    #     Type = "oneshot";
-    #     RemainAfterExit = false;
-    #   };
-
-    #   unitConfig.RequiresMountsFor = "/sys";
-    #   script = ''
-    #     echo 6000 > /proc/sys/vm/dirty_writeback_centisecs
-    #     echo 1 > /sys/module/snd_hda_intel/parameters/power_save
-    #     for knob in \
-    #         /sys/bus/i2c/devices/i2c-0/device/power/control \
-    #         /sys/bus/i2c/devices/i2c-1/device/power/control \
-    #         /sys/bus/i2c/devices/i2c-2/device/power/control \
-    #         /sys/bus/i2c/devices/i2c-3/device/power/control \
-    #         /sys/bus/i2c/devices/i2c-4/device/power/control \
-    #         /sys/bus/i2c/devices/i2c-5/device/power/control \
-    #         /sys/bus/i2c/devices/i2c-6/device/power/control \
-    #         /sys/bus/pci/devices/0000:00:00.0/power/control \
-    #         /sys/bus/pci/devices/0000:00:02.0/power/control \
-    #         /sys/bus/pci/devices/0000:00:16.0/power/control \
-    #         /sys/bus/pci/devices/0000:00:19.0/power/control \
-    #         /sys/bus/pci/devices/0000:00:1b.0/power/control \
-    #         /sys/bus/pci/devices/0000:00:1c.0/power/control \
-    #         /sys/bus/pci/devices/0000:00:1c.1/power/control \
-    #         /sys/bus/pci/devices/0000:00:1d.0/power/control \
-    #         /sys/bus/pci/devices/0000:00:1f.0/power/control \
-    #         /sys/bus/pci/devices/0000:00:1f.2/power/control \
-    #         /sys/bus/pci/devices/0000:00:1f.3/power/control \
-    #         /sys/bus/pci/devices/0000:00:1f.6/power/control \
-    #         /sys/bus/pci/devices/0000:03:00.0/power/control \
-    #     ; do echo auto > $knob; done
-    #     for knob in \
-    #         /sys/class/scsi_host/host0/link_power_management_policy \
-    #         /sys/class/scsi_host/host1/link_power_management_policy \
-    #         /sys/class/scsi_host/host2/link_power_management_policy \
-    #     ; do echo min_power > $knob; done
-    #   '';
-    # };
-
-    tune-usb-autosuspend = {
-      description = "Disable USB autosuspend";
-      wantedBy = [ "multi-user.target" ];
-      serviceConfig = { Type = "oneshot"; };
-      unitConfig.RequiresMountsFor = "/sys";
-      script = ''
-        echo -1 > /sys/module/usbcore/parameters/autosuspend
-      '';
-    };
-  };
-
-  hardware.pulseaudio.extraConfig =
-    "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
 
 }

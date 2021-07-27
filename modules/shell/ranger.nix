@@ -9,6 +9,7 @@ in {
   config = mkIf cfg.enable {
     user.packages = with pkgs; [ ranger ueberzug ];
 
+    ## FIXME
     # home.configFile = { "ranger".source = "${configDir}/ranger"; };
   };
 }

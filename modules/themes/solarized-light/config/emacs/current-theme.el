@@ -1,21 +1,12 @@
 ;;; current-theme.el -*- lexical-binding: t; -*-
 
-;; Terminal mode
-(unless (display-graphic-p)
-  (setq doom-theme 'doom-solarized-light)
-  (use-package! evil-terminal-cursor-changer
-    :hook (tty-setup . evil-terminal-cursor-changer-activate)))
+(use-package solarized-theme
+  :ensure t
+  :init
+  ;; Terminal mode
+  (unless (display-graphic-p)
+    (load-theme 'solarized-light t)
+    (use-package! evil-terminal-cursor-changer
+                  :hook (tty-setup . evil-terminal-cursor-changer-activate)))
 
-
-(setq doom-theme 'doom-solarized-light)
-(setq calendar-location-name "Europe, Kiev")
-(setq calendar-latitude 49.50)
-(setq calendar-longitude 24.1)
-(use-package theme-changer)
-(if (daemonp)
-    (add-hook 'after-make-frame-functions
-	      (lambda (frame)
-		(select-frame frame)
-		(if (display-graphic-p)
-		    (setq doom-theme 'doom-solarized-light)
-		  ))))
+  (load-theme 'solarized-light t))

@@ -45,13 +45,4 @@ take() {
 }
 compdef take=mkdir
 
-zman() {
-	PAGER="less -g -I -s '+/^       "$1"'" man zshall
-}
-
-r() {
-	local time=$1
-	shift
-	sched "$time" "notify-send --urgency=critical 'Reminder' '$@'; ding"
-}
 compdef r=sched

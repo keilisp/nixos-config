@@ -10,6 +10,11 @@ in {
     sound.enable = true;
     hardware.pulseaudio.enable = true;
 
+    # Music daemon, can be accessed through mpc or an other client
+    services.mpd = {
+      enable = true;
+    };
+
     # HACK Prevents ~/.esd_auth files by disabling the esound protocol module
     #      for pulseaudio, which I likely don't need. Is there a better way?
     hardware.pulseaudio.configFile = let
@@ -23,6 +28,6 @@ in {
       '';
     in mkIf config.hardware.pulseaudio.enable "${paConfigFile}/default.pa";
 
-    user.extraGroups = [ "audio" "mpd" ];
+    user.extraGroups = [ "audio" ];
   };
 }

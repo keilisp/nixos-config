@@ -6,6 +6,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.editors.vim;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.editors.vim = { enable = mkBoolOpt false; };
 
@@ -37,11 +38,6 @@ in {
         rev = "b255382d6242d7ea3877bf059d2934125e0c4d95";
         sha256 = "0fkmklcq3fgvd6x6irz9bgyvcdaxafykk3k89gsi9p6b0ikw3rw6";
       };
-
-      # "vim/.vim/bundle/Vundle.vim".source = pkgs.fetchzip {
-      #   url = "https://github.com/VundleVim/Vundle.vim/archive/master.zip";
-      #   sha256 = "0fkmklcq3fgvd6x6irz9bgyvcdaxafykk3k89gsi9p6b0ikw3rw6";
-      # };
     };
   };
 }

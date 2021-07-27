@@ -1,4 +1,4 @@
-# modules/browser/brave.nix --- https://publishers.basicattentiontoken.org
+# modules/browser/nyxt.nix
 #
 # A hackable browser written in Commmon Lisp
 
@@ -7,6 +7,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.desktop.browsers.nyxt;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.desktop.browsers.nyxt = { enable = mkBoolOpt false; };
 

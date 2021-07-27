@@ -599,58 +599,6 @@ local systemmap = {
     }
 }
 
-local emacsmap = {
-    {
-        "e",
-        function()
-            awful.util.spawn("emacsclient -c")
-        end,
-        "emacs frame"
-    },
-    {
-        "r",
-        function()
-            awful.util.spawn('emacsclient -c -e \'(dired "~")\' ')
-        end,
-        "dired"
-    },
-    {
-        "n",
-        function()
-            awful.util.spawn("emacsclient -c -e '(elfeed)' ")
-        end,
-        "elfeed"
-    },
-    {
-        "t",
-        function()
-            awful.util.spawn("emacsclient -c -e '(telega)' ")
-        end,
-        "telega"
-    },
-    {
-        "w",
-        function()
-            awful.util.spawn("emacs --daemon --with-profile keimacs")
-        end,
-        "start keimacs daemon"
-    },
-    {
-        "d",
-        function()
-            awful.util.spawn("emacs --daemon --with-profile doom")
-        end,
-        "start doom daemon"
-    },
-    {
-        "K",
-        function()
-            awful.util.spawn("emacsclient -e '(kill-emacs)'")
-        end,
-        "kill emacs server"
-    }
-}
-
 local appsmap = {
     {"separator", "Editors"},
     {
@@ -660,18 +608,12 @@ local appsmap = {
         end,
         "nvim"
     },
-    {
-        "E",
-        function()
-            awful.util.spawn("emacs --with-profile doom")
-            -- awful.util.spawn("emacs")
-        end,
-        "doom emacs"
-    },
+
     {
         "e",
         function()
-            awful.util.spawn("emacs --with-profile keimacs")
+            awful.util.spawn("emacs")
+            -- awful.util.spawn("emacs")
         end,
         "keimacs"
     },
@@ -846,14 +788,6 @@ globalkeys =
             modalbind.grab {keymap = appsmap, name = "Apps", layout = 0, stay_in_mode = false}
         end
     ),
-    -- Emacs map
-    awful.key(
-        {modkey},
-        "e",
-        function()
-            modalbind.grab {keymap = emacsmap, name = "Emacs", layout = 0, stay_in_mode = false}
-        end
-    ),
     -- Volume map
     awful.key(
         {modkey},
@@ -872,17 +806,12 @@ globalkeys =
     ),
     -- dmenu
     awful.key(
-        {modkey, "Shift"},
-        "Return",
+        {modkey},
+        "space",
         function()
             awful.spawn(
                 string.format(
                  "dmenu_run",
-                    -- "dmenu_run -nb '#ffffff' -sf '#0030a6' -sb '#f8f8f8' -nf '#282828' -fn 'IBM Plex Mono:bold:pixelsize=13'",
-                    -- "dmenu_run -nb '#eee8d5' -sf '#268bd2' -sb '#fdf6e3' -nf '#a89984' -fn 'Monego:bold:pixelsize=12'",
-                    -- "dmenu_run -nb '#ffffff' -sf '#fabd2f' -sb '#4271ae' -nf '#eab700' -fn 'Monaco:pixelsize=12'",
-                    -- "dmenu_run -nb '#282828' -sf '#fabd2f' -sb '#504945' -nf '#a89984' -fn 'Monaco:pixelsize=13'",
-                    -- "dmenu_run -nb '#3b4252' -sf '#88c0d0' -sb '#4c566a' -nf '#a89984' -fn 'Mononoki Nerd Font:bold:pixelsize=13'",
                     beautiful.bg_normal,
                     beautiful.fg_normal,
                     beautiful.bg_focus,

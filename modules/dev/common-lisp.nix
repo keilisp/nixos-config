@@ -5,6 +5,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.dev.common-lisp;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.dev.common-lisp = { enable = mkBoolOpt false; };
 

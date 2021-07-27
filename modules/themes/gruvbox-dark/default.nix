@@ -12,6 +12,7 @@ in {
       modules = {
         theme = {
           wallpaper = mkDefault ./config/wallpaper.png;
+          ## FIXME
           # gtk = {
           #   theme = "Gruvbox-Dark-Yellow";
           #   iconTheme = "oomox-gruvbox";
@@ -19,18 +20,21 @@ in {
           # };
         };
 
+        shell.zsh.rcInit = ''
+          export THEME="gruvbox-dark"
+          export BAT_THEME="gruvbox"
+        '';
+
         shell.zsh.rcFiles = [ ./config/zsh/prompt.zsh ];
-        # shell.tmux.rcFiles = [ ./config/tmux.conf ];
         desktop.browsers = {
           firefox.userChrome = concatMapStringsSep "\n" readFile
             [ ./config/firefox/userChrome.css ];
-          # qutebrowser.userStyles = concatMapStringsSep "\n" readFile
-          #   (map toCSSFile [
-          #     ./config/qutebrowser/userstyles/monospace-textareas.scss
-          #     ./config/qutebrowser/userstyles/stackoverflow.scss
-          #     ./config/qutebrowser/userstyles/xkcd.scss
-          #   ]);
         };
+      };
+
+      env = {
+        THEME = "gruvbox-dark";
+        BAT_THEME = "gruvbox";
       };
     }
 
@@ -44,6 +48,7 @@ in {
       ];
       fonts = {
         fonts = with pkgs; [
+          iosevka
           fira-code
           fira-code-symbols
           ibm-plex
@@ -53,8 +58,10 @@ in {
         fontconfig.defaultFonts = {
           # sansSerif = [ "IBM Plex Mono" ];
           # monospace = [ "IBM Plex Mono" ];
-          sansSerif = [ "Hack" ];
-          monospace = [ "Hack" ];
+          # sansSerif = [ "Hack" ];
+          # monospace = [ "Hack" ];
+          sansSerif = [ "Iosevka" ];
+          monospace = [ "Iosevka" ];
         };
       };
 
@@ -78,8 +85,6 @@ in {
         };
       };
 
-      env = { THEME = "gruvbox-dark"; };
-
       # Login screen theme
       services.xserver.displayManager.lightdm.greeters.mini.extraConfig = ''
         text-color = "#98971a"
@@ -91,37 +96,36 @@ in {
       '';
 
       # GTK Themes
-      home.dataFile = with pkgs;
-        mkMerge [
-          {
-            "themes/Gruvbox-Dark-Yellow".source = fetchFromGitHub {
-              owner = "4rtzel";
-              repo = "Gruvbox-Dark-Yellow";
-              rev = "da38ec8c41cb88b7c4450c387960e12e4f5ac7fa";
-              sha256 = "0fxk7vzmgvdshal3qagn731fyfmm7kzzlgqzam647b3q6lb1vg0f";
-            };
+      # home.dataFile = with pkgs;
+      #   mkMerge [
+      #     {
+      #       "themes/Gruvbox-Dark-Yellow".source = fetchFromGitHub {
+      #         owner = "4rtzel";
+      #         repo = "Gruvbox-Dark-Yellow";
+      #         rev = "da38ec8c41cb88b7c4450c387960e12e4f5ac7fa";
+      #         sha256 = "0fxk7vzmgvdshal3qagn731fyfmm7kzzlgqzam647b3q6lb1vg0f";
+      #       };
 
-            # "themes/Gruvbox-Dark-Yellow".source = fetchzip {
-            #   url =
-            #     "https://github.com/4rtzel/Gruvbox-Dark-Yellow/archive/master.zip";
-            #   sha256 = "12z7q18ky0nw9j0hyqkn9h0si0b2wcx1izlz7bcfmils9dykflri";
-            # };
-          }
-          {
-            "icons/Gruvbox".source = fetchFromGitHub {
-              owner = "jkehler";
-              repo = "gruvbox-icons";
-              rev = "c55ceb452883d8f999a01731a74c72e1813119a5";
-              sha256 = "0yvzax2c4qzfcg7d4jrcpkjk7w8kdf0a8j9brjigjjsi8cvnic47";
-            };
-            # "icons/Gruvbox".source = fetchzip {
-            #   url =
-            #     "https://github.com/jkehler/gruvbox-icons/archive/master.zip";
-            #   sha256 = "05n0qzf2i8dqpddpz9yg502vqa0gm9q9hmc35jb0cqac6rnjjzjm";
-            # };
-
-          }
-        ];
+      #       # "themes/Gruvbox-Dark-Yellow".source = fetchzip {
+      #       #   url =
+      #       #     "https://github.com/4rtzel/Gruvbox-Dark-Yellow/archive/master.zip";
+      #       #   sha256 = "12z7q18ky0nw9j0hyqkn9h0si0b2wcx1izlz7bcfmils9dykflri";
+      #       # };
+      #     }
+      #     {
+      #       "icons/Gruvbox".source = fetchFromGitHub {
+      #         owner = "jkehler";
+      #         repo = "gruvbox-icons";
+      #         rev = "c55ceb452883d8f999a01731a74c72e1813119a5";
+      #         sha256 = "0yvzax2c4qzfcg7d4jrcpkjk7w8kdf0a8j9brjigjjsi8cvnic47";
+      #       };
+      #       # "icons/Gruvbox".source = fetchzip {
+      #       #   url =
+      #       #     "https://github.com/jkehler/gruvbox-icons/archive/master.zip";
+      #       #   sha256 = "05n0qzf2i8dqpddpz9yg502vqa0gm9q9hmc35jb0cqac6rnjjzjm";
+      #       # };
+      #     }
+      #   ];
 
       # Other dotfiles
       home.configFile = with config.modules;
@@ -137,33 +141,17 @@ in {
           })
 
           (mkIf editors.emacs.enable {
-            "doom/current-theme.el".source = ./config/emacs/current-theme.el;
+            "emacs/current-theme.el".source = ./config/emacs/current-theme.el;
           })
 
           (mkIf editors.vim.enable {
             "vim/current-theme.vim".source = ./config/vim/current-theme.vim;
           })
 
-          # (mkIf desktop.apps.rofi.enable {
-          #   "rofi/theme" = {
-          #     source = ./config/rofi;
-          #     recursive = true;
-          #   };
-          # })
-          # (mkIf (desktop.bspwm.enable || desktop.stumpwm.enable) {
-          #   "polybar" = {
-          #     source = ./config/polybar;
-          #     recursive = true;
-          #   };
-          #   "dunst/dunstrc".source = ./config/dunstrc;
-          # })
           (mkIf desktop.media.graphics.vector.enable {
             "inkscape/templates/default.svg".source =
               ./config/inkscape/default-template.svg;
           })
-          # (mkIf desktop.browsers.qutebrowser.enable {
-          #   "qutebrowser/extra/theme.py".source = ./config/qutebrowser/theme.py;
-          # })
         ];
 
     })

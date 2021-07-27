@@ -5,6 +5,18 @@ with lib.my; {
   options = with types; {
     user = mkOpt attrs { };
 
+    dotfiles = let t = either str path;
+    in {
+      dir = mkOpt t (findFirst pathExists (toString ../.) [
+        "${config.user.home}/.config/dotfiles"
+        "/etc/dotfiles"
+      ]);
+      binDir = mkOpt t "${config.dotfiles.dir}/bin";
+      configDir = mkOpt t "${config.dotfiles.dir}/config";
+      modulesDir = mkOpt t "${config.dotfiles.dir}/modules";
+      themesDir = mkOpt t "${config.dotfiles.modulesDir}/themes";
+    };
+
     home = {
       file = mkOpt' attrs { } "Files to place directly in $HOME";
       configFile = mkOpt' attrs { } "Files to place in $XDG_CONFIG_HOME";
@@ -43,12 +55,12 @@ with lib.my; {
 
       # I only need a subset of home-manager's capabilities. That is, access to
       # its home.file, home.xdg.configFile and home.xdg.dataFile so I can deploy
-      # files easily to my $HOME, but 'home-manager.users.hlissner.home.file.*'
+      # files easily to my $HOME, but 'home-manager.users.kei.home.file.*'
       # is much too long and harder to maintain, so I've made aliases in:
       #
-      #   home.file        ->  home-manager.users.hlissner.home.file
-      #   home.configFile  ->  home-manager.users.hlissner.home.xdg.configFile
-      #   home.dataFile    ->  home-manager.users.hlissner.home.xdg.dataFile
+      #   home.file        ->  home-manager.users.kei.home.file
+      #   home.configFile  ->  home-manager.users.kei.home.xdg.configFile
+      #   home.dataFile    ->  home-manager.users.kei.home.xdg.dataFile
       users.${config.user.name} = {
         home = {
           file = mkAliasDefinitions options.home.file;
@@ -73,7 +85,7 @@ with lib.my; {
 
     # must already begin with pre-existing PATH. Also, can't use binDir here,
     # because it contains a nix store path.
-    env.PATH = [ "$XDG_CONFIG_HOME/dotfiles/bin" "$XDG_BIN_HOME" "$PATH" ];
+    env.PATH = [ "$DOTFILES_BIN" "$XDG_BIN_HOME" "$PATH" ];
 
     environment.extraInit = concatStringsSep "\n"
       (mapAttrsToList (n: v: ''export ${n}="${v}"'') config.env);

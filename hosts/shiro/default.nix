@@ -32,13 +32,13 @@
         default = "brave";
         brave.enable = true;
         # firefox.enable = true;
-        # qutebrowser.enable = true;
       };
       # gaming = {
       # steam.enable = true;
       # emulators.enable = true;
       # emulators.psx.enable = true;
       # };
+
       media = {
         documents.enable = true;
         # graphics.enable = true;
@@ -51,7 +51,6 @@
       term = {
         default = "alacritty";
         alacritty.enable = true;
-        # st.enable = true;
       };
       # vm = {
       # qemu.enable = true;
@@ -68,12 +67,9 @@
       vim.enable = true;
     };
     shell = {
-      # adl.enable = true;
-      # bitwarden.enable = true;
       direnv.enable = true;
       git.enable = true;
       # gnupg.enable  = true;
-      # tmux.enable   = true;
       newsboat.enable = true;
       # pass.enable   = true;
       ranger.enable = true;
@@ -86,9 +82,6 @@
       lorri.enable = true;
       # calibre.enable = true;
       # docker.enable = true;
-      # fail2ban.enable = true;
-      # gitea.enable = true;
-      # jellyfin.enable = true;
       # nginx.enable = true;
       transmission.enable = true;
       # Needed occasionally to help the parental units with PC problems

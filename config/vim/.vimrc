@@ -53,7 +53,9 @@ Plugin 'arcticicestudio/nord-vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'chasinglogic/modus-themes-vim'
+" Plugin 'chasinglogic/modus-themes-vim'
+" Plugin 'ishan9299/modus-theme-vim'
+Plugin 'ishan9299/modus-theme-vim', {'branch': 'stable'}
 Plugin 'NLKNguyen/papercolor-theme'
 
 " All of your Plugins must be added before the following line

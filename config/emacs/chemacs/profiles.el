@@ -1,5 +1,0 @@
-(("default" . ((user-emacs-directory . "~/.config/doom-emacs")
-	       (env . (("DOOMDIR" . "~/.config/doom")))))
- ("keimacs" . ((user-emacs-directory . "~/.config/keimacs")))
- ("doom" . ((user-emacs-directory . "~/.config/doom-emacs")
-	    (env . (("DOOMDIR" . "~/.config/doom"))))))

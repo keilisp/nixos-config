@@ -7,6 +7,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.dev.clojure;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.dev.clojure = { enable = mkBoolOpt false; };
 

@@ -5,6 +5,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.desktop.media.documents;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.desktop.media.documents = {
     enable = mkBoolOpt false;

@@ -3,6 +3,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.shell.zsh;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.shell.zsh = with types; {
     enable = mkBoolOpt false;
@@ -53,9 +54,6 @@ in {
         };
       }];
     };
-
-    # Clone ${dotFilesDir} to XDG_CONFIG_HOME (for scripts)
-    home.configFile = { "dotfiles".source = "${dotFilesDir}"; };
 
     user.packages = with pkgs; [
       zsh

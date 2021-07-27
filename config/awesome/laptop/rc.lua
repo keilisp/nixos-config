@@ -949,7 +949,7 @@ globalkeys =
         "e",
         function()
             modalbind.grab {keymap = emacsmap, name = "Emacs", layout = 0, stay_in_mode = false}
-        end
+        endjjj
     ),
     -- Volume map
     awful.key(
@@ -969,17 +969,12 @@ globalkeys =
     ),
     -- dmenu
     awful.key(
-        {modkey, "Shift"},
-        "Return",
+        {modkey},
+        "space",
         function()
             awful.spawn(
                 string.format(
                  "dmenu_run",
-                    -- "dmenu_run -nb '#ffffff' -sf '#0030a6' -sb '#f8f8f8' -nf '#282828' -fn 'IBM Plex Mono:bold:pixelsize=13'",
-                    -- "dmenu_run -nb '#eee8d5' -sf '#268bd2' -sb '#fdf6e3' -nf '#a89984' -fn 'Monego:bold:pixelsize=12'",
-                    -- "dmenu_run -nb '#ffffff' -sf '#fabd2f' -sb '#4271ae' -nf '#eab700' -fn 'Monaco:pixelsize=12'",
-                    -- "dmenu_run -nb '#282828' -sf '#fabd2f' -sb '#504945' -nf '#a89984' -fn 'Monaco:pixelsize=13'",
-                    -- "dmenu_run -nb '#3b4252' -sf '#88c0d0' -sb '#4c566a' -nf '#a89984' -fn 'Mononoki Nerd Font:bold:pixelsize=13'",
                     beautiful.bg_normal,
                     beautiful.fg_normal,
                     beautiful.bg_focus,

@@ -46,6 +46,7 @@ in {
         noto-fonts
         noto-fonts-cjk
         hack-font
+        iosevka
         ibm-plex
         nerdfonts
       ];

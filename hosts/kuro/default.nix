@@ -8,7 +8,6 @@
         enable = true;
         laptop = true;
       };
-      # bspwm.eanble = true;
       # stumpwm.eanble = true;
       apps = {
         telegram.enable = true;
@@ -32,27 +31,24 @@
         default = "brave";
         brave.enable = true;
         # firefox.enable = true;
-        # qutebrowser.enable = true;
       };
       # gaming = {
       # steam.enable = true;
       # emulators.enable = true;
       # emulators.psx.enable = true;
       # };
+
       media = {
-        # daw.enable = true;
         documents.enable = true;
         # graphics.enable = true;
         mpv.enable = true;
         ncmpcpp.enable = true;
         pavucontrol.enable = true;
         # recording.enable = true;
-        # spotify.enable = true;
       };
       term = {
         default = "alacritty";
         alacritty.enable = true;
-        # st.enable = true;
       };
       # vm = {
       # qemu.enable = true;
@@ -63,18 +59,14 @@
       emacs = {
         enable = true;
         native-comp = true;
-        chemacs = { enable = true; };
-        keimacs = { enable = true; };
       };
+
       vim.enable = true;
     };
     shell = {
-      # adl.enable = true;
-      # bitwarden.enable = true;
       direnv.enable = true;
       git.enable = true;
       # gnupg.enable  = true;
-      # tmux.enable   = true;
       newsboat.enable = true;
       # pass.enable   = true;
       ranger.enable = true;
@@ -87,24 +79,21 @@
       lorri.enable = true;
       # calibre.enable = true;
       # docker.enable = true;
-      # fail2ban.enable = true;
-      # gitea.enable = true;
-      # jellyfin.enable = true;
       # nginx.enable = true;
       transmission.enable = true;
       # Needed occasionally to help the parental units with PC problems
       teamviewer.enable = true;
     };
     # theme.active = "tomorrow-day";
-    theme.active = "modus-operandi";
-    # theme.active = "modus-vivendi";
+    # theme.active = "modus-operandi";
+    theme.active = "modus-vivendi";
     # theme.active = "nord-dark";
     # theme.active = "gruvbox-dark";
     # theme.active = "solarized-light";
     dev = {
       cc.enable = true;
       python.enable = true;
-      # clojure.enable = true;
+      clojure.enable = true;
       common-lisp.enable = true;
       lua.enable = true;
       node.enable = true;
