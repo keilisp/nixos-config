@@ -7,6 +7,7 @@
   (unless (display-graphic-p)
     (load-theme 'sanityinc-tomorrow-day t)
     (use-package evil-terminal-cursor-changer
+      :after evil
       :ensure t
       :hook
       (tty-setup . evil-terminal-cursor-changer-activate)))
