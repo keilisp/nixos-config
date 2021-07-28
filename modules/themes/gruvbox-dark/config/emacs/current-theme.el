@@ -6,7 +6,9 @@
   ;; Terminal mode
   (unless (display-graphic-p)
     (load-theme 'gruvbox t)
-    (use-package! evil-terminal-cursor-changer
-                  :hook (tty-setup . evil-terminal-cursor-changer-activate)))
+    (use-package evil-terminal-cursor-changer
+      :ensure t
+      :hook
+      (tty-setup . evil-terminal-cursor-changer-activate)))
 
   (load-theme 'gruvbox t))
