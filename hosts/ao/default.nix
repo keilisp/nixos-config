@@ -75,6 +75,7 @@
       # gnupg.enable  = true;
       # tmux.enable   = true;
       newsboat.enable = true;
+      babashka.enable = true;
       # pass.enable   = true;
       ranger.enable = true;
       youtube-dl.enable = true;
@@ -102,6 +103,7 @@
     dev = {
       cc.enable = true;
       python.enable = true;
+      java.enable = true;
       clojure.enable = true;
       scheme.enable = true;
       common-lisp.enable = true;
