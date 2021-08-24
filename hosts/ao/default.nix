@@ -8,7 +8,7 @@
         enable = true;
         laptop = false;
       };
-      # stumpwm.eanble = true;
+      stumpwm.enable = false;
       apps = {
         telegram.enable = true;
         dmenu.enable = true;

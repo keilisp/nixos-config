@@ -16,7 +16,6 @@ with lib.my; {
 
   # Common config for all nixos machines; and to ensure the flake operates
   # soundly
-  # environment.variables.DOTFILES = dotFilesDir;
   environment.variables.DOTFILES = config.dotfiles.dir;
   environment.variables.DOTFILES_BIN = config.dotfiles.binDir;
 
