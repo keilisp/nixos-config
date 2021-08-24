@@ -1,21 +1,17 @@
 ;; -*- lisp -*-
-;;
-;; Author:  Henrik Lissner <henrik@lissner.net>
-;; URL:     https://github.com/hlissner/doom-emacs
-;;
-;;;
+
 (in-package :stumpwm)
 ;; (swank:create-server
 ;;  :dont-close t
 ;;  :port swank::default-server-port)
 
 ;;;
-(defvar *config-dir* "~/.config/dotfiles/config/stumpwm")
+(defvar *config-dir* "~/.config/stumpwm")
 
 (defcommand reload-dotfiles () ()
   (load (concat *config-dir* "/config"))
   (message "Config reloaded"))
-(define-key *top-map* (kbd "s-r") "reload-dotfiles")
+(define-key *top-map* (kbd "s-R") "reload-dotfiles")
 
 ;; (load (concat *config-dir* "/core/core.lisp"))
 
@@ -27,26 +23,35 @@
 
 ;;; Config
 (setf *mouse-focus-policy* :click)
-(set-font "-CTDB-Fira Sans-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
+(set-font "-*-terminus-medium-r-*-*-24-*-*-*-*-*-iso10646-1")
 
 
 ;;; Keybinds
 (set-prefix-key (kbd "C-z"))
-(define-key *top-map* (kbd "C-RET") "exec urxvt")
 
 (let ((map *top-map*))
-  ;; (gnew "a")
-  ;; (gnew "b")
-  ;; (gnew "c")
   (dotimes (i 9)
     (define-key map (kbd (format nil "s-~D" i))
-      (format nil "gselect ~D" i))
-    (define-key map (kbd (format nil "s-S-~D" i))
-      (format nil "gmove ~D" i))))
+      (format nil "gselect ~D" i))))
+
+(loop for ch in '(#\) #\! #\@ #\# #\$ #\% #\^ #\& #\* #\()
+      and i from 0 to 9
+      do (let ((key (kbd (format nil "s-~A" ch)))
+               (action (format nil "gmove ~A" i)))
+           (define-key *top-map* key action)))
+
 
 ;; Window management
+
+(define-key *top-map* (kbd "s-m") "fullscreen")
+(define-key *top-map* (kbd "s-M") "only")
+(define-key *top-map* (kbd "s-t") "toggle-always-on-top")
+(define-key *top-map* (kbd "s-T") "toggle-always-show")
+
 (define-key *top-map* (kbd "s-f") "float-this")
 (define-key *top-map* (kbd "s-F") "unfloat-this")
+
+(define-key *top-map* (kbd "s-s") "run-shell-command")
 
 (define-key *top-map* (kbd "s-h") "move-focus left")
 (define-key *top-map* (kbd "s-j") "move-focus down")
@@ -58,34 +63,59 @@
 (define-key *top-map* (kbd "s-K") "move-window up")
 (define-key *top-map* (kbd "s-L") "move-window right")
 
-(define-key *top-map* (kbd "s-RET") "exec xst")
-(define-key *top-map* (kbd "s-SPC") "exec rofi/appmenu")
+(setf *resize-increment* 20)
+(define-key *top-map* (kbd "M-H") "resize-direction left")
+(define-key *top-map* (kbd "M-J") "resize-direction up")
+(define-key *top-map* (kbd "M-K") "resize-direction down")
+(define-key *top-map* (kbd "M-L") "resize-direction right")
+(define-key *top-map* (kbd "s-r") "iresize")
 
-(define-key *top-map* (kbd "s-TAB")   "next-in-frame")
-(define-key *top-map* (kbd "s-ISO_Left_Tab") "prev-in-frame")
+
+(define-key *top-map* (kbd "C-s-h") "exchange-direction left")
+(define-key *top-map* (kbd "C-s-j") "exchange-direction down")
+(define-key *top-map* (kbd "C-s-k") "exchange-direction up")
+(define-key *top-map* (kbd "C-s-l") "exchange-direction right")
+
+(define-key *top-map* (kbd "s-RET") "exec alacritty")
+(define-key *top-map* (kbd "s-SPC") "exec dmenu_run")
+
+(define-key *top-map* (kbd "s-n")   "next-in-frame")
+(define-key *top-map* (kbd "s-p") "prev-in-frame")
 
 (define-key *top-map* (kbd "s-`")   "exec scratch")
+(define-key *top-map* (kbd "s-;")   "colon")
+(define-key *top-map* (kbd "s-e")   "eval")
 
 
 (defvar *window-manipulation-map* (make-sparse-keymap))
 
 (defcommand kill-or-delete-window () ()
-            (and (delete-window)
-                 (remove-split)))
+  (and (delete-window)
+       (remove-split)))
 
-(define-key *top-map* (kbd "s-q") "delete-window")
-(define-key *top-map* (kbd "s-Q") "kill-or-delete-window")
+(define-key *top-map* (kbd "s-x") "delete-window")
+(define-key *top-map* (kbd "s-X") "kill-or-delete-window")
 (define-key *top-map* (kbd "s-w") *window-manipulation-map*)
 (let ((map *window-manipulation-map*))
   (define-key map (kbd "s-c") "remove-split")
   (define-key map (kbd "s-s") "hsplit")
   (define-key map (kbd "s-v") "vsplit"))
 
+;;; Groups
+;; (defvar *kei/groups* (list "   Ⅰ   " "   Ⅱ   " "   Ⅲ   " "   Ⅳ   " "   Ⅴ   " "   Ⅵ   " "   Ⅶ   " "   Ⅷ   "))
+(defvar *kei/groups* (list " One " " Two " " Three " " 4 " " 5 " " 6 " " 7 " " 8 "))
+(grename (nth 0 *kei/groups*))
+(dolist (workspace (cdr *kei/groups*))
+  (gnewbg workspace))
 
 ;;; Modeline
 (setf *bar-med-color* "^B^3")
 (setf *bar-hi-color* "^B^3")
 (setf *bar-crit-color* "^B^1")
+
+;;; This will repack window numbers every time a window is killed
+(stumpwm:add-hook stumpwm:*destroy-window-hook*
+                  #'(lambda (win) (stumpwm:repack-window-numbers)))
 
 (setf *colors*
       '("#101216"  ; fg
@@ -100,9 +130,16 @@
 
 (update-color-map (current-screen))
 
-(setf *group-format* " %t ")
-(setf *window-format* "%m%s%20t ")
-(setf *mode-line-timeout* 1)
+(setf *group-format* " %t "
+      *window-format* "\{%n\}%m%s%20t "
+      *windows-border-style* :thin
+      *normal-border-width* 1
+      *mode-line-timeout* 1
+      *message-window-gravity* :center
+      *input-window-gravity* :center
+      *transient-border-width* 1
+      stumpwm::*float-window-border* 2
+      stumpwm::*float-window-title-height* 15)
 
 (setf *time-modeline-string* "^B^3 %e %b %H:%M ^n")
 
@@ -111,12 +148,8 @@
 
 (setf *screen-mode-line-format*
       (list "^B^3%g ^n^b %W ^>  "
-            "  %B  %d"
-            ))
+            "%d"))
 
-(setf *mode-line-border-width* 0)
-(setf *mode-line-pad-x* 0)
-(setf *mode-line-pad-y* 0)
 (setf *mode-line-background-color* (elt *colors* 0))
 (setf *mode-line-foreground-color* (elt *colors* 1))
 

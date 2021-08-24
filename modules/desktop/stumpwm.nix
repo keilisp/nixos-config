@@ -17,21 +17,21 @@ in {
     ];
 
     ## REVIEW
-    # systemd.user.services."dunst" = {
-    #   enable = true;
-    #   description = "";
-    #   wantedBy = [ "default.target" ];
-    #   serviceConfig.Restart = "always";
-    #   serviceConfig.RestartSec = 2;
-    #   serviceConfig.ExecStart = "${pkgs.dunst}/bin/dunst";
-    # };
+    systemd.user.services."dunst" = {
+      enable = true;
+      description = "";
+      wantedBy = [ "default.target" ];
+      serviceConfig.Restart = "always";
+      serviceConfig.RestartSec = 2;
+      serviceConfig.ExecStart = "${pkgs.dunst}/bin/dunst";
+    };
 
     # master.services.picom.enable = true;
     services = {
       redshift.enable = true;
       xserver = {
         enable = true;
-        windowManager.default = "stumpwm";
+        displayManager.defaultSession = "none+stumpwm";
         windowManager.stumpwm.enable = true;
         displayManager.lightdm.enable = true;
         displayManager.lightdm.greeters.mini.enable = true;
