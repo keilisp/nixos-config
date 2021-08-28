@@ -24,7 +24,7 @@ with lib; {
   ##
   # modules.shell.bitwarden.config.server = "p.v0.io";
 
-  services.syncthing.declarative = {
+  services.syncthing = {
     devices = {
       ao.id = "KQHX3S2-546W2K4-PYP2TAC-6IK4M2A-UD2NLOC-TWVNTUZ-ON3VGGE-EO6JHAS";
       kuro.id =
