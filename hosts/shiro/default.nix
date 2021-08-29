@@ -6,7 +6,7 @@
     desktop = {
       awesome = {
         enable = true;
-        laptop = false;
+        laptop = true;
       };
       # bspwm.eanble = true;
       # stumpwm.eanble = true;
@@ -43,7 +43,7 @@
         documents.enable = true;
         # graphics.enable = true;
         mpv.enable = true;
-        ncmpcpp.enable = true;
+        # ncmpcpp.enable = true;
         pavucontrol.enable = true;
         # recording.enable = true;
         # spotify.enable = true;
@@ -88,8 +88,8 @@
       teamviewer.enable = true;
     };
     # theme.active = "tomorrow-day";
-    theme.active = "modus-operandi";
-    # theme.active = "modus-vivendi";
+    # theme.active = "modus-operandi";
+    theme.active = "modus-vivendi";
     # theme.active = "nord-dark";
     # theme.active = "gruvbox-dark";
     # theme.active = "solarized-light";
@@ -132,7 +132,7 @@
 
   # Configure keymap
   services.xserver.layout = "us, ru, ua";
-  services.xserver.xkbOptions = "grp:caps_toggle";
+  services.xserver.xkbOptions = "grp:caps_toggle,ctrl:swap_lalt_lctl";
 
   # xset r rate 300 50
   services.xserver.autoRepeatDelay = 300;
