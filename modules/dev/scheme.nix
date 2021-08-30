@@ -10,5 +10,9 @@ let cfg = config.modules.dev.scheme;
 in {
   options.modules.dev.scheme = { enable = mkBoolOpt false; };
 
-  config = mkIf cfg.enable { user.packages = with pkgs; [ guile racket ]; };
+  config = mkIf cfg.enable {
+    user.packages = with pkgs; [ guile racket ];
+    env.PLTUSERHOME = "$XDG_DATA_HOME/racket";
+  };
+
 }
