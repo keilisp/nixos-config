@@ -64,7 +64,7 @@
         enable = true;
         native-comp = true;
       };
-      
+      idea.enable = true;
       vim.enable = true;
     };
 
@@ -85,8 +85,9 @@
       ssh.enable = true;
       syncthing.enable = true;
       lorri.enable = true;
+      openvpn.enable = true;
       # calibre.enable = true;
-      # docker.enable = true;
+      docker.enable = true;
       # fail2ban.enable = true;
       # jellyfin.enable = true;
       # nginx.enable = true;
