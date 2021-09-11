@@ -12,7 +12,19 @@ in {
   config = mkIf cfg.enable {
     user.packages = with pkgs; [ sbcl lispPackages.quicklisp ];
 
-    home.file.".sbclrc".source = "${configDir}/sbcl/sbclrc";
-  };
+    environment.etc = {
+      sbclrc = {
+        text = ''
+        (require :asdf)
+        (setf sb-ext:*userinit-pathname-function*
+              (lambda () (uiop:xdg-config-home #P"sbcl/sbclrc")))
+        '';
+      };
+    };
 
+    # FIXME
+    # home.configFile."sbcl/sbclrc".source = "${configDir}/sbcl/sbclrc";
+    home.file.".sbclrc".source = "${configDir}/sbcl/sbclrc";
+
+  };
 }

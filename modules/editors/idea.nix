@@ -9,5 +9,9 @@ in {
 
   config = mkIf cfg.enable {
     user.packages = with pkgs; [ jetbrains.idea-community ];
+
+    env = {
+      DVDCSS_CACHE = "$XDG_DATA_HOME/dvdcss";
+    };
   };
 }

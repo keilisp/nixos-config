@@ -12,7 +12,12 @@ in {
   config = mkIf cfg.enable {
     user.packages = with pkgs; [ openjdk clojure joker leiningen ];
 
-    home.file.".lein/profiles.clj".source = "${configDir}/lein/profiles.clj";
+    env = {
+      LEIN_HOME="$XDG_DATA_HOME/lein";
+    };
+
+    # FIXME do something about .m2 (profiles.clj seems not to work)
+    home.dataFile."lein/profiles.clj".source = "${configDir}/lein/profiles.clj";
   };
 
 }

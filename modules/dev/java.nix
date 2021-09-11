@@ -8,5 +8,12 @@ let cfg = config.modules.dev.java;
 in {
   options.modules.dev.java = { enable = mkBoolOpt false; };
 
-  config = mkIf cfg.enable { user.packages = with pkgs; [ openjdk ]; };
+  config = mkIf cfg.enable {
+    user.packages = with pkgs; [ openjdk ];
+
+    env = {
+      _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java";
+    };
+
+  };
 }

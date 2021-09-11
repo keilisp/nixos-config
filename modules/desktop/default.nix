@@ -122,6 +122,8 @@ in {
       platformTheme = "gtk2";
     };
 
+    env.GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc";
+
     services.xserver.displayManager.sessionCommands = ''
       # GTK2_RC_FILES must be available to the display manager.
       export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"

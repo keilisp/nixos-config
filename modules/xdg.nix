@@ -31,6 +31,9 @@
       INPUTRC = "$XDG_CONFIG_HOME/readline/inputrc";
       LESSHISTFILE = "$XDG_CACHE_HOME/lesshst";
       WGETRC = "$XDG_CONFIG_HOME/wgetrc";
+      TEXMFHOME="$XDG_DATA_HOME/texmf";
+      TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var";
+      TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config";
 
       # Tools I don't use
       # SUBVERSION_HOME = "$XDG_CONFIG_HOME/subversion";

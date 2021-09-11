@@ -50,9 +50,7 @@ with lib.my; {
   };
 
   # Use the latest kernel
-  boot = {
-    kernelPackages = mkDefault pkgs.linuxPackages_5_10;
-  };
+  boot = { kernelPackages = mkDefault pkgs.linuxPackages_5_10; };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
@@ -70,7 +68,13 @@ with lib.my; {
     unzip
   ];
 
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+    DefaultTimeoutStartSec=10s
+  '';
+
   system.configurationRevision = with inputs; mkIf (self ? rev) self.rev;
   system.stateVersion = "21.05";
+
 }
 
