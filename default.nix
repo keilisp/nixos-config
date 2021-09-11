@@ -50,7 +50,7 @@ with lib.my; {
   };
 
   # Use the latest kernel
-  boot = { kernelPackages = mkDefault pkgs.linuxPackages_5_10; };
+  boot = { kernelPackages = mkDefault pkgs.linuxPackages_5_14; };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
