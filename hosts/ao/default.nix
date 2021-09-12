@@ -33,11 +33,12 @@
         firefox.enable = true;
         nyxt.enable = true;
       };
-      # gaming = {
+      gaming = {
       # steam.enable = true;
       # emulators.enable = true;
       # emulators.psx.enable = true;
-      # };
+      # lutris.enable = true;
+      };
 
       media = {
         documents.enable = true;
