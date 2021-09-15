@@ -92,6 +92,7 @@ in {
 
       # :lang clojure
       clojure-lsp
+      clj-kondo
 
       # :lang rust
       rustfmt
