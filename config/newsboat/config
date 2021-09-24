@@ -28,7 +28,7 @@ color info magenta default bold
 color article white default bold
 
 
-browser brave
+browser firefox
 macro , open-in-browser
 macro t set browser "qndl" ; open-in-browser ; set browser brave
 macro v set browser "setsid -f mpv --no-terminal" ; open-in-browser ; set browser brave
