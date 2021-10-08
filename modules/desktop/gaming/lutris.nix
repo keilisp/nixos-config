@@ -9,7 +9,17 @@ in {
   };
 
   config = mkIf cfg.enable {
-    user.packages = with pkgs; [ lutris ];
+    user.packages = with pkgs; [
+      (wineWowPackages.full.override {
+        wineRelease = "staging";
+        mingwSupport = true;
+      })
+      (winetricks.override { wine = wineWowPackages.staging; })
+      lutris
+
+      # wineWowPackages.stable
+      # (winetricks.override { wine = wineWowPackages.stable; })
+    ];
     # system.userActivationScripts.setupSteamDir = ''mkdir -p "${cfg.libDir}"'';
   };
 }
