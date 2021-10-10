@@ -21,7 +21,7 @@ in {
 
         shell.zsh.rcInit = ''
           export THEME="modus-operandi"
-          export BAT_THEME="ansi-light"
+          export BAT_THEME="ansi"
         '';
 
         shell.zsh.rcFiles = [ ./config/zsh/prompt.zsh ];
@@ -34,7 +34,7 @@ in {
 
       env = {
         THEME = "modus-operandi";
-        BAT_THEME = "ansi-light";
+        BAT_THEME = "ansi";
       };
     }
 

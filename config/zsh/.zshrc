@@ -42,9 +42,9 @@ if [[ $TERM != dumb ]]; then
     export FZF_ALT_C_COMMAND="fd -t d . $HOME"
   fi
 
-  if command -v bat >/dev/null; then
-    export BAT_THEME="ansi-light"
-  fi
+  # if command -v bat >/dev/null; then
+  #   export BAT_THEME="ansi"
+  # fi
 
   # _cache fasd --init posix-alias zsh-{hook,{c,w}comp{,-install}}
 

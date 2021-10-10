@@ -21,7 +21,7 @@ in {
 
         shell.zsh.rcInit = ''
           export THEME="tomorrow-day"
-          export BAT_THEME="ansi-light"
+          export BAT_THEME="ansi"
         '';
 
         shell.zsh.rcFiles = [ ./config/zsh/prompt.zsh ];
@@ -34,7 +34,7 @@ in {
 
       env = {
         THEME = "tomorrow-day";
-        BAT_THEME = "ansi-light";
+        BAT_THEME = "ansi";
       };
     }
 
