@@ -25,11 +25,13 @@ color listfocus red default bold
 color listnormal_unread magenta default
 color listfocus_unread green default bold
 color info magenta default bold
-color article white default bold
+color article black default bold
 
 
 browser firefox
 macro , open-in-browser
+macro f set browser firefox ; open-in-browser ; set browser brave
+macro b set browser brave ; open-in-browser ; set browser brave
 macro t set browser "qndl" ; open-in-browser ; set browser brave
 macro v set browser "setsid -f mpv --no-terminal" ; open-in-browser ; set browser brave
 macro c set browser "xsel -b <<<" ; open-in-browser ; set browser brave
