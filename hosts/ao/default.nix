@@ -16,7 +16,7 @@
         lxappearance.enable = true;
         discord.enable = true;
         zoom.enable = true;
-        # msteams.enable = true;
+        msteams.enable = true;
         libreoffice.enable = true;
         etcher.enable = true;
         flameshot.enable = true;
