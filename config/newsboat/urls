@@ -16,8 +16,10 @@ https://40ants.com/lisp-project-of-the-day/rss.xml
 
 ---EMACS---
 https://planet.emacslife.com/atom.xml
+http://blog.danielgempesaw.com/tagged/planet-emacsen/rss
 https://www.reddit.com/r/emacs/new.rss
 https://sachachua.com/blog/category/emacs/feed
+https://emacsredux.com/atom.xml
 https://nullprogram.com/feed/
 https://irreal.org/blog/?feed=rss2
 https://endlessparentheses.com/atom.xml
@@ -29,6 +31,7 @@ http://planet.clojure.in/atom.xml
 https://www.reddit.com/r/Clojure/new.rss
 https://clojure.org/feed.xml
 https://grishaev.me/feed.xml
+https://lambdaisland.com/feeds/blog.atom
 
 ---NIXOS---
 https://www.reddit.com/r/NixOS/new.rss
