@@ -15,7 +15,7 @@ if ! zgen saved; then
   zgen load zsh-users/zsh-completions src
   zgen load junegunn/fzf shell
   zgen load momo-lab/zsh-abbrev-alias
-  # zgen load chisui/zsh-nix-shell plugins/nix-shell
+  zgen load chisui/zsh-nix-shell
   [ -z "$SSH_CONNECTION" ] && zgen load zdharma/fast-syntax-highlighting
   zgen save
 fi
@@ -25,7 +25,6 @@ if [[ $TERM != dumb ]]; then
   source $ZDOTDIR/keybinds.zsh
   source $ZDOTDIR/completion.zsh
   source $ZDOTDIR/aliases.zsh
-
 
   function _cache {
     command -v "$1" >/dev/null || return 1
@@ -58,7 +57,7 @@ if [[ $TERM != dumb ]]; then
 
   ##
   autoload -Uz compinit && compinit -u -d $ZSH_CACHE/zcompdump
-  # autopair-init
+  autopair-init
 
   # If you have host-local configuration, this is where you'd put it
   [ -f ~/.zshrc ] && source ~/.zshrc
