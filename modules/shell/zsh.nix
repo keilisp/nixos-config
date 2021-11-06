@@ -2,8 +2,9 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.shell.zsh;
-    configDir = config.dotfiles.configDir;
+let
+  cfg = config.modules.shell.zsh;
+  configDir = config.dotfiles.configDir;
 in {
   options.modules.shell.zsh = with types; {
     enable = mkBoolOpt false;
@@ -52,7 +53,19 @@ in {
           rev = "v0.1.0";
           sha256 = "0snhch9hfy83d4amkyxx33izvkhbwmindy0zjjk28hih1a9l2jmx";
         };
-      }];
+      }
+
+      # {
+      #   name = "atuin";
+      #   file = "atuin.plugin.zsh";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "ellie";
+      #     repo = "atuin";
+      #     rev = "v0.7.1";
+      #     sha256 = "18g85qqgfv8p97pp93dlc3pzr5617803fknlgzs4m747hzqqyccf";
+      #   };
+      # }
+        ];
     };
 
     user.packages = with pkgs; [
@@ -72,6 +85,7 @@ in {
       killall
       xorg.xkill
       manix
+      # autojump
     ];
 
     env = {

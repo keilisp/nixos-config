@@ -56,6 +56,9 @@ bindkey -M viins '^a' beginning-of-line
 bindkey -M viins '^e' end-of-line
 bindkey -M viins '^d' push-line-or-edit
 
+zle -N _atuin_search_widget _atuin_search
+bindkey '^r' _atuin_search_widget
+
 bindkey -M vicmd '^k' kill-line
 bindkey -M vicmd 'H'  run-help
 

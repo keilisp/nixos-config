@@ -24,6 +24,7 @@
         keepassxc.enable = true;
         betterlockscreen.enable = true;
         kodi.enable = true;
+        ngrok.enable = true;
         # skype.enable = true;
         # unity3d.enable = true;
       };
@@ -70,6 +71,7 @@
     };
 
     shell = {
+      zsh.enable = true;
       # adl.enable = true;
       direnv.enable = true;
       git.enable = true;
@@ -77,10 +79,10 @@
       # tmux.enable   = true;
       newsboat.enable = true;
       babashka.enable = true;
+      atuin.enable = true;
       # pass.enable   = true;
       ranger.enable = true;
       youtube-dl.enable = true;
-      zsh.enable = true;
     };
     services = {
       ssh.enable = true;
