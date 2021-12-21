@@ -110,6 +110,9 @@ in {
 
       # :lang lua
       # luaformatter
+
+      # :lang sql
+      pgformatter
     ];
 
     modules.shell.zsh.rcFiles = [ "${configDir}/emacs/aliases.zsh" ];
