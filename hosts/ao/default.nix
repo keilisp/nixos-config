@@ -19,6 +19,7 @@
         msteams.enable = true;
         libreoffice.enable = true;
         etcher.enable = true;
+        dbeaver.enable = true;
         flameshot.enable = true;
         dar.enable = true;
         keepassxc.enable = true;
