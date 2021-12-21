@@ -124,7 +124,7 @@
       sensors.enable = true;
       udiskie.enable = true;
       # fs.enable = true;
-      # bluetooth.enable = true;
+      bluetooth.enable = true;
     };
   };
 
