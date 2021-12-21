@@ -22,7 +22,7 @@
         flameshot.enable = true;
         dar.enable = true;
         keepassxc.enable = true;
-        betterlockscreen.enable = true;
+        # betterlockscreen.enable = true;
         kodi.enable = true;
         ngrok.enable = true;
         # skype.enable = true;
@@ -140,6 +140,16 @@
       device = "nodev";
     };
   };
+
+  # hybrid sleep when press power button
+  services.logind.extraConfig = ''
+    # HandlePowerKey=suspend
+    IdleAction=ignore
+    IdleActionSec=1m
+  '';
+
+  # screen locker
+  programs.xss-lock.enable = true;
 
   ## Local config
   programs.ssh.startAgent = true;
