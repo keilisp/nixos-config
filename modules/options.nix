@@ -8,8 +8,8 @@ with lib.my; {
     dotfiles = let t = either str path;
     in {
       dir = mkOpt t (findFirst pathExists (toString ../.) [
-        "${config.user.home}/.config/dotfiles"
-        "/etc/dotfiles"
+        "${config.user.home}/nix/nixos-config"
+        "/etc/nixos"
       ]);
       binDir = mkOpt t "${config.dotfiles.dir}/bin";
       configDir = mkOpt t "${config.dotfiles.dir}/config";
