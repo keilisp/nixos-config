@@ -45,6 +45,7 @@
 
       media = {
         documents.enable = true;
+        spotify.enable = true;
         graphics.enable = true;
         mpv.enable = true;
         ncmpcpp.enable = true;
@@ -196,5 +197,7 @@
       package = pkgs.mysql80;
     };
   };
+
+  # hardware.opengl.enable = true;
 
 }

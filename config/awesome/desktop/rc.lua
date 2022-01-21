@@ -32,9 +32,8 @@ local freedesktop = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 require("awful.hotkeys_popup.keys")
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
--- }}}
 
--- {{{ Error handling
+-- Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
@@ -70,9 +69,8 @@ do
         end
     )
 end
--- }}}
 
--- {{{ Autostart windowless processes
+-- Autostart windowless processes
 local function run_once(cmd_arr)
     for _, cmd in ipairs(cmd_arr) do
         awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
@@ -80,9 +78,8 @@ local function run_once(cmd_arr)
 end
 
 run_once({"unclutter -root"}) -- entries must be comma-separated
--- }}}
 
--- {{{ Variable definitions
+-- Variable definitions
 
 local themes = {
     "current-theme",
@@ -336,9 +333,8 @@ lain.layout.cascade.tile.nmaster = 5
 lain.layout.cascade.tile.ncol = 2
 
 beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/themes/%s/theme.lua", chosen_theme))
--- }}}
 
--- {{{ Menu
+-- Menu
 local myawesomemenu = {
     {
         "hotkeys",
@@ -377,9 +373,8 @@ awful.util.mymainmenu =
     }
 )
 --menubar.utils.terminal = terminal -- Set the Menubar terminal for applications that require it
--- }}}
 
--- {{{ Screen
+-- Screen
 -- Re-set wallpaper when a screen\'s geometry changes (e.g. different resolution)
 screen.connect_signal(
     "property::geometry",
@@ -403,9 +398,8 @@ awful.screen.connect_for_each_screen(
         beautiful.at_screen_connect(s)
     end
 )
--- }}}
 
--- {{{ Mouse bindings
+-- Mouse bindings
 root.buttons(
     my_table.join(
         awful.button(
@@ -1211,10 +1205,24 @@ globalkeys =
     -- ),
 
     -- Brightness
-    -- awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
-    --           {description = "+10%", group = "hotkeys"}),
-    -- awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
-    --           {description = "-10%", group = "hotkeys"}),
+     awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
+               {description = "+10%", group = "hotkeys"}),
+     awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
+               {description = "-10%", group = "hotkeys"}),
+
+    -- Spotify control from XM4
+     awful.key({ }, "XF86AudioPlay", function () os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play") end,
+               {description = "Play Spotify playback", group = "hotkeys"}),
+
+     awful.key({ }, "XF86AudioPause", function () os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause") end,
+               {description = "Pause Spotify playback", group = "hotkeys"}),
+
+     awful.key({ }, "XF86AudioNext", function () os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") end,
+               {description = "Next Track", group = "hotkeys"}),
+
+     awful.key({ }, "XF86AudioPrev", function () os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") end,
+               {description = "Pause Spotify playback", group = "hotkeys"}),
+
 
     -- Copy primary to clipboard (terminals to gtk)
     awful.key(
