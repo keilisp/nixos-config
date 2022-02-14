@@ -11,7 +11,7 @@ in {
 
     services.transmission = {
       enable = true;
-      home = "${config.user.home}/dwnlds/torrents";
+      # home = "${config.user.home}/dwnlds/torrents";
       settings = {
         incomplete-dir-enabled = true;
         rpc-whitelist = "127.0.0.1,192.168.*.*";

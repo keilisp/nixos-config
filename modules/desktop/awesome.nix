@@ -19,7 +19,7 @@ in {
       lightdm
       libnotify
       blueberry
-      gnome3.networkmanagerapplet
+      networkmanagerapplet
       unclutter
     ];
 

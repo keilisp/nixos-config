@@ -47,7 +47,7 @@ in {
         # Enable userContent.css and userChrome.css for our theme modules
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         # Stop creating ~/Downloads!
-        "browser.download.dir" = "${config.user.home}/dl";
+        "browser.download.dir" = "${config.user.home}/dwnlds";
         # Don't use the built-in password manager; a nixos user is more likely
         # using an external one (you are using one, right?).
         "signon.rememberSignons" = false;
@@ -56,8 +56,8 @@ in {
         # Disable the "new tab page" feature and show a blank tab instead
         # https://wiki.mozilla.org/Privacy/Reviews/New_Tab
         # https://support.mozilla.org/en-US/kb/new-tab-page-show-hide-and-customize-top-sites#w_how-do-i-turn-the-new-tab-page-off
-        "browser.newtabpage.enabled" = false;
-        "browser.newtab.url" = "about:blank";
+        # "browser.newtabpage.enabled" = false;
+        # "browser.newtab.url" = "about:blank";
         # Disable Activity Stream
         # https://wiki.mozilla.org/Firefox/Activity_Stream
         "browser.newtabpage.activity-stream.enabled" = false;
@@ -67,12 +67,12 @@ in {
         # https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
         # https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
         # https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
-        "browser.newtabpage.enhanced" = false;
-        "browser.newtab.preload" = false;
+        # "browser.newtabpage.enhanced" = false;
+        # "browser.newtab.preload" = false;
         "browser.newtabpage.directory.ping" = "";
         "browser.newtabpage.directory.source" = "data:text/plain,{}";
         # Disable some not so useful functionality.
-        "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
+        # "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
         "extensions.htmlaboutaddons.recommendations.enabled" = false;
         "extensions.htmlaboutaddons.discover.enabled" = false;
         "extensions.pocket.enabled" = false;

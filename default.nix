@@ -72,8 +72,8 @@ with lib.my; {
   ];
 
   systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-    DefaultTimeoutStartSec=10s
+    DefaultTimeoutStopSec=3s
+    DefaultTimeoutStartSec=3s
   '';
 
   system.configurationRevision = with inputs; mkIf (self ? rev) self.rev;

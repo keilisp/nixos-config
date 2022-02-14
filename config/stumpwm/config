@@ -80,7 +80,7 @@
 (define-key *top-map* (kbd "s-SPC") "exec dmenu_run")
 
 (define-key *top-map* (kbd "s-n")   "next-in-frame")
-(define-key *top-map* (kbd "s-p") "prev-in-frame")
+(define-key *top-map* (kbd "s-p")   "prev-in-frame")
 
 (define-key *top-map* (kbd "s-`")   "exec scratch")
 (define-key *top-map* (kbd "s-;")   "colon")
@@ -103,7 +103,7 @@
 
 ;;; Groups
 ;; (defvar *kei/groups* (list "   Ⅰ   " "   Ⅱ   " "   Ⅲ   " "   Ⅳ   " "   Ⅴ   " "   Ⅵ   " "   Ⅶ   " "   Ⅷ   "))
-(defvar *kei/groups* (list " One " " Two " " Three " " 4 " " 5 " " 6 " " 7 " " 8 "))
+(defvar *kei/groups* (list "  1  " "  2  " "  3  " "  4  " "  5  " "  6  " "  7  " "   8  "))
 (grename (nth 0 *kei/groups*))
 (dolist (workspace (cdr *kei/groups*))
   (gnewbg workspace))

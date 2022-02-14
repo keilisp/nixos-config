@@ -30,7 +30,7 @@ with lib.my; {
           concatMapStringsSep ":" (x: toString x) v
         else
           (toString v));
-      default = { };
+      default = {};
       description = "TODO";
     };
   };
