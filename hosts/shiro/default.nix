@@ -1,4 +1,4 @@
-{ ... }: {
+{pkgs, config, ... }: {
   imports = [ ../personal.nix ./hardware-configuration.nix ];
 
   ## Modules
@@ -17,6 +17,7 @@
         lxappearance.enable = true;
         libreoffice.enable = true;
         discord.enable = true;
+        dbeaver.enable = true;
         zoom.enable = true;
         # msteams.enable = true;
         etcher.enable = true;
@@ -24,6 +25,7 @@
         dar.enable = true;
         keepassxc.enable = true;
         betterlockscreen.enable = true;
+        ngrok.enable = true;
         # skype.enable = true;
         # unity3d.enable = true;
         # rofi.enable = true;
@@ -31,7 +33,7 @@
       browsers = {
         default = "brave";
         brave.enable = true;
-        # firefox.enable = true;
+        firefox.enable = true;
       };
       # gaming = {
       # steam.enable = true;
@@ -108,7 +110,10 @@
       shell.enable = true;
     };
 
-    hardware = { audio.enable = true; };
+    hardware = {
+      audio.enable = true;
+      bluetooth.enable = true;
+    };
   };
 
   boot.loader = {
@@ -133,7 +138,8 @@
 
   # Configure keymap
   services.xserver.layout = "us, ru, ua";
-  services.xserver.xkbOptions = "grp:caps_toggle,ctrl:swap_lalt_lctl";
+  # services.xserver.xkbOptions = "grp:caps_toggle,ctrl:swap_lalt_lctl";
+  services.xserver.xkbOptions = "grp:caps_toggle";
 
   # xset r rate 300 50
   services.xserver.autoRepeatDelay = 300;
@@ -145,5 +151,18 @@
   # generated config replicates the default behaviour.
   # networking.useDHCP = false;
   # networking.interfaces.enp0s3.useDHCP = false;
+
+  # services.mysql = { 
+  #   enable = true; 
+  #   package = pkgs.mysql80;
+  # };
+
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "*/15 * * * *      ${config.user.name}    ${pkgs.newsboat}/bin/newsboat -x reload >/dev/null 2>&1"
+      # "*/15 * * * *      ${config.user.name}    date >> /tmp/cron.log"
+    ];
+  };
 
 }
