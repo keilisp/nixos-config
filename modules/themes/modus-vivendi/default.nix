@@ -12,11 +12,37 @@ in {
       modules = {
         theme = {
           wallpaper = mkDefault ./config/wallpaper.jpg;
-          # gtk = {
-          #   theme = "Vimix";
-          #   iconTheme = "Arc";
-          #   cursorTheme = "Breeze";
-          # };
+          gtk = {
+            theme = "vimix-dark-laptop-amethyst";
+            iconTheme = "Arc";
+            cursorTheme = "Breeze";
+          };
+          fonts = {
+            sans.name = "Iosevka";
+            mono.name = "Iosevka";
+          };
+          colors = {
+            black = "#000000";
+            red = "#fc8059";
+            green = "#00fc50";
+            yellow = "#eecc00";
+            blue = "#29aeff";
+            magenta = "#feacd0";
+            cyan = "#00d3d0";
+            silver = "#e2e2dc";
+            grey = "#5B6268";
+            brightred = "#ffa0a0";
+            brightgreen = "#88cf80";
+            brightyellow = "#d2b580";
+            brightblue = "#92baff";
+            brightmagenta = "#e0b2d6";
+            brightcyan = "#a0bfdf";
+            white = "#eeeeee";
+
+            types.fg = "#ffffff";
+            types.panelbg = "#21242b";
+            types.border = "#1a1c25";
+          };
         };
 
         shell.zsh.rcInit = ''
@@ -25,6 +51,7 @@ in {
         '';
 
         shell.zsh.rcFiles = [ ./config/zsh/prompt.zsh ];
+        shell.tmux.rcFiles = [ ./config/tmux.conf ];
 
         # shell.tmux.rcFiles = [ ./config/tmux.conf ];
         desktop.browsers = {
@@ -54,7 +81,7 @@ in {
           fira-code-symbols
           ibm-plex
           hack-font
-          font-awesome-ttf
+          font-awesome
         ];
         fontconfig.defaultFonts = {
           # sansSerif = [ "IBM Plex Mono" ];
@@ -88,22 +115,22 @@ in {
 
       # Login screen theme
       services.xserver.displayManager.lightdm.greeters.mini.extraConfig = ''
-        text-color = "#feacd0"
-        password-color = "#feacd0"
-        password-background-color = "#110b11"
-        window-color = "#000000"
-        border-color = "#000000"
-        error-color = "#ff8059"
+        text-color = "${cfg.colors.magenta}"
+        password-color = "${cfg.colors.magenta}"
+        password-background-color = "${cfg.colors.black}"
+        window-color = "${cfg.colors.types.border}"
+        border-color = "${cfg.colors.types.border}"
+        error-color = "${cfg.colors.red}"
       '';
+
+      services.xserver.displayManager.lightdm.greeters.gtk.theme.package =
+        pkgs.vimix-gtk-themes;
+      services.xserver.displayManager.lightdm.greeters.gtk.theme.name =
+        "vimix-dark-laptop-amethyst";
 
       # Other dotfiles
       home.configFile = with config.modules;
         mkMerge [
-          (mkIf desktop.awesome.enable {
-            "awesome/themes/current-theme".source =
-              ./config/awesome/themes/current-theme;
-          })
-
           (mkIf desktop.awesome.enable {
             "awesome/themes/current-theme".source =
               ./config/awesome/themes/current-theme;
@@ -116,6 +143,10 @@ in {
 
           (mkIf editors.emacs.enable {
             "emacs/current-theme.el".source = ./config/emacs/current-theme.el;
+          })
+
+          (mkIf desktop.stumpwm.enable {
+            "dunst/dunstrc".text = import ./config/dunstrc cfg;
           })
 
           (mkIf editors.vim.enable {
