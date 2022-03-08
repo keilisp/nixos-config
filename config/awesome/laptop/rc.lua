@@ -1645,7 +1645,7 @@ awful.rules.rules = {
     },
     {
         rule = {class = "discord"},
-        properties = {screen = 1, tag = my_tags.tags[1].names[4]}
+        properties = {screen = 1, tag = my_tags.tags[1].names[3]}
     },
     {
         rule = {name = "cordless"},
