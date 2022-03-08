@@ -41,13 +41,16 @@ prompt_init() {
   # Updates cursor shape and prompt symbol based on vim mode
   zle-keymap-select() {
     case $KEYMAP in
-      vicmd)      PROMPT_SYMBOL="%F{green}« " ;;
-      main|viins) PROMPT_SYMBOL="%(?.%F{magenta}.%F{yellow})λ " ;;
+      vicmd)      PROMPT_SYMBOL="%F{green}« "
+                  echo -ne '\e[4 q'
+                  ;;
+      main|viins) PROMPT_SYMBOL="%(?.%F{magenta}.%F{yellow})λ "
+                  echo -ne '\e[5 q'
+                  ;;
     esac
     zle reset-prompt
     zle -R
   }
-  zle -N zle-keymap-select
   zle -A zle-keymap-select zle-line-init
 
   zstyle ':vcs_info:*' enable git
