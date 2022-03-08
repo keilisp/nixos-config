@@ -2,16 +2,19 @@
 
 (use-package modus-themes
   :ensure t
-  ;; :custom
+  :custom
+  ;; (modus-themes-syntax '(faint yellow-comments alt-syntax))
+  (modus-themes-deuteranopia t)
   ;; (modus-themes-completions 'moderate)
-  ;; (modus-themes-mode-line 'borderless)
-  ;; (modus-themes-region 'accent-no-extend)
-  ;; (modus-themes-org-blocks 'tinted-background)
-  ;; (modus-themes-variable-pitch-headings t)
-  ;; (modus-themes-lang-checkers nil)
-  ;; (modus-themes-paren-match 'intense)
-  ;; (modus-themes-hl-line 'accented-background)
-  ;; (modus-themes-slanted-constructs t)
+  (modus-themes-region '(no-extend bg-only))
+  (modus-themes-org-blocks 'gray-background)
+  (modus-themes-paren-match '(bold))
+  (modus-themes-hl-line '(accented))
+  (modus-themes-italic-constructs t)
+  (modus-themes-lang-checkers '(background text-also))
+  (modus-themes-links '(no-underline background))
+  (modus-themes-mode-line '(borderless 4))
+  (modus-themes-prompts '(bold))
   :init
   ;; Terminal mode
   (unless (display-graphic-p)
