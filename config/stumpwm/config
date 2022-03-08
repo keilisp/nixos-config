@@ -1,9 +1,16 @@
 ;; -*- lisp -*-
 
 (in-package :stumpwm)
+
+;; (ql:quickload :slynk)                   ; Later the slynk-server will be injected
+;; (ql:quickload "clx-truetype")           ; For TTF-font support
+
 ;; (swank:create-server
 ;;  :dont-close t
 ;;  :port swank::default-server-port)
+
+(slynk:create-server :port 4004
+                     :dont-close t)
 
 ;;;
 (defvar *config-dir* "~/.config/stumpwm")
@@ -21,13 +28,26 @@
 (add-hook *key-press-hook* 'show-key-seq)
 
 
-;;; Config
+;;;; Config
+;;; Appearance
 (setf *mouse-focus-policy* :click)
-(set-font "-*-terminus-medium-r-*-*-24-*-*-*-*-*-iso10646-1")
+;; (set-font "-*-terminus-medium-r-*-*-24-*-*-*-*-*-iso10646-1")
+;; Message window font
+;;NOTE: ttf font config moved to *first-load* section
+;; (set-font "-xos4-terminus-medium-r-normal--20-140-72-72-c-80-iso8859-15")
+;; (set-font "-*-terminus-bold-r-*-*-22-*-*-*-*-*-iso8859-*")
+;; (set-font "10x20-cyrillic")
+;;(set-font "-*-terminus-medium-r-*-*-22-*-*-*-*-*-iso10646-1")
+;; (set-font "Iosevka Term:size=16")
+;; (load-module "ttf-fonts")
+;; (xft:cache-fonts)
+;; (set-font (make-instance 'xft:font :family "Iosevka Term" :subfamily "Regular" :size 14))
+;;
 
 
 ;;; Keybinds
-(set-prefix-key (kbd "C-z"))
+;; (set-prefix-key (kbd "C-z"))
+(set-prefix-key (kbd "s-s"))
 
 (let ((map *top-map*))
   (dotimes (i 9)
@@ -51,7 +71,7 @@
 (define-key *top-map* (kbd "s-f") "float-this")
 (define-key *top-map* (kbd "s-F") "unfloat-this")
 
-(define-key *top-map* (kbd "s-s") "run-shell-command")
+(define-key *top-map* (kbd "s-S") "run-shell-command")
 
 (define-key *top-map* (kbd "s-h") "move-focus left")
 (define-key *top-map* (kbd "s-j") "move-focus down")
@@ -84,7 +104,8 @@
 
 (define-key *top-map* (kbd "s-`")   "exec scratch")
 (define-key *top-map* (kbd "s-;")   "colon")
-(define-key *top-map* (kbd "s-e")   "eval")
+(define-key *top-map* (kbd "s-e")   "exec")
+(define-key *top-map* (kbd "s-E")   "eval")
 
 
 (defvar *window-manipulation-map* (make-sparse-keymap))
@@ -98,8 +119,8 @@
 (define-key *top-map* (kbd "s-w") *window-manipulation-map*)
 (let ((map *window-manipulation-map*))
   (define-key map (kbd "s-c") "remove-split")
-  (define-key map (kbd "s-s") "hsplit")
-  (define-key map (kbd "s-v") "vsplit"))
+  (define-key map (kbd "s-s") "vsplit")
+  (define-key map (kbd "s-v") "hsplit"))
 
 ;;; Groups
 ;; (defvar *kei/groups* (list "   Ⅰ   " "   Ⅱ   " "   Ⅲ   " "   Ⅳ   " "   Ⅴ   " "   Ⅵ   " "   Ⅶ   " "   Ⅷ   "))
@@ -148,10 +169,94 @@
 
 (setf *screen-mode-line-format*
       (list "^B^3%g ^n^b %W ^>  "
-            "%d"))
+            "  %B  %d"
+            ))
 
+(setf *mode-line-border-width* 0)
+(setf *mode-line-pad-x* 0)
+(setf *mode-line-pad-y* 0)
 (setf *mode-line-background-color* (elt *colors* 0))
 (setf *mode-line-foreground-color* (elt *colors* 1))
 
 (unless (head-mode-line (current-head))
   (toggle-mode-line (current-screen) (current-head)))
+
+
+;;;;;;;
+;; ;;
+;; ;; Adjust brightness - now in redshift's settings
+;; (define-key *root-map* (kbd "M-b") "colon1 exec xbacklight -set ")
+;; ;;
+;; ;; Browse somewhere
+;; (define-key *root-map* (kbd "o") "colon1 exec sensible-browser https://www.")
+;; ;;
+;; ;; Web Jumps (for search engines)
+;; (defmacro make-web-jump (name prefix)
+;;   `(defcommand ,(intern name) (search) ((:rest ,(concatenate 'string name " query: ")))
+;;     (substitute #\+ #\Space search)
+;;     (run-shell-command (concatenate 'string "sensible-browser " ,prefix search))))
+
+;; (make-web-jump "google-search"    "https://www.google.ru/search?q=")
+;; (make-web-jump "academia-search"  "https://www.google.ru/scholar?q=")
+;; (make-web-jump "goodreads-search" "https://www.goodreads.com/search?q=")
+;; (make-web-jump "libgen-search"    "https://libgen.is/search.php?req=")
+;; (make-web-jump "yandex-search"    "https://yandex.ru/search/?text=")
+;; (make-web-jump "video-search"     "https://www.youtube.com/results?search_query=")
+;; (make-web-jump "imdb-search"      "https://www.imdb.com/find?q=")
+;; (make-web-jump "kinopoisk-search" "https://www.kinopoisk.ru/index.php/kp_query=")
+;; (make-web-jump "rutracker-search" "https://www.rutracker.org/forum/tracker.php?nm=")
+;; (make-web-jump "picture-search"   "https://www.yandex.ru/images/search/?text=")
+
+;; (defvar *web-search-bindings*
+;;   (let ((m (make-sparse-keymap)))
+;;     (define-key m (kbd "/") "google-search")
+;;     (define-key m (kbd "g") "google-search")
+;;     (define-key m (kbd "a") "academia-search")
+;;     (define-key m (kbd "b") "goodreads-search")
+;;     (define-key m (kbd "l") "libgen-search")
+;;     (define-key m (kbd "y") "yandex-search")
+;;     (define-key m (kbd "v") "video-search")
+;;     (define-key m (kbd "i") "imdb-search")
+;;     (define-key m (kbd "k") "kinopoisk-search")
+;;     (define-key m (kbd "t") "rutracker-search")
+;;     (define-key m (kbd "p") "picture-search")
+;;     m))
+
+;; (define-key *root-map* (kbd "C-/") '*web-search-bindings*)
+;; (define-key *root-map* (kbd "/")   '*web-search-bindings*)
+
+;; Keyboard layouts
+;; (load-module "kbd-layouts")
+;; (kbd-layouts::keyboard-layout-list "us" "ru")
+
+;; Amixer
+;; (load-module "amixer")
+;; (define-key *top-map* (kbd "XF86AudioLowerVolume") "amixer-Master-1-")
+;; (define-key *top-map* (kbd "XF86AudioRaiseVolume") "amixer-Master-1+")
+;; (define-key *top-map* (kbd "XF86AudioMute") "amixer-Master-toggle pulse")
+
+;; Alert-Me-At utility command
+;; (load-module "alert-me")
+
+;; WiFi
+;; (load-module "wifi")
+
+;; CPU
+;; (load-module "cpu")
+;; (setf cpu::*cpu-modeline-fmt* "%c%t")
+
+;; Mem
+;; (load-module "mem")
+;; (setf mem::*mem-modeline-fmt* "MEM:%p")
+
+;; Tray
+;; (load-module "stumptray")
+
+;; (setf stumpwm:*screen-mode-line-format*
+;;       (list "%d ^[^B^3|^] "
+;;             "%I ^[^B^3|^] "
+;;             "BATT: " '(:eval (run-shell-command "upower -i $(upower -e | grep \'BAT\') | grep percentage | awk \'\{printf $(NF)\}\'" t))
+;;             " ^[^B^3|^] "
+;;             "%M^[^B^3|^] "
+;;             "%C ^[^B^3|^] "
+;;             "^B^6%N^n"))
