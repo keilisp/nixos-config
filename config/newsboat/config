@@ -25,8 +25,7 @@ color listfocus red default bold
 color listnormal_unread magenta default
 color listfocus_unread green default bold
 color info magenta default bold
-color article black default bold
-
+# color article blue default bold
 
 browser firefox
 macro , open-in-browser
