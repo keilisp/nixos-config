@@ -37,7 +37,8 @@ in {
         displayManager = {
           defaultSession = "none+awesome";
           lightdm.enable = true;
-          lightdm.greeters.mini.enable = true;
+          # lightdm.greeters.mini.enable = true;
+          lightdm.greeters.gtk.enable = true;
         };
         windowManager.awesome.enable = true;
       };

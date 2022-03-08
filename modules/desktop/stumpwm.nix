@@ -31,10 +31,11 @@ in {
       redshift.enable = true;
       xserver = {
         enable = true;
-        displayManager.defaultSession = "none+stumpwm";
+        # displayManager.defaultSession = "none+stumpwm";
         windowManager.stumpwm.enable = true;
         displayManager.lightdm.enable = true;
-        displayManager.lightdm.greeters.mini.enable = true;
+        # displayManager.lightdm.greeters.mini.enable = true;
+        displayManager.lightdm.greeters.gtk.enable = true;
       };
     };
 
