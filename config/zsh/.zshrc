@@ -61,4 +61,10 @@ if [[ $TERM != dumb ]]; then
 
   # If you have host-local configuration, this is where you'd put it
   [ -f ~/.zshrc ] && source ~/.zshrc
+
+  # Launch tmux by default
+  if [ -z "$TMUX" ]
+  then
+      tmux attach -t TMUX || tmux new -s TMUX
+  fi
 fi
