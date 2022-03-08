@@ -39,7 +39,6 @@ Plugin 'christoomey/vim-system-copy'
 Plugin 'kien/ctrlp.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'indentLine.vim'
 Plugin 'lilydjwg/colorizer'
 Plugin 'powerman/vim-plugin-ruscmd'
@@ -177,9 +176,6 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-" SPC k to save
-map <Space>k :write <cr>
-
 " Map Tab for autocomplition
 inoremap <silent><expr> <TAB>
 	  \ pumvisible() ? "\<C-n>" :
@@ -196,6 +192,9 @@ endfunction
 inoremap jj <Esc>
 inoremap оо <Esc>
 
+" CMD height
+let cmdheight=1
+
 " Set mapleader to ','
 let mapleader=" "
 
@@ -204,21 +203,6 @@ let g:ctrlp_map = '<leader>c'
 let g:ctrlp_show_hidden = 1
 
 let g:neocomplcache_enable_at_startup = 1
-
-" Syntatic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-
-" ESLint
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
 
 " Changing cursor in insert mode
 :autocmd InsertEnter,InsertLeave * set cul!
