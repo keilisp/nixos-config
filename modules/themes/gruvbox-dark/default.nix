@@ -13,11 +13,37 @@ in {
         theme = {
           wallpaper = mkDefault ./config/wallpaper.png;
           ## FIXME
-          # gtk = {
-          #   theme = "Gruvbox-Dark-Yellow";
-          #   iconTheme = "oomox-gruvbox";
-          #   cursorTheme = "Breeze";
-          # };
+          gtk = {
+            theme = "Gruvbox-Dark-Yellow";
+            iconTheme = "oomox-gruvbox";
+            cursorTheme = "Breeze";
+          };
+          fonts = {
+            sans.name = "Iosevka";
+            mono.name = "Iosevka";
+          };
+          colors = {
+            black = "#282828";
+            red = "#fb4934";
+            green = "#b8bb26";
+            yellow = "#fabd2f";
+            blue = "#83a598";
+            magenta = "#d3869b";
+            cyan = "#8ec07c";
+            silver = "#e2e2dc";
+            grey = "#5B6268";
+            brightred = "#fb4934";
+            brightgreen = "#b8bb26";
+            brightyellow = "#fabd2f";
+            brightblue = "#83a598";
+            brightmagenta = "#d3869b";
+            brightcyan = "#8ec07c";
+            white = "#ebdbb2";
+
+            types.fg = "#ebdbb2";
+            types.panelbg = "#21242b";
+            types.border = "#1a1c25";
+          };
         };
 
         shell.zsh.rcInit = ''
@@ -53,7 +79,7 @@ in {
           fira-code-symbols
           ibm-plex
           hack-font
-          font-awesome-ttf
+          font-awesome
         ];
         fontconfig.defaultFonts = {
           # sansSerif = [ "IBM Plex Mono" ];
@@ -87,12 +113,12 @@ in {
 
       # Login screen theme
       services.xserver.displayManager.lightdm.greeters.mini.extraConfig = ''
-        text-color = "#98971a"
-        password-color = "#98971a"
-        password-background-color = "#3c3836"
-        window-color = "#282828"
-        border-color = "#282828"
-        error-color = "#cc241d"
+        text-color = "${cfg.colors.magenta}"
+        password-color = "${cfg.colors.magenta}"
+        password-background-color = "${cfg.colors.black}"
+        window-color = "${cfg.colors.types.border}"
+        border-color = "${cfg.colors.types.border}"
+        error-color = "${cfg.colors.red}"
       '';
 
       # GTK Themes
@@ -142,6 +168,10 @@ in {
 
           (mkIf editors.emacs.enable {
             "emacs/current-theme.el".source = ./config/emacs/current-theme.el;
+          })
+
+          (mkIf desktop.stumpwm.enable {
+            "dunst/dunstrc".text = import ./config/dunstrc cfg;
           })
 
           (mkIf editors.vim.enable {

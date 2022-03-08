@@ -12,11 +12,37 @@ in {
       modules = {
         theme = {
           wallpaper = mkDefault ./config/wallpaper.jpg;
-          # gtk = {
-          #   theme = "Vimix";
-          #   iconTheme = "Arc";
-          #   cursorTheme = "Breeze";
-          # };
+          gtk = {
+            theme = "vimix-laptop-amethyst";
+            iconTheme = "Arc";
+            cursorTheme = "Breeze";
+          };
+          fonts = {
+            sans.name = "Iosevka";
+            mono.name = "Iosevka";
+          };
+          colors = {
+            black = "#000000";
+            red = "#a60000";
+            green = "#006800";
+            yellow = "#813e00";
+            blue = "#0030a6";
+            magenta = "#721045";
+            cyan = "#00538b";
+            silver = "#e2e2dc";
+            grey = "#5B6268";
+            brightred = "#7f1010";
+            brightgreen = "#104410";
+            brightyellow = "#5f4400";
+            brightblue = "#002f88";
+            brightmagenta = "#752f50";
+            brightcyan = "#12506f";
+            white = "#eeeeee";
+
+            types.fg = "#000000";
+            types.panelbg = "#21242b";
+            types.border = "#1a1c25";
+          };
         };
 
         shell.zsh.rcInit = ''
@@ -53,7 +79,7 @@ in {
           fira-code-symbols
           ibm-plex
           hack-font
-          font-awesome-ttf
+          font-awesome
         ];
         fontconfig.defaultFonts = {
           # sansSerif = [ "IBM Plex Mono" ];
@@ -87,12 +113,12 @@ in {
 
       # Login screen theme
       services.xserver.displayManager.lightdm.greeters.mini.extraConfig = ''
-        text-color = "#721045"
-        password-color = "#721045"
-        password-background-color = "#f8f8f8"
-        window-color = "#ffffff"
-        border-color = "#ffffff"
-        error-color = "#a60000"
+        text-color = "${cfg.colors.magenta}"
+        password-color = "${cfg.colors.magenta}"
+        password-background-color = "${cfg.colors.black}"
+        window-color = "${cfg.colors.types.border}"
+        border-color = "${cfg.colors.types.border}"
+        error-color = "${cfg.colors.red}"
       '';
 
       # Other dotfiles
@@ -114,6 +140,10 @@ in {
 
           (mkIf editors.emacs.enable {
             "emacs/current-theme.el".source = ./config/emacs/current-theme.el;
+          })
+
+          (mkIf desktop.stumpwm.enable {
+            "dunst/dunstrc".text = import ./config/dunstrc cfg;
           })
 
           (mkIf editors.vim.enable {
