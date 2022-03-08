@@ -8,8 +8,8 @@
         enable = true;
         laptop = true;
       };
-      # bspwm.eanble = true;
-      # stumpwm.eanble = true;
+      # bspwm.enable = true;
+      stumpwm.enable = true;
       apps = {
         telegram.enable = true;
         dmenu.enable = true;
@@ -35,15 +35,16 @@
         brave.enable = true;
         firefox.enable = true;
       };
-      # gaming = {
-      # steam.enable = true;
+      gaming = {
+      steam.enable = true;
       # emulators.enable = true;
       # emulators.psx.enable = true;
-      # };
+      };
 
       media = {
         documents.enable = true;
         # graphics.enable = true;
+        spotify.enable = true;
         mpv.enable = true;
         # ncmpcpp.enable = true;
         pavucontrol.enable = true;
@@ -73,8 +74,10 @@
       # gnupg.enable  = true;
       newsboat.enable = true;
       babashka.enable = true;
+      atuin.enable = true;
       # pass.enable   = true;
       ranger.enable = true;
+      tmux.enable = true;
       youtube-dl.enable = true;
       zsh.enable = true;
     };
@@ -112,7 +115,9 @@
 
     hardware = {
       audio.enable = true;
+      udiskie.enable = true;
       bluetooth.enable = true;
+      # sensors.enable = true;
     };
   };
 
@@ -138,8 +143,9 @@
 
   # Configure keymap
   services.xserver.layout = "us, ru, ua";
-  # services.xserver.xkbOptions = "grp:caps_toggle,ctrl:swap_lalt_lctl";
-  services.xserver.xkbOptions = "grp:caps_toggle";
+  services.xserver.xkbOptions = "grp:caps_toggle,ctrl:swap_lalt_lctl";
+  # services.xserver.xkbOptions = "grp:rctrl_toggle,ctrl:swapcaps";
+  # services.xserver.xkbOptions = "grp:caps_toggle";
 
   # xset r rate 300 50
   services.xserver.autoRepeatDelay = 300;
@@ -156,6 +162,10 @@
   #   enable = true; 
   #   package = pkgs.mysql80;
   # };
+
+  services.xserver.displayManager.setupCommands = ''
+    ${pkgs.xlibs.xset}/bin/xset r rate 300 50
+  '';
 
   services.cron = {
     enable = true;
