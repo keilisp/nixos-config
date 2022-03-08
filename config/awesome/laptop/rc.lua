@@ -1384,7 +1384,7 @@ globalkeys =
                {description = "Next Track", group = "hotkeys"}),
 
      awful.key({ }, "XF86AudioPrev", function () os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") end,
-               {description = "Pause Spotify playback", group = "hotkeys"}),
+               {description = "Prev Track", group = "hotkeys"}),
 
     -- Copy primary to clipboard (terminals to gtk)
     awful.key(
