@@ -79,7 +79,9 @@ with lib.my; {
 
     nix = let users = [ "root" config.user.name ];
     in {
+      # settings.trusted-users = users;
       trustedUsers = users;
+      # settings.allowed-users = users;
       allowedUsers = users;
     };
 

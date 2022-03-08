@@ -11,7 +11,7 @@ in {
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
       lxappearance
-      gsettings_desktop_schemas
+      gsettings-desktop-schemas
       gtk-engine-murrine
       gtk_engines
     ];

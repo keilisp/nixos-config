@@ -33,11 +33,16 @@ with lib.my; {
       "nixpkgs-overlays=${config.dotfiles.dir}/overlays"
       "dotfiles=${config.dotfiles.dir}"
     ];
+    # settings.substituters = [ "https://nix-community.cachix.org" ];
     binaryCaches = [ "https://nix-community.cachix.org" ];
+    # settings.trusted-public-keys = [
+    #   "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    # ];
     binaryCachePublicKeys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
     registry = registryInputs // { dotfiles.flake = inputs.self; };
+    # settings.auto-optimise-store = true;
     autoOptimiseStore = true;
   };
 

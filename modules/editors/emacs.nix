@@ -43,14 +43,14 @@ in {
       ## Module dependencies
 
       # :term vterm
-      # ((emacsPackagesNgGen emacsGit).emacsWithPackages (epkgs: [ epkgs.vterm ]))
+      # ((emacsPackagesFor emacsGit).emacsWithPackages (epkgs: [ epkgs.vterm ]))
       # FIXME
       (mkIf (cfg.native-comp == false)
-        ((emacsPackagesNgGen emacsGit).emacsWithPackages
+        ((emacsPackagesFor emacsGit).emacsWithPackages
           (epkgs: [ epkgs.vterm ])))
 
       (mkIf (cfg.native-comp == true)
-        ((emacsPackagesNgGen emacsGcc).emacsWithPackages
+        ((emacsPackagesFor emacsGcc).emacsWithPackages
           (epkgs: [ epkgs.vterm ])))
 
       libtool
@@ -70,11 +70,11 @@ in {
       # :tools pdf
       # FIXME
       (mkIf (cfg.native-comp == false)
-        ((emacsPackagesNgGen emacsGit).emacsWithPackages
+        ((emacsPackagesFor emacsGit).emacsWithPackages
           (epkgs: [ epkgs.pdf-tools ])))
 
       (mkIf (cfg.native-comp == true)
-        ((emacsPackagesNgGen emacsGcc).emacsWithPackages
+        ((emacsPackagesFor emacsGcc).emacsWithPackages
           (epkgs: [ epkgs.pdf-tools ])))
 
       # :lang cc
