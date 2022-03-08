@@ -21,6 +21,10 @@ in {
       blueberry
       networkmanagerapplet
       unclutter
+      # FIXME
+      xorg.xf86videointel
+      xorg.xbacklight
+      brightnessctl
     ];
 
     services = {
