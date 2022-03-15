@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, config, ... }: {
   imports = [ ../personal.nix ./hardware-configuration.nix ];
 
   ## Modules
@@ -42,6 +42,7 @@
         documents.enable = true;
         # graphics.enable = true;
         mpv.enable = true;
+        spotify.enable = true;
         ncmpcpp.enable = true;
         pavucontrol.enable = true;
         # recording.enable = true;
@@ -69,8 +70,10 @@
       # gnupg.enable  = true;
       newsboat.enable = true;
       babashka.enable = true;
+      atuin.enable = true;
       # pass.enable   = true;
       ranger.enable = true;
+      # tmux.enable = true;
       youtube-dl.enable = true;
       zsh.enable = true;
     };
@@ -104,7 +107,11 @@
       shell.enable = true;
     };
 
-    hardware = { audio.enable = true; };
+    hardware = {
+      audio.enable = true;
+      udiskie.enable = true;
+      bluetooth.enable = true;
+    };
   };
 
   boot.loader = {
@@ -134,6 +141,10 @@
   # xset r rate 300 50
   services.xserver.autoRepeatDelay = 300;
   services.xserver.autoRepeatInterval = 50;
+
+  services.xserver.displayManager.setupCommands = ''
+    ${pkgs.xlibs.xset}/bin/xset r rate 300 50
+  '';
 
   networking.networkmanager.enable = true;
   # The global useDHCP flag is deprecated, therefore explicitly set to false
