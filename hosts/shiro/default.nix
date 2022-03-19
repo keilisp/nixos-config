@@ -104,6 +104,7 @@
       python.enable = true;
       java.enable = true;
       clojure.enable = true;
+      R.enable = true;
       scheme.enable = true;
       common-lisp.enable = true;
       lua.enable = true;
