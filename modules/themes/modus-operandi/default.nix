@@ -51,7 +51,7 @@ in {
         '';
 
         shell.zsh.rcFiles = [ ./config/zsh/prompt.zsh ];
-        # shell.tmux.rcFiles = [ ./config/tmux.conf ];
+        shell.tmux.rcFiles = [ ./config/tmux.conf ];
         desktop.browsers = {
           firefox.userChrome = concatMapStringsSep "\n" readFile
             [ ./config/firefox/userChrome.css ];
