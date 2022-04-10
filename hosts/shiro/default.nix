@@ -6,7 +6,7 @@
     desktop = {
       awesome = {
         enable = true;
-        laptop = true;
+        laptop = false;
       };
       # bspwm.enable = true;
       stumpwm.enable = true;
@@ -19,7 +19,7 @@
         discord.enable = true;
         dbeaver.enable = true;
         zoom.enable = true;
-        # msteams.enable = true;
+        msteams.enable = true;
         etcher.enable = true;
         flameshot.enable = true;
         dar.enable = true;
@@ -94,8 +94,8 @@
       teamviewer.enable = true;
     };
     # theme.active = "tomorrow-day";
-    # theme.active = "modus-operandi";
-    theme.active = "modus-vivendi";
+    theme.active = "modus-operandi";
+    # theme.active = "modus-vivendi";
     # theme.active = "nord-dark";
     # theme.active = "gruvbox-dark";
     # theme.active = "solarized-light";
@@ -144,9 +144,9 @@
 
   # Configure keymap
   services.xserver.layout = "us, ru, ua";
-  services.xserver.xkbOptions = "grp:caps_toggle,ctrl:swap_lalt_lctl";
+  # services.xserver.xkbOptions = "grp:caps_toggle,ctrl:swap_lalt_lctl";
   # services.xserver.xkbOptions = "grp:rctrl_toggle,ctrl:swapcaps";
-  # services.xserver.xkbOptions = "grp:caps_toggle";
+  services.xserver.xkbOptions = "grp:caps_toggle";
 
   # xset r rate 300 50
   services.xserver.autoRepeatDelay = 300;
@@ -165,6 +165,9 @@
   # };
 
   services.xserver.displayManager.setupCommands = ''
+  # bunker
+  # ${pkgs.xlibs.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off --output DP-2-1 --mode 2560x1080 --pos 1920x0 --rotate normal --output DP-2-2 --off --output DP-2-3 --off
+    ${pkgs.xlibs.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off --output DP-2-1 --primary --mode 2560x1080 --pos 1920x0 --rotate normal --output DP-2-2 --off --output DP-2-3 --off
     ${pkgs.xlibs.xset}/bin/xset r rate 300 50
   '';
 
