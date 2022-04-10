@@ -79,10 +79,11 @@
       direnv.enable = true;
       git.enable = true;
       # gnupg.enable  = true;
-      # tmux.enable   = true;
+      tmux.enable   = true;
       newsboat.enable = true;
       babashka.enable = true;
       atuin.enable = true;
+      difftastic.enable = true;
       # pass.enable   = true;
       ranger.enable = true;
       youtube-dl.enable = true;
