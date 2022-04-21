@@ -57,7 +57,7 @@ with lib.my; {
   # Use the latest kernel
   boot = {
     # kernelPackages = mkDefault pkgs.linuxPackages_5_14;
-    kernelPackages = mkDefault pkgs.linuxKernel.packages.linux_5_15;
+    kernelPackages = mkDefault pkgs.linuxKernel.packages.linux_5_16;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
