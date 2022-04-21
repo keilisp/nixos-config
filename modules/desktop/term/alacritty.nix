@@ -15,14 +15,14 @@ in {
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
       alacritty
-      (makeDesktopItem {
-        name = "alacritty";
-        desktopName = "Alacritty Terminal";
-        genericName = "Default terminal";
-        icon = "utilities-terminal";
-        exec = "${alacritty}/bin/alacritty";
-        categories = "Development;System;Utility";
-      })
+      # (makeDesktopItem {
+      #   name = "alacritty";
+      #   desktopName = "Alacritty Terminal";
+      #   genericName = "Default terminal";
+      #   icon = "utilities-terminal";
+      #   exec = "${alacritty}/bin/alacritty";
+      #   categories = "Development;System;Utility";
+      # })
     ];
 
     home.configFile = {

@@ -28,14 +28,14 @@ in {
     {
       user.packages = with pkgs; [
         firefox-bin
-        (makeDesktopItem {
-          name = "firefox-private";
-          desktopName = "Firefox (Private)";
-          genericName = "Open a private Firefox window";
-          icon = "firefox";
-          exec = "${firefox-bin}/bin/firefox --private-window";
-          categories = "Network";
-        })
+        # (makeDesktopItem {
+        #   name = "firefox-private";
+        #   desktopName = "Firefox (Private)";
+        #   genericName = "Open a private Firefox window";
+        #   icon = "firefox";
+        #   exec = "${firefox-bin}/bin/firefox --private-window";
+        #   categories = "Network";
+        # })
       ];
 
       # Prevent auto-creation of ~/Desktop. The trailing slash is necessary; see

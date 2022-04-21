@@ -143,7 +143,7 @@
   services.xserver.autoRepeatInterval = 50;
 
   services.xserver.displayManager.setupCommands = ''
-    ${pkgs.xlibs.xset}/bin/xset r rate 300 50
+    ${pkgs.xorg.xset}/bin/xset r rate 300 50
   '';
 
   networking.networkmanager.enable = true;
