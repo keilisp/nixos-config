@@ -18,7 +18,7 @@
         discord.enable = true;
         zoom.enable = true;
         msteams.enable = true;
-        etcher.enable = true;
+        etcher.enable = false;
         flameshot.enable = true;
         dar.enable = true;
         keepassxc.enable = true;

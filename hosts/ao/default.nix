@@ -18,7 +18,7 @@
         zoom.enable = true;
         msteams.enable = true;
         libreoffice.enable = true;
-        etcher.enable = true;
+        etcher.enable = false;
         dbeaver.enable = true;
         flameshot.enable = true;
         dar.enable = true;
