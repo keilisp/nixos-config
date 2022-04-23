@@ -50,7 +50,7 @@ in {
           (epkgs: [ epkgs.vterm ])))
 
       (mkIf (cfg.native-comp == true)
-        ((emacsPackagesFor emacsGcc).emacsWithPackages
+        ((emacsPackagesFor emacsNativeComp).emacsWithPackages
           (epkgs: [ epkgs.vterm ])))
 
       libtool
@@ -74,7 +74,7 @@ in {
           (epkgs: [ epkgs.pdf-tools ])))
 
       (mkIf (cfg.native-comp == true)
-        ((emacsPackagesFor emacsGcc).emacsWithPackages
+        ((emacsPackagesFor emacsNativeComp).emacsWithPackages
           (epkgs: [ epkgs.pdf-tools ])))
 
       # :lang cc
