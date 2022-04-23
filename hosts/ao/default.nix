@@ -117,6 +117,10 @@
       scheme.enable = true;
       common-lisp.enable = true;
       lua.enable = true;
+      fennel = {
+        enable = true;
+        jit = true;
+      };
       node.enable = true;
       rust.enable = true;
       # scala.enable = true;
