@@ -6,7 +6,7 @@ with builtins;
 with lib;
 with lib.my;
 let inherit (inputs) agenix;
-    secretsDir = "${config.dotfiles.dir}/hosts/${config.networking.hostName}/secrets";
+    secretsDir = "${toString ../hosts}/${config.networking.hostName}/secrets";
     secretsFile = "${secretsDir}/secrets.nix";
 in {
   imports = [ agenix.nixosModules.age ];
@@ -20,8 +20,8 @@ in {
         owner = mkDefault config.user.name;
       }) (import secretsFile)
       else {};
-    sshKeyPaths =
-      options.age.sshKeyPaths.default ++ (filter pathExists [
+    identityPaths =
+      options.age.identityPaths.default ++ (filter pathExists [
         "${config.user.home}/.ssh/id_ed25519"
         "${config.user.home}/.ssh/id_rsa"
       ]);
