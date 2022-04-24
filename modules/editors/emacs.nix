@@ -109,7 +109,10 @@ in {
       # black
 
       # :lang lua
-      # luaformatter
+      luaformatter
+
+      # :lang fennel
+      fnlfmt
 
       # :lang sql
       pgformatter
