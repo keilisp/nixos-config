@@ -602,12 +602,10 @@ local appsmap = {
         end,
         "nvim"
     },
-
     {
         "e",
         function()
             awful.util.spawn("emacs")
-            -- awful.util.spawn("emacs")
         end,
         "keimacs"
     },
@@ -686,6 +684,20 @@ local appsmap = {
         "browser incognito"
     },
     {
+        "F",
+        function()
+            awful.util.spawn("firefox")
+        end,
+        "firefox"
+    },
+    {
+        "m",
+        function()
+            awful.util.spawn("spotify")
+        end,
+        "spotify"
+    },
+    {
         "s",
         function()
             awful.util.spawn("steam")
@@ -706,6 +718,30 @@ local appsmap = {
         end,
         "Keepassxc"
     }
+}
+
+local emacsmap = {
+   {
+      "e",
+      function()
+         awful.util.spawn("emacsclient -c -a \"\"")
+      end,
+      "keimacsclient"
+   },
+   {
+      "E",
+      function()
+         awful.util.spawn("emacs --daemon")
+      end,
+      "Start keimacs server"
+   },
+   {
+      "K",
+      function()
+         awful.util.spawn("emacsclient -e \"(kill-emacs)\"")
+      end,
+      "Kill keimacs server"
+   },
 }
 
 local volumemap = {
@@ -780,6 +816,14 @@ globalkeys =
         "p",
         function()
             modalbind.grab {keymap = appsmap, name = "Apps", layout = 0, stay_in_mode = false}
+        end
+    ),
+    -- Emacs map
+    awful.key(
+        {modkey},
+        "e",
+        function()
+            modalbind.grab {keymap = emacsmap, name = "Emacs", layout = 0, stay_in_mode = false}
         end
     ),
     -- Volume map
