@@ -92,6 +92,7 @@
     services = {
       ssh.enable = true;
       syncthing.enable = true;
+      borgbackup.enable = true;
       lorri.enable = true;
       openvpn.enable = true;
       # calibre.enable = true;
