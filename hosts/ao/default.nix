@@ -159,7 +159,7 @@
   '';
 
   # screen locker
-  programs.xss-lock.enable = true;
+  programs.xss-lock.enable = false;
 
   ## Local config
   programs.ssh.startAgent = true;
