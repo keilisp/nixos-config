@@ -10,11 +10,11 @@ in {
 
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
-      (wineWowPackages.full.override {
-        wineRelease = "staging";
-        mingwSupport = true;
-      })
-      (winetricks.override { wine = wineWowPackages.staging; })
+      # (wineWowPackages.full.override {
+      #   wineRelease = "staging";
+      #   mingwSupport = true;
+      # })
+      # (winetricks.override { wine = wineWowPackages.staging; })
       lutris
 
       # wineWowPackages.stable
