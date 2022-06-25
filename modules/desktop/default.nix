@@ -45,6 +45,7 @@ in {
         open-sans
         noto-fonts
         noto-fonts-cjk
+        noto-fonts-emoji
         hack-font
         iosevka
         ibm-plex
