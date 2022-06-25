@@ -10,9 +10,12 @@ in {
   options.modules.editors.emacs = {
     enable = mkBoolOpt false;
     native-comp = mkBoolOpt false;
+    server = mkBoolOpt false;
   };
 
   config = mkIf cfg.enable (mkMerge [{
+
+    # services.emacs.enable = mkIf cfg.server true;
 
     nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 

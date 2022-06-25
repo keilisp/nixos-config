@@ -68,6 +68,7 @@
       emacs = {
         enable = true;
         native-comp = true;
+        server = true;
       };
       idea.enable = true;
       vim.enable = true;
