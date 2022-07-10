@@ -4,9 +4,9 @@
   inputs = 
     {
       # Core dependencies.
-      # nixpkgs.url = "nixpkgs/nixos-unstable";             # primary nixpkgs
+      nixpkgs.url = "nixpkgs/nixos-unstable";             # primary nixpkgs
       # nixpkgs.url = "nixpkgs/nixos-21.11";             # primary nixpkgs
-      nixpkgs.url = "nixpkgs/nixos-22.05";             # primary nixpkgs
+      # nixpkgs.url = "nixpkgs/nixos-22.05";             # primary nixpkgs
       nixpkgs-unstable.url = "nixpkgs/nixos-unstable";  # for packages on the edge
       home-manager.url = "github:rycee/home-manager/master";
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +27,7 @@
       mkPkgs = pkgs: extraOverlays: import pkgs {
         inherit system;
         config.allowUnfree = true;  # forgive me Stallman senpai
+        # config.allowBroken = true; 
         overlays = extraOverlays ++ (lib.attrValues self.overlays);
       };
       pkgs  = mkPkgs nixpkgs [ self.overlay ];
