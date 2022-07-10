@@ -3,6 +3,7 @@
 with lib;
 with lib.my;
 let cfg = config.modules.desktop.media.mpv;
+    configDir = config.dotfiles.configDir;
 in {
   options.modules.desktop.media.mpv = {
     enable = mkBoolOpt false;
@@ -15,5 +16,12 @@ in {
       (mkIf config.services.xserver.enable
         celluloid)  # nice GTK GUI for mpv
     ];
+    
+    home.configFile = {
+      "mpv" = {
+        source = "${configDir}/mpv";
+        recursive = true;
+      };
+    };
   };
 }
