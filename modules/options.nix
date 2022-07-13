@@ -63,6 +63,7 @@ with lib.my; {
       #   home.dataFile    ->  home-manager.users.kei.home.xdg.dataFile
       users.${config.user.name} = {
         home = {
+          keyboard = null;
           file = mkAliasDefinitions options.home.file;
           # Necessary for home-manager to work with flakes, otherwise it will
           # look for a nixpkgs channel.

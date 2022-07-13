@@ -37,10 +37,10 @@
         nyxt.enable = true;
       };
       gaming = {
-      # steam.enable = true;
-      # emulators.enable = true;
-      # emulators.psx.enable = true;
-      # lutris.enable = true;
+        steam.enable = true;
+        # emulators.enable = true;
+        # emulators.psx.enable = true;
+        # lutris.enable = true;
       };
 
       media = {
@@ -80,7 +80,7 @@
       direnv.enable = true;
       git.enable = true;
       # gnupg.enable  = true;
-      tmux.enable   = true;
+      tmux.enable = true;
       newsboat.enable = true;
       babashka.enable = true;
       atuin.enable = true;
@@ -134,6 +134,7 @@
       nvidia.enable = true;
       sensors.enable = true;
       udiskie.enable = true;
+      keyboard.xmodmap = true;
       # fs.enable = true;
       bluetooth.enable = true;
     };
@@ -167,8 +168,21 @@
   services.openssh.startWhenNeeded = true;
 
   # Configure keymap
+  
+  # services.xserver.extraLayouts.caps_grp_shiftcaps_none = {
+  #   description = "US layout with alt-gr greek";
+  #   languages   = [ "eng"];
+  #   # symbolsFile = "${config.dotfiles.configDir}/kbdlayout/caps_grp_shiftcaps_none";
+  #   symbolsFile = "${config.dotfiles.configDir}/kbdlayout/symbols/caps_grp_shiftcaps_none";
+  # };
+
+  services.xserver.extraLayouts.us-greek = {
+    description = "US layout with alt-gr greek";
+    languages   = [ "eng" ];
+    symbolsFile = "/home/kei/nix/nixos-config/config/kbdlayout/symbols/us-greek";
+  };
+  # services.xserver.xkbOptions = "grp:caps_toggle";
   services.xserver.layout = "us, ru, ua";
-  services.xserver.xkbOptions = "grp:caps_toggle";
 
   # xset r rate 300 50
   services.xserver.autoRepeatDelay = 300;
@@ -205,6 +219,70 @@
       package = pkgs.mysql80;
     };
   };
+
+  # services.xserver.config = ''
+  #   Section "ServerLayout"
+  #       Identifier     "Layout0"
+  #       Screen      0  "Screen0" 0 0
+  #       InputDevice    "Keyboard0" "CoreKeyboard"
+  #       InputDevice    "Mouse0" "CorePointer"
+  #       Option         "Xinerama" "0"
+  #   EndSection
+
+  #   Section "Files"
+  #   EndSection
+
+  #   Section "InputDevice"
+  #       # generated from default
+  #       Identifier     "Mouse0"
+  #       Driver         "mouse"
+  #       Option         "Protocol" "auto"
+  #       Option         "Device" "/dev/input/mice"
+  #       Option         "Emulate3Buttons" "no"
+  #       Option         "ZAxisMapping" "4 5"
+  #   EndSection
+
+  #   Section "InputDevice"
+  #       # generated from default
+  #       Identifier     "Keyboard0"
+  #       Driver         "kbd"
+  #   EndSection
+
+  #   Section "Monitor"
+  #       # HorizSync source: edid, VertRefresh source: edid
+  #       Identifier     "Monitor0"
+  #       VendorName     "Unknown"
+  #       ModelName      "BenQ G2420HDBL"
+  #       HorizSync       24.0 - 83.0
+  #       VertRefresh     50.0 - 76.0
+  #       Option         "DPMS"
+  #   EndSection
+
+  #   Section "Device"
+  #       Identifier     "Device0"
+  #       Driver         "nvidia"
+  #       VendorName     "NVIDIA Corporation"
+  #       BoardName      "NVIDIA GeForce GTX 1050 Ti"
+  #   EndSection
+
+  #   Section "Screen"
+  #       Identifier     "Screen0"
+  #       Device         "Device0"
+  #       Monitor        "Monitor0"
+  #       DefaultDepth    24
+  #       Option         "Stereo" "0"
+  #       Option         "nvidiaXineramaInfoOrder" "DFP-2"
+  #       Option         "metamodes" "DVI-D-0: nvidia-auto-select +4480+0 {rotation=right, ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, HDMI-0: nvidia-auto-select +0+420 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DP-0: nvidia-auto-select +1920+420 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
+  #       Option         "SLI" "Off"
+  #       Option         "MultiGPU" "Off"
+  #       Option         "BaseMosaic" "off"
+  #       SubSection     "Display"
+  #           Depth       24
+  #       EndSubSection
+  #   EndSection
+
+  # '';
+
 
   # hardware.opengl.enable = true;
 
