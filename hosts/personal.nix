@@ -26,7 +26,8 @@ with lib; {
 
   services.syncthing = {
     devices = {
-      ao.id = "KQHX3S2-546W2K4-PYP2TAC-6IK4M2A-UD2NLOC-TWVNTUZ-ON3VGGE-EO6JHAS";
+      ao.id =
+        "A4MVHMD-XFVKQWO-WU6B6MG-M5ZYS2G-ZK5XT3J-RMECVXZ-MXUFHDO-DYVYMQD";
       kuro.id =
         "EMGO74L-WQ3YWSU-G2NZ6SZ-IG2CU2Z-SLODNKQ-EL42QP5-USZ6ZNB-T3IJDQM";
       ako.id =
