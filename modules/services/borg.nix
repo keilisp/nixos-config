@@ -37,7 +37,7 @@ in {
         # environment.BORG_RSH = "ssh -o 'StrictHostKeyChecking=no' -i /home/danbst/.ssh/id_ed25519";
         # environment.BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK = "yes";
         extraCreateArgs = "--verbose --stats --checkpoint-interval 600";
-        repo = "${config.user.home}/vids/backups/${name}";
+        repo = "${config.user.home}/media/backups/${name}";
         compression = "zstd,1";
         startAt = "weekly";
         user = config.user.name;
