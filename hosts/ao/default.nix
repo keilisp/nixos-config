@@ -160,6 +160,8 @@
     IdleActionSec=1m
   '';
 
+  services.smartd.enable = true;
+
   # screen locker
   programs.xss-lock.enable = false;
 
