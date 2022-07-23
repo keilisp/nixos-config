@@ -56,7 +56,6 @@ with lib.my; {
 
   # Use the latest kernel
   boot = {
-    # kernelPackages = mkDefault pkgs.linuxPackages_5_14;
     kernelPackages = mkDefault pkgs.linuxKernel.packages.linux_5_18;
   };
 
@@ -82,7 +81,7 @@ with lib.my; {
   '';
 
   system.configurationRevision = with inputs; mkIf (self ? rev) self.rev;
-  system.stateVersion = "21.05";
+  system.stateVersion = "22.05";
 
 }
 
