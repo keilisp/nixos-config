@@ -6,7 +6,7 @@
     desktop = {
       awesome = {
         enable = true;
-        laptop = false;
+        laptop = true;
       };
       # bspwm.enable = true;
       stumpwm.enable = true;
@@ -94,8 +94,8 @@
       teamviewer.enable = true;
     };
     # theme.active = "tomorrow-day";
-    theme.active = "modus-operandi";
-    # theme.active = "modus-vivendi";
+    # theme.active = "modus-operandi";
+    theme.active = "modus-vivendi";
     # theme.active = "nord-dark";
     # theme.active = "gruvbox-dark";
     # theme.active = "solarized-light";
