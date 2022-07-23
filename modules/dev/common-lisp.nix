@@ -23,8 +23,8 @@ in {
     };
 
     # FIXME
-    # home.configFile."sbcl/sbclrc".source = "${configDir}/sbcl/sbclrc";
-    home.file.".sbclrc".source = "${configDir}/sbcl/sbclrc";
+    home.configFile."sbcl/sbclrc".source = "${configDir}/sbcl/sbclrc";
+    # home.file.".sbclrc".source = "${configDir}/sbcl/sbclrc";
 
   };
 }
