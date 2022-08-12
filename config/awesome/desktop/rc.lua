@@ -175,14 +175,14 @@ my_tags = {
                 "   Ⅷ   "
             },
             layout = {
-                awful.layout.layouts[1],
-                awful.layout.layouts[1],
-                awful.layout.layouts[1],
-                awful.layout.layouts[1],
-                awful.layout.layouts[1],
-                awful.layout.layouts[1],
-                awful.layout.layouts[1],
-                awful.layout.layouts[1]
+                awful.layout.layouts[2],
+                awful.layout.layouts[2],
+                awful.layout.layouts[2],
+                awful.layout.layouts[2],
+                awful.layout.layouts[2],
+                awful.layout.layouts[2],
+                awful.layout.layouts[2],
+                awful.layout.layouts[2]
             }
         },
         {
