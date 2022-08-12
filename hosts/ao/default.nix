@@ -151,6 +151,7 @@
       efiSupport = true;
       # efiInstallAsRemovable = true;
       device = "nodev";
+      memtest86.enable = true;
     };
   };
 
