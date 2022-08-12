@@ -4,7 +4,7 @@
   :ensure t
   :custom
   ;; (modus-themes-syntax '(faint yellow-comments alt-syntax))
-  (modus-themes-deuteranopia t)
+  ;; (modus-themes-deuteranopia t)
   ;; (modus-themes-completions 'moderate)
   (modus-themes-region '(no-extend bg-only))
   (modus-themes-org-blocks 'gray-background)
