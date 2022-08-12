@@ -115,6 +115,7 @@
       python.enable = true;
       java.enable = true;
       clojure.enable = true;
+      haskell.enable = true;
       R.enable = true;
       scheme.enable = true;
       common-lisp.enable = true;

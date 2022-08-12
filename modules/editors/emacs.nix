@@ -101,6 +101,9 @@ in {
       rustfmt
       unstable.rust-analyzer
 
+      # :lang haskell
+      haskell-language-server
+
       # :lang nix
       nixfmt
 
