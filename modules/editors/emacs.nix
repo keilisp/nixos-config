@@ -103,6 +103,10 @@ in {
 
       # :lang haskell
       haskell-language-server
+      haskellPackages.happy
+      haskellPackages.hindent
+      haskellPackages.structured-haskell-mode
+
 
       # :lang nix
       nixfmt
