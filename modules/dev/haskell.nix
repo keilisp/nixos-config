@@ -13,6 +13,7 @@ in {
 
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
+      ghc
       stack
       cabal-install
       # stack2nix
