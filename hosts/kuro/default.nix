@@ -75,6 +75,7 @@
       ranger.enable = true;
       # tmux.enable = true;
       youtube-dl.enable = true;
+      tmux.enable = true;
       zsh.enable = true;
     };
     services = {
