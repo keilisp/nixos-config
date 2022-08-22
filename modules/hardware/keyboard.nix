@@ -30,10 +30,10 @@ in {
 
       user.packages = with pkgs; [ xorg.xmodmap ];
 
-    #   services.udev.extraRules = ''
-    #     ACTION=="add", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="3735",  ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/tmp/Xauthority", ENV{HOME}="/home/kei", RUN+="${pkgs.systemd}/bin/systemctl --no-block --user restart setup-keyboard"
-    #   '';
-    # }
+      # services.udev.extraRules = ''
+      #   ACTION=="add", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="3735",  ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/tmp/Xauthority", ENV{HOME}="/home/kei", RUN+="${pkgs.systemd}/bin/systemctl --no-block --user restart setup-keyboard"
+      # '';
+    }
 
     (mkIf cfg.shiftcapsnone {
       services.xserver.displayManager.sessionCommands = ''
