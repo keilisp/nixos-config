@@ -135,9 +135,12 @@
       nvidia.enable = true;
       sensors.enable = true;
       udiskie.enable = true;
-      keyboard.xmodmap = true;
       # fs.enable = true;
       bluetooth.enable = true;
+      keyboard = {
+        enable = true;
+        shiftcapsnone = true;
+      };
     };
   };
 
