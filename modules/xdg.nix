@@ -34,6 +34,8 @@
       TEXMFHOME="$XDG_DATA_HOME/texmf";
       TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var";
       TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config";
+      XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/xcompose";
+      XCOMPOSECACHE="$XDG_CACHE_HOME/X11/xcompose";
 
       # Tools I don't use
       # SUBVERSION_HOME = "$XDG_CONFIG_HOME/subversion";
