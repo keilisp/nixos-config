@@ -111,6 +111,10 @@
       audio.enable = true;
       udiskie.enable = true;
       bluetooth.enable = true;
+      keyboard = {
+        enable = true;
+        capsctrlswap = true;
+      };
     };
   };
 
