@@ -17,7 +17,7 @@ in {
     user.packages = with pkgs; [
       (mkIf cfg.ebook.enable calibre)
       (mkIf cfg.pdf.enable evince)
-      zathura
+      # zathura
     ];
 
     home.configFile = { "zathura".source = "${configDir}/zathura"; };

@@ -89,9 +89,9 @@ in {
 
       # :lang latex & :lang org (latex previews)
       # texlive.combined.scheme-medium
-      (texlive.combine {
-        inherit (texlive) scheme-full wrapfig titling titlesec fontspec;
-      })
+      # (texlive.combine {
+      #   inherit (texlive) scheme-full wrapfig titling titlesec fontspec;
+      # })
 
       # :lang clojure
       clojure-lsp
