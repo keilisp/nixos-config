@@ -111,7 +111,8 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     # family: Hack
-    family: Iosevka
+    # family: Iosevka
+    family: IBM Plex Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -125,7 +126,8 @@ font:
     # family: Mononoki Nerd Font
     # family: Monaco
     # family: Hack
-    family: Iosevka
+    # family: Iosevka
+    family: IBM Plex Mono
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -139,7 +141,8 @@ font:
     # family: Mononoki Nerd Font
     # family: Monaco
     # family: Hack
-    family: Iosevka
+    # family: Iosevka
+    family: IBM Plex Mono
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -151,13 +154,14 @@ font:
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
     # family: Hack
-    family: Iosevka
+    # family: Iosevka
+    family: IBM Plex Mono
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
-  size: 9.5
+  size: 9.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -416,9 +420,8 @@ key_bindings:
 - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
 - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
 - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
-#- { key: Insert,   mods: Shift,         action: PasteSelection   }
-#- { key: Key0,     mods: Control,       action: ResetFontSize    }
-#- { key: Equals,   mods: Control,       action: IncreaseFontSize }
-#- { key: Add,      mods: Control,       action: IncreaseFontSize }
-#- { key: Subtract, mods: Control,       action: DecreaseFontSize }
-#- { key: Minus,    mods: Control,       action: DecreaseFontSize }
+#- { key: Insert,   mods: Shift,         action: PasteSelection             }
+#- { key: Key0,     mods: Control,       action: ResetFontSize              }
+- { key: Equals,    mods: Control,       action: IncreaseFontSize           }
+# - { key: Minus,    mods: Control|Shift,       action: DecreaseFontSize    }
+- { key: Underline, mods: Control,       action: DecreaseFontSize           }

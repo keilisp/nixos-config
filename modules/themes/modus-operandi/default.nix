@@ -18,8 +18,8 @@ in {
             cursorTheme = "Breeze";
           };
           fonts = {
-            sans.name = "Iosevka";
-            mono.name = "Iosevka";
+            sans.name = "IBM Plex Mono";
+            mono.name = "IBM Plex Mono";
           };
           colors = {
             black = "#000000";
@@ -82,12 +82,12 @@ in {
           font-awesome
         ];
         fontconfig.defaultFonts = {
-          # sansSerif = [ "IBM Plex Mono" ];
-          # monospace = [ "IBM Plex Mono" ];
+          sansSerif = [ "IBM Plex Mono" ];
+          monospace = [ "IBM Plex Mono" ];
           # sansSerif = [ "Hack" ];
           # monospace = [ "Hack" ];
-          sansSerif = [ "Iosevka" ];
-          monospace = [ "Iosevka" ];
+          # sansSerif = [ "Iosevka" ];
+          # monospace = [ "Iosevka" ];
         };
       };
 
