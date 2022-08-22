@@ -122,6 +122,10 @@
       audio.enable = true;
       udiskie.enable = true;
       bluetooth.enable = true;
+      keyboard = {
+        enable = true;
+        capsctrlswap = true;
+      };
       # sensors.enable = true;
     };
   };
@@ -150,7 +154,7 @@
   services.xserver.layout = "us, ru, ua";
   # services.xserver.xkbOptions = "grp:caps_toggle,ctrl:swap_lalt_lctl";
   # services.xserver.xkbOptions = "grp:rctrl_toggle,ctrl:swapcaps";
-  services.xserver.xkbOptions = "grp:caps_toggle";
+  # services.xserver.xkbOptions = "grp:caps_toggle";
 
   # xset r rate 300 50
   services.xserver.autoRepeatDelay = 300;
