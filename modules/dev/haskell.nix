@@ -13,7 +13,7 @@ in {
 
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
-      ghc # 9.0.2 on unstable, doesn't support XDG
+      # ghc # 9.0.2 on unstable, doesn't support XDG
       haskell.compiler.ghc941
       stack
       cabal-install
