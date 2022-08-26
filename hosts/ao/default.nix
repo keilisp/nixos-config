@@ -29,6 +29,7 @@
         ledger.enable = true;
         # skype.enable = true;
         # unity3d.enable = true;
+        packet-tracer.enable = true;
       };
       browsers = {
         default = "brave";
