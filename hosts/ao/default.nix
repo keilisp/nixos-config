@@ -12,6 +12,7 @@
       apps = {
         telegram.enable = true;
         dmenu.enable = true;
+        path-of-building.enable = true;
         thunar.enable = true;
         lxappearance.enable = true;
         discord.enable = true;
