@@ -1,7 +1,8 @@
 { lib, stdenv, luajit, my, ... }:
 
-let name = "fennel";
-    version = "1.1.0";
+let
+  name = "fennel";
+  version = "1.1.0";
 in stdenv.mkDerivation {
   inherit name version;
 
@@ -10,9 +11,7 @@ in stdenv.mkDerivation {
     sha256 = "1m4sv8lq26dyx8vvq9l6rv7j9wd20ychyqddrb0skfi14ccb3bhx";
   };
 
-  buildInputs = [
-    luajit
-  ];
+  buildInputs = [ luajit ];
 
   phases = "installPhase";
   installPhase = ''
@@ -28,6 +27,6 @@ in stdenv.mkDerivation {
     description = "Lua Lisp Language";
     license = lib.licenses.mit;
     platforms = [ "x86_64-linux" ];
-    maintainers = [];
+    maintainers = [ ];
   };
 }

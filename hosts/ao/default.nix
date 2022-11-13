@@ -43,7 +43,7 @@
         steam.enable = true;
         # emulators.enable = true;
         # emulators.psx.enable = true;
-        # lutris.enable = true;
+        lutris.enable = true;
       };
 
       media = {
@@ -207,9 +207,15 @@
   ### TODO export (seems not working )
   services.xserver.displayManager.setupCommands = ''
     # 3 monitors 24-vertical
-    ${pkgs.xorg.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080 --pos 4480x0 --rotate right --output HDMI-0 --mode 1920x1080 --pos 0x362 --rotate normal --output DP-0 --primary --mode 2560x1080 --pos 1920x362 --rotate normal --output DP-1 --off
+    # ${pkgs.xorg.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080 --pos 4480x0 --rotate right --output HDMI-0 --mode 1920x1080 --pos 0x362 --rotate normal --output DP-0 --primary --mode 2560x1080 --pos 1920x362 --rotate normal --output DP-1 --off
     # 3 monitors 24-horizontal
-    # ${pkgs.xorg.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080 --pos 4480x362 --rotate normal --output HDMI-0 --mode 1920x1080 --pos 0x362 --rotate normal --output DP-0 --primary --mode 2560x1080 --pos 1920x362 --rotate normal --output DP-1 --off
+    ${pkgs.xorg.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080 --pos 4480x0 --rotate normal --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --primary --mode 2560x1080 --pos 1920x0 --rotate normal --output DP-1 --off
+    # 2 monitors 24-vertical
+    # ${pkgs.xorg.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080 --pos 2560x0 --rotate right --output HDMI-0 --off --output DP-0 --primary --mode 2560x1080 --pos 0x420 --rotate normal --output DP-1 --off
+
+    # 2 monitors 24-horizontal
+    # ${pkgs.xorg.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080 --pos 2560x0 --rotate normal --output HDMI-0 --off --output DP-0 --primary --mode 2560x1080 --pos 0x0 --rotate normal --output DP-1 --off
+
     ${pkgs.xorg.xset}/bin/xset r rate 300 50
 
     # FIXME If device is not present causes LIGHTDM to FAIL!!! FIXME

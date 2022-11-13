@@ -197,14 +197,23 @@ my_tags = {
                 "   八   "
             },
             layout = {
-                awful.layout.layouts[5],
-                awful.layout.layouts[5],
-                awful.layout.layouts[5],
-                awful.layout.layouts[5],
-                awful.layout.layouts[5],
-                awful.layout.layouts[5],
-                awful.layout.layouts[5],
-                awful.layout.layouts[5]
+                -- awful.layout.layouts[5],
+                -- awful.layout.layouts[5],
+                -- awful.layout.layouts[5],
+                -- awful.layout.layouts[5],
+                -- awful.layout.layouts[5],
+                -- awful.layout.layouts[5],
+                -- awful.layout.layouts[5],
+                -- awful.layout.layouts[5]
+
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1],
+                awful.layout.layouts[1]
             }
         },
         {
@@ -1533,10 +1542,10 @@ awful.rules.rules = {
         rule = {name = "cordless"},
         properties = {screen = 2, tag = my_tags.tags[2].names[4]}
     },
-    {
-        rule = {class = "Steam"},
-        properties = {screen = 3, tag = my_tags.tags[3].names[7]}
-    },
+    -- {
+    --     rule = {class = "Steam"},
+    --     properties = {screen = 3, tag = my_tags.tags[3].names[7]}
+    -- },
     -- {
     --   rule = {class = "Sxiv"},
     --   properties = {screen = 1, tag = my_tags.tags[1].names[5]}
@@ -1599,6 +1608,7 @@ awful.rules.rules = {
             },
             name = {
                 "Media viewer",
+                "Awakened PoE Trade",
                 "Event Tester" -- xev.
             },
             role = {

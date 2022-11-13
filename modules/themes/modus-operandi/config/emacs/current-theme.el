@@ -1,5 +1,7 @@
 ;;; current-theme.el -*- lexical-binding: t; -*-
 
+(defvar theme-name 'modus-operandi)
+
 (use-package modus-themes
   :ensure t
   :custom
@@ -18,11 +20,26 @@
   :init
   ;; Terminal mode
   (unless (display-graphic-p)
-    (load-theme 'modus-operandi t)
+    (load-theme theme-name t)
     (use-package evil-terminal-cursor-changer
       :after evil
       :ensure t
       :hook
       (tty-setup . evil-terminal-cursor-changer-activate)))
 
-  (load-theme 'modus-operandi t))
+  (load-theme theme-name t))
+
+
+;; (use-package ef-themes
+;;   :ensure t
+;;   :init
+;;   ;; Terminal mode
+;;   (unless (display-graphic-p)
+;;     (load-theme theme-name t)
+;;     (use-package evil-terminal-cursor-changer
+;;       :after evil
+;;       :ensure t
+;;       :hook
+;;       (tty-setup . evil-terminal-cursor-changer-activate)))
+
+;;   (load-theme theme-name t))

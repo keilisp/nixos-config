@@ -17,7 +17,7 @@ in {
       # (winetricks.override { wine = wineWowPackages.staging; })
       lutris
 
-      # wineWowPackages.stable
+      wineWowPackages.stable
       # (winetricks.override { wine = wineWowPackages.stable; })
     ];
     # system.userActivationScripts.setupSteamDir = ''mkdir -p "${cfg.libDir}"'';

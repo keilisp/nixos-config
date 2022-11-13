@@ -1,5 +1,7 @@
 { lib, stdenv, pkgs, my, ... }:
 
+#TODO patch Setting.xml to be able to save builds (nix store is read-only obv)
+
 let
   name = "PathOfBuilding";
   version = "2.21.1";
