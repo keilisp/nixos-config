@@ -30,6 +30,7 @@ http://planet.clojure.in/atom.xml
 https://www.reddit.com/r/Clojure/new.rss
 https://clojure.org/feed.xml
 https://batsov.com/atom.xml
+http://blog.fogus.me/feed/
 https://grishaev.me/feed.xml
 https://lambdaisland.com/feeds/blog.atom
 
@@ -58,27 +59,51 @@ https://www.reddit.com/r/Compilers/new.rss
 https://www.pathofexile.com/news/rss
 
 ---YOUTUBE-TECH---
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA
-https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg
-https://www.youtube.com/feeds/videos.xml?channel_id=UCJetJ7nDNLlEzDLXv7KIo0w
-https://www.youtube.com/feeds/videos.xml?channel_id=UC9MK8SybZcrHR3CUV4NMy2g
-https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA
-https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg
-https://www.youtube.com/feeds/videos.xml?channel_id=UCL4BwOrBEKggPyqsdVpraFg
-https://www.youtube.com/feeds/videos.xml?channel_id=UCuj_loxODrOPxSsXDfJmpng
-https://www.youtube.com/feeds/videos.xml?channel_id=UCs4fQRyl1TJvoeOdekW6lYA
-https://www.youtube.com/feeds/videos.xml?channel_id=UCEUyd79AnnYoi6N_nY0j9GA
-https://www.youtube.com/feeds/videos.xml?channel_id=UC0uTPqBCFIpZxlz_Lv1tk_g
-https://www.youtube.com/feeds/videos.xml?channel_id=UCAiiOTio8Yu69c3XnR7nQBQ
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA # Luke Smith
+https://www.youtube.com/feeds/videos.xml?channel_id=UCJetJ7nDNLlEzDLXv7KIo0w # Gavin Greeborn
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg # Wolfgang's Channel
+https://www.youtube.com/feeds/videos.xml?channel_id=UCL4BwOrBEKggPyqsdVpraFg # Johe News
+https://www.youtube.com/feeds/videos.xml?channel_id=UCuj_loxODrOPxSsXDfJmpng # Andrew Tropin
+https://www.youtube.com/feeds/videos.xml?channel_id=UCs4fQRyl1TJvoeOdekW6lYA # fasterthanlime
+https://www.youtube.com/feeds/videos.xml?channel_id=UC0uTPqBCFIpZxlz_Lv1tk_g # Protesilaos Stavrou
+https://www.youtube.com/feeds/videos.xml?channel_id=UCAiiOTio8Yu69c3XnR7nQBQ # System Crafters
+
+---YOUTUBE-SCI-POP---
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2Ru64PHqW4FxoP0xhQRvJg # ТОПЛЕС
+https://www.youtube.com/feeds/videos.xml?channel_id=UC8M5YVWQan_3Elm-URehz9w # Utopia Show
+
+---YOUTUBE-GAMES---
+https://www.youtube.com/feeds/videos.xml?channel_id=UC_gKMJFeCf1bKzZr_fICkig # TheDRZJ
+https://www.youtube.com/feeds/videos.xml?channel_id=UCOxQWb-OuyCSZadzWqrKTCQ # БУЛДЖАТь
+https://www.youtube.com/feeds/videos.xml?channel_id=UCLKB9g1374gcxezJINOLtag # РАЙЗ
+https://www.youtube.com/feeds/videos.xml?channel_id=UCqlt4UMlOTLHsetaCAGWPPQ # Ekky
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3ltptWa0xfrDweghW94Acg # Karl Jobst
+https://www.youtube.com/feeds/videos.xml?channel_id=UCwjhNxiTk2mSGTtmIixDXpQ # Киряша
+https://www.youtube.com/feeds/videos.xml?channel_id=UCdga1n7C6EJfoS0lYxDpeoA # Хумас
+
+---YOUTUBE-PoE---
+https://www.youtube.com/feeds/videos.xml?channel_id=UCSDZkgmigfYbdw7hJ-6Wo6A # ds lily
+https://www.youtube.com/feeds/videos.xml?channel_id=UCW-hxsDOLJ_F9ZMoh_izpRQ # Grimro
+https://www.youtube.com/feeds/videos.xml?channel_id=UCEC22T_ty1ZqpEkmjuiYMSw # Kay Gaming
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3WDr3ZLl1KuDKDlZy1wWCQ # KobeBlackMamba
+https://www.youtube.com/feeds/videos.xml?channel_id=UCW1ulY8s-PJU8oL4F3eS9tA # Lolcohol
+https://www.youtube.com/feeds/videos.xml?channel_id=UC0Gx64EmyVDd9gxemldd8Gw # mbXtreme
+https://www.youtube.com/feeds/videos.xml?channel_id=UCNmdBhyaYYtHRfb92xp04-A # Nextezy
+https://www.youtube.com/feeds/videos.xml?channel_id=UCeB8aSt0Ugx3KBy5zHdxrTA # poe bota
+https://www.youtube.com/feeds/videos.xml?channel_id=UCkjbN2BlTwm7XknNjLOj7Hg # subtractem
+https://www.youtube.com/feeds/videos.xml?channel_id=UCAG3CiKOUkQysyKCXSFEBPA # Zizaran
+
+---YOUTUBE-DEVICES---
+https://www.youtube.com/feeds/videos.xml?channel_id=UCD-S-2TMDY4fL-R5iDQn-6Q # PRO ДЕВАЙСЫ
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7nQ_p09KDD0fI6p34nsr4A # Voldemar
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7WtLipHnndkqwSxvL0oyVQ # DMS
+https://www.youtube.com/feeds/videos.xml?channel_id=UCx9bOYEjkevIDYONBAstK-A # Joshua Valour
+https://www.youtube.com/feeds/videos.xml?channel_id=UCHB_LTbHebAPiiP3q8Jj3dg # Michael Borzenkov
 
 ---YOUTUBE-OTHER---
-https://www.youtube.com/feeds/videos.xml?channel_id=UCLKB9g1374gcxezJINOLtag
-https://www.youtube.com/feeds/videos.xml?channel_id=UC8M5YVWQan_3Elm-URehz9w
-https://www.youtube.com/feeds/videos.xml?channel_id=UC_gKMJFeCf1bKzZr_fICkig
-https://www.youtube.com/feeds/videos.xml?channel_id=UC7nQ_p09KDD0fI6p34nsr4A
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2Ru64PHqW4FxoP0xhQRvJg
-https://www.youtube.com/feeds/videos.xml?channel_id=UCfdgIq01iG92AXBt-NxgPkg
-https://www.youtube.com/feeds/videos.xml?channel_id=UCOxQWb-OuyCSZadzWqrKTCQ
-https://www.youtube.com/feeds/videos.xml?channel_id=UCD-S-2TMDY4fL-R5iDQn-6Q
-https://www.youtube.com/feeds/videos.xml?channel_id=UCr1Pf6rqk3h8b1APvAt42Bw
-https://www.youtube.com/feeds/videos.xml?channel_id=UCfn7uyPvr5IY5pux8oyIa4Q
+https://www.youtube.com/feeds/videos.xml?channel_id=UCvKPc71Dd8qnuKZd2nRyH4g # FlynnFlyTaggart
+https://www.youtube.com/feeds/videos.xml?channel_id=UCeq8w1LXHDqXEL0tx66kQIQ # K-off
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6cqazSR6CnVMClY0bJI0Lg # BadComedian
+https://www.youtube.com/feeds/videos.xml?channel_id=UCr1Pf6rqk3h8b1APvAt42Bw # slidan
+https://www.youtube.com/feeds/videos.xml?channel_id=UCEMSM2w0EvLcOSIFrv3kNHQ # Audio RW
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfn7uyPvr5IY5pux8oyIa4Q # Кель`
