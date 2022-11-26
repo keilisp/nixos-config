@@ -5,6 +5,8 @@
 let
   name = "PathOfBuilding";
   version = "2.21.1";
+  # FIXME hardcode, config.user.home is not working for some reason, could i pass it here?
+  pobBuildPath = "/home/kei/.local/share/pob/builds/";
 in stdenv.mkDerivation {
   inherit name version;
 
@@ -17,9 +19,15 @@ in stdenv.mkDerivation {
 
   buildInputs = with pkgs; [ luajit unzip my.lua_curl my.pobfrontend ];
 
+  # HACK to change default build path (since /nix/store is read-only)
+  # FIXME is there a better way?
+  buildPhase = ''
+    sed -i 's~self.defaultBuildPath = self.userPath.."Builds/"~self.defaultBuildPath = "${pobBuildPath}"~g' ./src/Modules/Main.lua 
+  '';
+
   installPhase = ''
     mkdir -p $out
-    cp -r $src/* $out
+    cp -r $PWD/* $out
     cd $out
     for f in ./tree*.zip; do unzip $f;done
     unzip ./runtime-win32.zip lua/xml.lua lua/base64.lua lua/sha1.lua
