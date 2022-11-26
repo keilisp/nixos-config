@@ -2,9 +2,9 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.apps.path-of-building;
+let cfg = config.modules.desktop.gaming.path-of-building;
 in {
-  options.modules.desktop.apps.path-of-building = {
+  options.modules.desktop.gaming.path-of-building = {
     enable = mkEnableOption false;
   };
 
