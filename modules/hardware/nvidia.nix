@@ -14,7 +14,7 @@ in {
     services.xserver.videoDrivers = [ "nvidia" ];
 
     environment.systemPackages = with pkgs; [
-      linuxKernel.packages.linux_5_18.nvidia_x11
+      linuxKernel.packages.linux_6_0.nvidia_x11
       # Respect XDG conventions, damn it!
       (writeScriptBin "nvidia-settings" ''
         #!${stdenv.shell}
