@@ -26,8 +26,7 @@ with lib; {
 
   services.syncthing = {
     devices = {
-      ao.id =
-        "A4MVHMD-XFVKQWO-WU6B6MG-M5ZYS2G-ZK5XT3J-RMECVXZ-MXUFHDO-DYVYMQD";
+      ao.id = "A4MVHMD-XFVKQWO-WU6B6MG-M5ZYS2G-ZK5XT3J-RMECVXZ-MXUFHDO-DYVYMQD";
       kuro.id =
         "UFYMUFO-NOZS46C-IALY7VF-YZA7ZIJ-PUM2544-CJAMIVX-L7UJW25-WFRJRQX";
       ako.id =
@@ -36,6 +35,8 @@ with lib; {
         "DL3TBOC-35JFKDE-GSIOQWU-RLCEUIZ-YSPOGNG-KQYIJXM-4MZHYGR-6FMA5A3";
       aijiro.id =
         "MB3DXEU-TVUX53M-PYRNN2V-2VOB7VD-SW3E4K3-WV24KMA-URDHY25-4JBZLQL";
+      mizu.id =
+        "XNVEW7V-GO3KOLG-Y5VA6H4-VTBVTOG-SNOAZWQ-VXZQXHV-B4DSOL4-6HVMEQL";
 
     };
     folders = let
@@ -46,17 +47,19 @@ with lib; {
         # enabled = lib.elem config.networking.hostname devices;
       };
     in {
-      org = mkShare "personal_files" [ "kuro" "ao" "ako" "shiro" "aijiro" ]
+      org =
+        mkShare "personal_files" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" ]
         "sendreceive" "${config.user.home}/org";
 
-      passwrds = mkShare "personal_files" [ "kuro" "ao" "ako" "shiro" "aijiro" ]
+      passwrds =
+        mkShare "personal_files" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" ]
         "sendreceive" "${config.user.home}/passwrds";
 
-      dox = mkShare "dox" [ "kuro" "ao" "ako" "shiro" "aijiro" ] "sendreceive"
-        "${config.user.home}/dox";
+      dox = mkShare "dox" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" ]
+        "sendreceive" "${config.user.home}/dox";
 
-      unik = mkShare "unik" [ "kuro" "ao" "ako" "shiro" "aijiro" ] "sendreceive"
-        "${config.user.home}/unik";
+      unik = mkShare "unik" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" ]
+        "sendreceive" "${config.user.home}/unik";
     };
   };
 }
