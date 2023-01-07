@@ -9,7 +9,7 @@
         laptop = true;
       };
       # bspwm.enable = true;
-      stumpwm.enable = true;
+      stumpwm.enable = false;
       apps = {
         telegram.enable = true;
         dmenu.enable = true;
