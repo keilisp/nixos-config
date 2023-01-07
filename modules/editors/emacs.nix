@@ -53,7 +53,7 @@ in {
           (epkgs: [ epkgs.vterm ])))
 
       (mkIf (cfg.native-comp == true)
-        ((emacsPackagesFor emacsNativeComp).emacsWithPackages
+        ((emacsPackagesFor emacsUnstable).emacsWithPackages
           (epkgs: [ epkgs.vterm ])))
 
       libtool
@@ -77,7 +77,7 @@ in {
           (epkgs: [ epkgs.pdf-tools ])))
 
       (mkIf (cfg.native-comp == true)
-        ((emacsPackagesFor emacsNativeComp).emacsWithPackages
+        ((emacsPackagesFor emacsUnstable).emacsWithPackages
           (epkgs: [ epkgs.pdf-tools ])))
 
       # :lang cc
@@ -105,7 +105,7 @@ in {
       haskell-language-server
       haskellPackages.happy
       haskellPackages.hindent
-      haskellPackages.structured-haskell-mode
+      # haskellPackages.structured-haskell-mode
 
 
       # :lang nix
