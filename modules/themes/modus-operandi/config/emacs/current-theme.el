@@ -12,7 +12,7 @@
   (modus-themes-italic-constructs t)
   (modus-themes-prompts '(bold))
   (modus-themes-headings '((1 . (variable-pitch light 1.1))
-                           (agenda-date . (1.1))
+                           ;; (agenda-date . (1.1))
                            (agenda-structure . (variable-pitch light 1.2))
                            (t . (regular))))
   (modus-themes-common-palette-overrides 
