@@ -33,6 +33,7 @@ https://batsov.com/atom.xml
 http://blog.fogus.me/feed/
 https://blog.michielborkent.nl/atom.xml
 https://grishaev.me/feed.xml
+https://andreyorst.gitlab.io/feed.xml
 https://lambdaisland.com/feeds/blog.atom
 
 ---FP---
@@ -41,6 +42,7 @@ https://www.reddit.com/r/functionalprogramming/new.rss
 ---COMPILERS & PL-DESIGN---
 https://existentialtype.wordpress.com/feed/
 https://blog.regehr.org/feed
+https://tratt.net/laurie/news.rss
 
 ---NIXOS & HASKELL---
 https://www.reddit.com/r/NixOS/new.rss
