@@ -23,6 +23,12 @@
       fsType = "vfat";
     };
 
-  swapDevices = [ ];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      priority = 100;
+      size = 4096;
+    }
+  ];
 
 }
