@@ -1,4 +1,4 @@
-{pkgs, config, ... }: {
+{ pkgs, config, ... }: {
   imports = [ ../personal.nix ./hardware-configuration.nix ];
 
   ## Modules
@@ -36,9 +36,9 @@
         firefox.enable = true;
       };
       gaming = {
-      steam.enable = true;
-      # emulators.enable = true;
-      # emulators.psx.enable = true;
+        steam.enable = true;
+        # emulators.enable = true;
+        # emulators.psx.enable = true;
       };
 
       media = {
