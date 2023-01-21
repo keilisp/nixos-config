@@ -17,6 +17,7 @@
         libreoffice.enable = true;
         discord.enable = true;
         zoom.enable = true;
+        zotero.enable = false;
         msteams.enable = true;
         etcher.enable = false;
         flameshot.enable = true;

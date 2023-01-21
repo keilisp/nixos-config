@@ -19,6 +19,7 @@
         discord.enable = true;
         dbeaver.enable = true;
         zoom.enable = true;
+        zotero.enable = true;
         msteams.enable = true;
         etcher.enable = false;
         flameshot.enable = true;

@@ -16,6 +16,7 @@
         lxappearance.enable = true;
         discord.enable = true;
         zoom.enable = true;
+        zotero.enable = true;
         msteams.enable = true;
         libreoffice.enable = true;
         etcher.enable = false;
