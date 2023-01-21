@@ -29,7 +29,7 @@ in {
 
     services = {
       # picom.enable = true;
-      redshift.enable = true;
+      redshift.enable = false;
       xserver = {
         # autoRepeatDelay = 300;
         # autoRepeatInterval = 50;
