@@ -18,6 +18,7 @@
         discord.enable = true;
         zoom.enable = true;
         zotero.enable = false;
+        sublime-merge.enable = false;
         msteams.enable = true;
         etcher.enable = false;
         flameshot.enable = true;
