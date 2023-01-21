@@ -88,7 +88,7 @@ in {
       nodePackages.javascript-typescript-langserver
 
       # :lang latex & :lang org (latex previews)
-      # texlive.combined.scheme-medium
+      texlive.combined.scheme-full
       # (texlive.combine {
       #   inherit (texlive) scheme-full wrapfig titling titlesec fontspec;
       # })
