@@ -173,9 +173,9 @@
   # };
 
   services.xserver.displayManager.setupCommands = ''
-  # bunker
-  # ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off --output DP-2-1 --mode 2560x1080 --pos 1920x0 --rotate normal --output DP-2-2 --off --output DP-2-3 --off
-    ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off --output DP-2-1 --primary --mode 2560x1080 --pos 1920x0 --rotate normal --output DP-2-2 --off --output DP-2-3 --off
+
+    ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 1.0 --gamma 0.76:0.75:0.68
+
     ${pkgs.xorg.xset}/bin/xset r rate 300 50
   '';
 
