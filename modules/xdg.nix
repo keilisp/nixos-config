@@ -30,7 +30,7 @@
       HISTFILE = "$XDG_DATA_HOME/bash/history";
       INPUTRC = "$XDG_CONFIG_HOME/readline/inputrc";
       LESSHISTFILE = "$XDG_CACHE_HOME/lesshst";
-      # WGETRC = "$XDG_CONFIG_HOME/wgetrc";
+      WGETRC = "$XDG_CONFIG_HOME/wgetrc";
       TEXMFHOME="$XDG_DATA_HOME/texmf";
       TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var";
       TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config";

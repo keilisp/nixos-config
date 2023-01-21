@@ -134,7 +134,8 @@ in {
     # Clean up leftovers, as much as we can
     system.userActivationScripts.cleanupHome = ''
       pushd "${config.user.home}"
-      rm -rf .compose-cache .nv .pki .dbus .fehbg
+      rm -rf .compose-cache .nv .pki .dbus .fehbg .android \
+      .eclipse .java .m2 .screenlayout .swt .tldrc
       [ -s .xsession-errors ] || rm -f .xsession-errors*
       popd
     '';

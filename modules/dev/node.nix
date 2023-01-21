@@ -29,7 +29,8 @@ in {
     # Run locally installed bin-script, e.g. n coffee file.coffee
     environment.shellAliases = {
       n  = "PATH=\"$(npm bin):$PATH\"";
-      ya = "yarn";
+      ya = "yarn --use-yarnrc \"$XDG_CONFIG_HOME/yarn/config\"";
+      yarn = "yarn --use-yarnrc \"$XDG_CONFIG_HOME/yarn/config\"";
     };
 
     home.configFile."npm/config".text = ''

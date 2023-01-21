@@ -9,6 +9,6 @@ ps aux |
 	xargs kill -9
 
 while true; do
-	find $HOME/pix/wallpapers -type f -name '*.jpg' -o -name '*.png' | shuf -n 1 | xargs feh --bg-fill
+	find $HOME/pix/wallpapers -type f -name '*.jpg' -o -name '*.png' | shuf -n 1 | xargs feh --no-fehbg --bg-fill
 	sleep 30m
 done &

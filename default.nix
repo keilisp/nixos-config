@@ -55,25 +55,27 @@ with lib.my; {
   };
 
   # Use the latest kernel
-  boot = {
-    kernelPackages = mkDefault pkgs.linuxKernel.packages.linux_6_0;
-  };
+  boot = { kernelPackages = mkDefault pkgs.linuxKernel.packages.linux_6_0; };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    bind
-    cached-nix-shell
-    coreutils
-    git
-    vim
-    wget
-    gnumake
-    unzip
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      bind
+      cached-nix-shell
+      coreutils
+      git
+      vim
+      wget
+      gnumake
+      unzip
+    ];
+
+    shellAliases = { wget = ''wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"''; };
+  };
 
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=3s
