@@ -1,5 +1,7 @@
-#show-read-feeds no
+# show-read-feeds no
 auto-reload yes
+
+cache-file "~/dox/rss/newsboat-cache.db"
 
 bind-key j down
 bind-key k up
