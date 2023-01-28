@@ -43,7 +43,7 @@
         steam.enable = true;
         path-of-building.enable = true;
         awakened-poe-trade.enable = true;
-        exilence-next.enable = true;
+        # exilence-next.enable = true;
         # emulators.enable = true;
         # emulators.psx.enable = true;
         lutris.enable = true;
