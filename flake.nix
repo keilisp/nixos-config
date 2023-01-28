@@ -29,6 +29,9 @@
         inherit system;
         config.allowUnfree = true;  # forgive me Stallman senpai
         # config.allowBroken = true; 
+        config.permittedInsecurePackages = [
+          "qtwebkit-5.212.0-alpha4" # for pobfrontend
+        ];
         overlays = extraOverlays ++ (lib.attrValues self.overlays);
       };
       pkgs  = mkPkgs nixpkgs [ self.overlay ];
