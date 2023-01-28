@@ -69,8 +69,8 @@
      (date-weekend fg-dim)
 
      ;; hl-line and region selection
-     (bg-hl-line bg-dim)
-     (bg-region bg-lavender)
+     (bg-hl-line bg-lavender)
+     (bg-region bg-magenta-subtle)
      (fg-region unspecified)
 
      ;; Basically unsaved buffer color
