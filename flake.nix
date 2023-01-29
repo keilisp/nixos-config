@@ -17,6 +17,7 @@
       # Extras
       emacs-overlay.url  = "github:nix-community/emacs-overlay";
       nixos-hardware.url = "github:nixos/nixos-hardware";
+      kmonad.url = "github:kmonad/kmonad?dir=nix";
     };
 
   outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, ... }:
