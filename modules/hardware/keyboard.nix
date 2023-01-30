@@ -25,6 +25,7 @@ in {
     capsctrlswap = mkBoolOpt false;
     kmonad = {
       enable = mkBoolOpt false;
+      hhkb-colemak-dh = mkBoolOpt false;
     };
   };
 
@@ -43,6 +44,17 @@ in {
       services.kmonad = mkIf cfg.kmonad.enable {
         enable = true;
 
+        keyboards.hhkb = mkIf cfg.kmonad.hhkb-colemak-dh {
+          device =
+            "/dev/input/by-id/usb-Topre_Corporation_HHKB_Professional-event-kbd";
+          config = builtins.readFile ../../config/kmonad/hhkb.kbd;
+
+          defcfg = {
+            enable = true;
+            fallthrough = true;
+            allowCommands = true;
+          };
+        };
       };
 
       user.packages = with pkgs; [ xorg.xmodmap ];

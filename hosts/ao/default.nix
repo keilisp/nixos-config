@@ -148,6 +148,7 @@
         shiftcapsnone = true;
         kmonad = {
           enable = true;
+          hhkb-colemak-dh = true;
         };
       };
     };
