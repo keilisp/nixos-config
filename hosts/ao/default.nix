@@ -184,17 +184,6 @@
   services.openssh.startWhenNeeded = true;
 
   # Configure keymap
-  # services.xserver.extraLayouts.us-greek = {
-  #   description = "US layout with alt-gr greek";
-  #   languages   = [ "eng" ];
-  #   symbolsFile = ./../../config/kbdlayout/symbols/us-greek;
-  # };
-
-  # services.xserver.extraLayouts.caps_grp_shiftcaps_none = {
-  #   description = "US layout with alt-gr greek";
-  #   languages   = [ "eng" ];
-  #   symbolsFile = ./../../config/kbdlayout/symbols/caps_grp_shiftcaps_none;
-  # };
 
   # services.xserver.xkbOptions = "grp:caps_toggle";
   services.xserver.layout = "us, ru, ua";
@@ -232,12 +221,6 @@
     # ${pkgs.xorg.setxkbmap}/bin/setxkbmap -layout "us, ru, ua"
   '';
 
-  # ACTION=="add", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="3735",  ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/tmp/.Xauthority", ENV{HOME}="/home/kei", RUN+="/home/kei/nix/nixos-config/bin/kbd_udev", OWNER="kei"
-  #   services.udev.extraRules = ''
-  #   ACTION=="add", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="3735",  ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/tmp/.Xauthority", ENV{HOME}="/home/kei",
-  #   RUN+="${kek}", OWNER="kei"
-  # '';
-
   services.cron = {
     enable = true;
     systemCronJobs = [
@@ -252,127 +235,6 @@
       package = pkgs.mysql80;
     };
   };
-
-  systemd.user.services."setup-keyboard" = {
-    enable = true;
-    description = "Load my keyboard modifications";
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "forking";
-      ExecStart = "${pkgs.bash}/bin/bash ${
-          pkgs.writeScript "setup-keyboard.sh" ''
-
-            #!${pkgs.stdenv.shell}
-
-            sleep 1;
-
-            # Stop previous xcape processes, otherwise xcape is launched multiple times
-            # And buttons get implemented multiple times
-            # ${pkgs.killall}/bin/killall xcape
-
-            # Load keyboard layout
-            # ${pkgs.xorg.xkbcomp}/bin/xkbcomp /etc/X11/keymap.xkb $DISPLAY
-
-            # Capslock to control
-            # ${pkgs.xcape}/bin/xcape -e 'Control_L=Escape'
-
-            # Make space Control L whenn pressed.
-            # spare_modifier="Hyper_L"
-            # ${pkgs.xorg.xmodmap}/bin/xmodmap -e "keycode 65 = $spare_modifier"
-            # ${pkgs.xorg.xmodmap}/bin/xmodmap -e "remove mod4 = $spare_modifier"
-            # ${pkgs.xorg.xmodmap}/bin/xmodmap -e "add Control = $spare_modifier"
-
-            # Map space to an unused keycode (to keep it around for xcape to
-            # use).
-            # ${pkgs.xorg.xmodmap}/bin/xmodmap -e "keycode any = space"
-
-            # Finally use xcape to cause the space bar to generate a space when tapped.
-            # ${pkgs.xcape}/bin/xcape -e "$spare_modifier=space"
-
-
-            ${pkgs.xorg.xset}/bin/xset r rate 300 50
-            ${pkgs.xorg.xmodmap}/bin/xmodmap -e "keycode  66 = ISO_Next_Group NoSymbol ISO_Next_Group NoSymbol ISO_Next_Group NoSymbol"
-
-            echo "Keyboard setup done!"
-          ''
-        }";
-    };
-  };
-
-  # services.udev.extraRules = ''
-  #   # SUBSYSTEM=="usb", ACTION=="add", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/tmp/Xauthority", ENV{HOME}="/home/kei", RUN+="${pkgs.systemd}/bin/systemctl --no-block --user restart setup-keyboard"
-
-  #   SUBSYSTEM=="usb", ACTION=="add", \
-  #   ENV{ID_VENDOR}=="1209", \
-  #   ATTRS{idProduct}=="3735", \
-  #   TAG+="systemd", \
-  #   ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/tmp/Xauthority", ENV{HOME}="/home/kei", \
-  #   ENV{SYSTEMD_USER_WANTS}+="setup-keyboard.service", \
-  #   ENV{SYSTEMD_WANTS}="setup-keyboard.service", \
-  # '';
-
-  # services.xserver.config = ''
-  #   Section "ServerLayout"
-  #       Identifier     "Layout0"
-  #       Screen      0  "Screen0" 0 0
-  #       InputDevice    "Keyboard0" "CoreKeyboard"
-  #       InputDevice    "Mouse0" "CorePointer"
-  #       Option         "Xinerama" "0"
-  #   EndSection
-
-  #   Section "Files"
-  #   EndSection
-
-  #   Section "InputDevice"
-  #       # generated from default
-  #       Identifier     "Mouse0"
-  #       Driver         "mouse"
-  #       Option         "Protocol" "auto"
-  #       Option         "Device" "/dev/input/mice"
-  #       Option         "Emulate3Buttons" "no"
-  #       Option         "ZAxisMapping" "4 5"
-  #   EndSection
-
-  #   Section "InputDevice"
-  #       # generated from default
-  #       Identifier     "Keyboard0"
-  #       Driver         "kbd"
-  #   EndSection
-
-  #   Section "Monitor"
-  #       # HorizSync source: edid, VertRefresh source: edid
-  #       Identifier     "Monitor0"
-  #       VendorName     "Unknown"
-  #       ModelName      "BenQ G2420HDBL"
-  #       HorizSync       24.0 - 83.0
-  #       VertRefresh     50.0 - 76.0
-  #       Option         "DPMS"
-  #   EndSection
-
-  #   Section "Device"
-  #       Identifier     "Device0"
-  #       Driver         "nvidia"
-  #       VendorName     "NVIDIA Corporation"
-  #       BoardName      "NVIDIA GeForce GTX 1050 Ti"
-  #   EndSection
-
-  #   Section "Screen"
-  #       Identifier     "Screen0"
-  #       Device         "Device0"
-  #       Monitor        "Monitor0"
-  #       DefaultDepth    24
-  #       Option         "Stereo" "0"
-  #       Option         "nvidiaXineramaInfoOrder" "DFP-2"
-  #       Option         "metamodes" "DVI-D-0: nvidia-auto-select +4480+0 {rotation=right, ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, HDMI-0: nvidia-auto-select +0+420 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DP-0: nvidia-auto-select +1920+420 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
-  #       Option         "SLI" "Off"
-  #       Option         "MultiGPU" "Off"
-  #       Option         "BaseMosaic" "off"
-  #       SubSection     "Display"
-  #           Depth       24
-  #       EndSubSection
-  #   EndSection
-
-  # '';
 
   # hardware.opengl.enable = true;
 
