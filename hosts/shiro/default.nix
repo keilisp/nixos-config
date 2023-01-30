@@ -126,7 +126,12 @@
       bluetooth.enable = true;
       keyboard = {
         enable = true;
-        capsctrlswap = true;
+        capsctrlswap = false;
+        kmonad = {
+          enable = true;
+          hhkb-colemak-dh = false;
+          t440p-colemak-dh = true;
+        };
       };
       # sensors.enable = true;
     };
@@ -153,7 +158,7 @@
   services.openssh.startWhenNeeded = true;
 
   # Configure keymap
-  services.xserver.layout = "us, ru, ua";
+  # services.xserver.layout = "us, ru, ua";
   # services.xserver.xkbOptions = "grp:caps_toggle,ctrl:swap_lalt_lctl";
   # services.xserver.xkbOptions = "grp:rctrl_toggle,ctrl:swapcaps";
   # services.xserver.xkbOptions = "grp:caps_toggle";

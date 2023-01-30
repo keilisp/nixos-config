@@ -26,13 +26,17 @@ in {
     kmonad = {
       enable = mkBoolOpt false;
       hhkb-colemak-dh = mkBoolOpt false;
+      t440p-colemak-dh = mkBoolOpt false;
     };
   };
 
   imports = [ inputs.kmonad.nixosModules.default ];
   config = mkIf cfg.enable (mkMerge [
     {
+      # FIXME make options langs change
       services.xserver.layout = "us, ru, ua";
+      services.xserver.xkbOptions =
+        mkIf cfg.kmonad.t440p-colemak-dh "grp:caps_toggle";
 
       services.udev.extraRules = mkIf cfg.kmonad.enable ''
         # KMonad user access to /dev/uinput
@@ -57,6 +61,18 @@ in {
             allowCommands = true;
           };
         };
+
+        keyboards.t440p-colemak-dh = mkIf cfg.kmonad.t440p-colemak-dh {
+          device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
+          config = builtins.readFile ../../config/kmonad/t440p.kbd;
+
+          defcfg = {
+            enable = true;
+            fallthrough = true;
+            allowCommands = true;
+          };
+        };
+
       };
 
       user.packages = with pkgs; [ xorg.xmodmap ];
