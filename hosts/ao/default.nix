@@ -103,7 +103,6 @@
       openvpn.enable = true;
       # calibre.enable = true;
       docker.enable = true;
-      kmonad.enable = true;
       # fail2ban.enable = true;
       # jellyfin.enable = true;
       # nginx.enable = true;
@@ -147,6 +146,9 @@
       keyboard = {
         enable = true;
         shiftcapsnone = true;
+        kmonad = {
+          enable = true;
+        };
       };
     };
   };

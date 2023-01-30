@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, ... }:
+{ options, config, lib, pkgs, inputs, ... }:
 
 with lib;
 with lib.my;
@@ -23,13 +23,29 @@ in {
     enable = mkBoolOpt false;
     shiftcapsnone = mkBoolOpt false;
     capsctrlswap = mkBoolOpt false;
+    kmonad = {
+      enable = mkBoolOpt false;
+    };
   };
 
+  imports = [ inputs.kmonad.nixosModules.default ];
   config = mkIf cfg.enable (mkMerge [
     {
+      services.udev.extraRules = mkIf cfg.kmonad.enable ''
+        # KMonad user access to /dev/uinput
+        KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
+      '';
+
+      users.groups = mkIf cfg.kmonad.enable { uinput = { }; };
+
+      user.extraGroups = mkIf cfg.kmonad.enable [ "input" "uinput" ];
+
+      services.kmonad = mkIf cfg.kmonad.enable {
+        enable = true;
+
+      };
 
       user.packages = with pkgs; [ xorg.xmodmap ];
-
       # services.udev.extraRules = ''
       #   ACTION=="add", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="3735",  ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/tmp/Xauthority", ENV{HOME}="/home/kei", RUN+="${pkgs.systemd}/bin/systemctl --no-block --user restart setup-keyboard"
       # '';
