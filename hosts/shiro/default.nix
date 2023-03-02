@@ -139,20 +139,30 @@
     };
   };
 
-  boot.loader = {
-    # systemd-boot.enable = true;
-    efi = {
-      #canTouchEfiVariables = mkDefault true;
-      # canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      # systemd-boot.enable = true;
+      efi = {
+        #canTouchEfiVariables = mkDefault true;
+        # canTouchEfiVariables = true;
+      };
+      grub = {
+        enable = true;
+        version = 2;
+        useOSProber = true;
+        efiSupport = true;
+        # efiInstallAsRemovable = true;
+        device = "nodev";
+      };
     };
-    grub = {
-      enable = true;
-      version = 2;
-      useOSProber = true;
-      efiSupport = true;
-      # efiInstallAsRemovable = true;
-      device = "nodev";
-    };
+
+   # https://github.com/NixOS/nixos-hardware/blob/master/lenovo/thinkpad/t440p/default.nix
+    extraModprobeConfig = ''
+      options bbswitch use_acpi_to_detect_card_state=1
+      options thinkpad_acpi force_load=1 fan_control=1
+    '';
+    # TODO: probably enable tcsd? Is this line necessary?
+    kernelModules = [ "tpm-rng" ];
   };
 
   ## Local config
