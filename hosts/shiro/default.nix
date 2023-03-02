@@ -193,7 +193,14 @@
 
   services.xserver.displayManager.setupCommands = ''
 
-    ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 1.0 --gamma 0.76:0.75:0.68
+    # ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --brightness 1.0 --gamma 0.76:0.75:0.68
+
+    # 3-monitor setup with dock
+    # ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1080 --brightness 1.0 --gamma 0.76:0.75:0.68 --pos 4480x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off --output DP-2-1 --primary --mode 2560x1080 --brightness 1.0 --gamma 0.76:0.75:0.68 --pos 0x0 --rotate normal --output DP-2-2 --off --output DP-2-3 --mode 1920x1080 --brightness 1.0 --gamma 0.76:0.75:0.68 --pos 2560x0 --rotate normal
+
+
+    # 2-monitor setup with dock
+    ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1080 --brightness 1.0 --gamma 0.76:0.75:0.68 --pos 2560x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off --output DP-2-1 --primary --mode 2560x1080 --brightness 1.0 --gamma 0.76:0.75:0.68 --pos 0x0 --rotate normal --output DP-2-2 --off --output DP-2-3 --off
 
     ${pkgs.xorg.xset}/bin/xset r rate 300 50
   '';
