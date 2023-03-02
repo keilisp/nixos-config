@@ -28,6 +28,7 @@
         keepassxc.enable = true;
         betterlockscreen.enable = true;
         ngrok.enable = true;
+        ledger.enable = true;
         # skype.enable = true;
         # unity3d.enable = true;
         # rofi.enable = true;
