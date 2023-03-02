@@ -2,7 +2,7 @@
         :repositories  {"local" {:url #=(eval (str "file://" (System/getenv "XDG_DATA_HOME") "/m2")) ; Respect XDG
                                  :releases {:checksum :ignore}}}
         :plugins [[lein-try "0.4.3"] ; try new libraries easily
-                  [cider/cider-nrepl "0.28.1"]
+                  [cider/cider-nrepl "0.29.0"]
                   [refactor-nrepl "3.5.2"]
                   [lein-ancient "1.0.0-RC3"] ; check dependencies
                   [lein-pprint "1.3.2"] ; pretty-print lein dependencies
