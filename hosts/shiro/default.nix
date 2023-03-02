@@ -40,6 +40,7 @@
       };
       gaming = {
         steam.enable = true;
+        lutris.enable = true;
         # emulators.enable = true;
         # emulators.psx.enable = true;
       };
