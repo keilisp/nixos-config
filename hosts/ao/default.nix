@@ -37,7 +37,7 @@
         default = "brave";
         brave.enable = true;
         firefox.enable = true;
-        nyxt.enable = true;
+        nyxt.enable = false;
       };
       gaming = {
         steam.enable = true;
@@ -66,7 +66,7 @@
       vm = {
         # lxd.enable = true;
         qemu.enable = true;
-        virtualbox.enable = true;
+        virtualbox.enable = false;
       };
     };
     editors = {
@@ -118,7 +118,7 @@
     # theme.active = "solarized-light";
     dev = {
       cc.enable = true;
-      python.enable = true;
+      python.enable = false;
       java.enable = true;
       clojure.enable = true;
       haskell.enable = true;
@@ -141,6 +141,7 @@
       nvidia.enable = true;
       sensors.enable = true;
       udiskie.enable = true;
+      printing.enable = true;
       # fs.enable = true;
       bluetooth.enable = true;
       keyboard = {
@@ -159,7 +160,6 @@
     efi = { canTouchEfiVariables = true; };
     grub = {
       enable = true;
-      version = 2;
       useOSProber = true;
       efiSupport = true;
       # efiInstallAsRemovable = true;
