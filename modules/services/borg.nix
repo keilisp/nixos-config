@@ -46,7 +46,7 @@ in {
       home = basicBorgJob "station/home-${config.user.name}" // rec {
         paths = config.user.home;
         exclude = work-dirs ++ map (x: paths + "/" + x)
-          (common-excludes ++ [ "vids" "Downloads" "games" ]);
+          (common-excludes ++ [ "vids" "Downloads" "games" "Games" "media" ]);
       };
     };
   };
