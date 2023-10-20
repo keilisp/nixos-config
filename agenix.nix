@@ -9,8 +9,8 @@ let inherit (inputs) agenix;
     secretsDir = "${config.dotfiles.dir}/hosts/${config.networking.hostName}/secrets";
     secretsFile = "${secretsDir}/secrets.nix";
 in {
-  imports = [ agenix.nixosModules.age ];
-  environment.systemPackages = [ agenix.defaultPackage.x86_64-linux ];
+  imports = [ inputs.agenix.nixosModules.age ];
+  environment.systemPackages = [ inputs.agenix.defaultPackage.x86_64-linux ];
 
   age = {
     secrets =
