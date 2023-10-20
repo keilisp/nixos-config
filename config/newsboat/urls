@@ -15,6 +15,7 @@ https://alhassy.github.io/rss.xml
 http://retro-style.software-by-mabe.com/blog-atom-feed
 
 ---EMACS---
+https://minibuffer.tonyaldon.com/feed.xml
 https://planet.emacslife.com/atom.xml
 https://www.reddit.com/r/emacs/new.rss
 https://sachachua.com/blog/category/emacs/feed
@@ -61,11 +62,12 @@ https://www.reddit.com/r/ProgrammingLanguages/new.rss
 https://www.reddit.com/r/Compilers/new.rss
 https://zserge.com/rss.xml
 
----GAMES---
+---POE---
 https://www.pathofexile.com/news/rss
-https://articles.starcitygames.com/feed/
-https://www.mtggoldfish.com/feed
-https://draftsim.com/feed/
+
+---MTG---
+https://www.reddit.com/r/ModernMagic/new.rss
+https://www.reddit.com/r/PioneerMTG/new.rss
 https://limitedresources.libsyn.com/rss
 
 ---YOUTUBE-TECH---
