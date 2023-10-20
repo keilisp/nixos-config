@@ -73,7 +73,7 @@ in {
       nix-zsh-completions
       zsh-syntax-highlighting
       bat
-      exa
+      eza
       fasd
       ncdu
       fd

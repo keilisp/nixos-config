@@ -61,8 +61,8 @@ in {
         "awesome/awesome-wm-widgets".source = pkgs.fetchFromGitHub {
           owner = "streetturtle";
           repo = "awesome-wm-widgets";
-          rev = "ccd6bd4359593195a84458857efa7a9670b1b4cd";
-          sha256 = "1kym67h5c9q72pabnhk0qcqyxpinjycrfc9b0cgq6azjlqw87j8d";
+          rev = "9c6dc31a7fb6bffceef4501cda5267fba8d72669";
+          sha256 = "011mfnmmwb8jj4816pydyxz69m2y02q49sy5056agw6xry24bq7z";
         };
       }
 

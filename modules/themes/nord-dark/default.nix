@@ -67,7 +67,7 @@ in {
     (mkIf config.services.xserver.enable {
       user.packages = with pkgs; [ nordic breeze-gtk arc-icon-theme ];
       fonts = {
-        fonts = with pkgs; [
+        packages = with pkgs; [
           iosevka
           fira-code
           fira-code-symbols

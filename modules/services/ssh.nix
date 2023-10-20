@@ -10,8 +10,10 @@ in {
     services.openssh = {
       enable = true;
       # challengeResponseAuthentication = false;
-      kbdInteractiveAuthentication = false;
-      passwordAuthentication = false;
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+      };
     };
 
     user.openssh.authorizedKeys.keys = if config.user.name == "kei" then [

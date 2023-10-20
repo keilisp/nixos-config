@@ -24,7 +24,7 @@ with lib; {
   ##
   # modules.shell.bitwarden.config.server = "p.v0.io";
 
-  services.syncthing = {
+  services.syncthing.settings = {
     devices = {
       ao.id = "A4MVHMD-XFVKQWO-WU6B6MG-M5ZYS2G-ZK5XT3J-RMECVXZ-MXUFHDO-DYVYMQD";
       kuro.id =
@@ -42,18 +42,18 @@ with lib; {
     folders = let
       mkShare = name: devices: type: path: rec {
         inherit devices type path;
-        watch = true;
-        rescanInterval = 3600 * 4;
+        fsWatcherDelayS = true;
+        rescanIntervalS = 3600 * 4;
         # enabled = lib.elem config.networking.hostname devices;
       };
     in {
       org =
         mkShare "personal_files" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" ]
-        "sendreceive" "${config.user.home}/org";
+          "sendreceive" "${config.user.home}/org";
 
       passwrds =
         mkShare "personal_files" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" ]
-        "sendreceive" "${config.user.home}/passwrds";
+          "sendreceive" "${config.user.home}/passwrds";
 
       dox = mkShare "dox" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" ]
         "sendreceive" "${config.user.home}/dox";

@@ -5,10 +5,8 @@
     {
       # Core dependencies.
       nixpkgs.url = "nixpkgs/nixos-unstable";             # primary nixpkgs
-      # nixpkgs.url = "nixpkgs/nixos-21.11";             # primary nixpkgs
-      # nixpkgs.url = "nixpkgs/nixos-22.05";             # primary nixpkgs
-      # nixpkgs.url = "nixpkgs/nixos-22.11";             # primary nixpkgs
-      nixpkgs-unstable.url = "nixpkgs/nixos-unstable";  # for packages on the edge
+      # nixpkgs.url = "nixpkgs/nixos-22.11";                  # primary nixpkgs
+      nixpkgs-unstable.url = "nixpkgs/nixos-unstable";      # for packages on the edge
       home-manager.url = "github:rycee/home-manager/master";
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
       agenix.url = "github:ryantm/agenix";
@@ -32,6 +30,7 @@
         # config.allowBroken = true; 
         config.permittedInsecurePackages = [
           "qtwebkit-5.212.0-alpha4" # for pobfrontend
+          "openssl-1.1.1t" # https://www.openssl.org/blog/blog/2023/03/28/1.1.1-EOL/
         ];
         overlays = extraOverlays ++ (lib.attrValues self.overlays);
       };

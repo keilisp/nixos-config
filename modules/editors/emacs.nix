@@ -53,7 +53,7 @@ in {
           (epkgs: [ epkgs.vterm ])))
 
       (mkIf (cfg.native-comp == true)
-        ((emacsPackagesFor emacsUnstable).emacsWithPackages
+        ((emacsPackagesFor emacs-unstable).emacsWithPackages
           (epkgs: [ epkgs.vterm ])))
 
       libtool
@@ -77,7 +77,7 @@ in {
           (epkgs: [ epkgs.pdf-tools ])))
 
       (mkIf (cfg.native-comp == true)
-        ((emacsPackagesFor emacsUnstable).emacsWithPackages
+        ((emacsPackagesFor emacs-unstable).emacsWithPackages
           (epkgs: [ epkgs.pdf-tools ])))
 
       # :lang cc
@@ -130,6 +130,6 @@ in {
 
     modules.shell.zsh.rcFiles = [ "${configDir}/emacs/aliases.zsh" ];
 
-    fonts.fonts = [ pkgs.emacs-all-the-icons-fonts ];
+    fonts.packages = [ pkgs.emacs-all-the-icons-fonts ];
   }]);
 }

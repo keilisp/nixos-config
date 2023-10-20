@@ -73,7 +73,7 @@ in {
         arc-icon-theme
       ];
       fonts = {
-        fonts = with pkgs; [
+        packages = with pkgs; [
           iosevka
           fira-code
           fira-code-symbols
