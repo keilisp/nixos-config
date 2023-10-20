@@ -278,6 +278,9 @@ fsicon:buttons(
 local github_contributions_widget =
     require("awesome-wm-widgets.github-contributions-widget.github-contributions-widget")
 
+-- Spotify
+local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
+
 -- Battery
 local baticon = wibox.widget.imagebox(theme.widget_battery)
 local bat =
@@ -461,7 +464,9 @@ function theme.at_screen_connect(s)
         {
             -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            github_contributions_widget({username = "keilisp"}),
+            spotify_widget(),
+            spr,
+            github_contributions_widget({username = 'keilisp'}),
             spr,
             wibox.container.background(wibox.widget.systray(), theme.bg_focus),
             spr,
