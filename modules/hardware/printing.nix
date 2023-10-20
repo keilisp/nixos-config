@@ -7,7 +7,21 @@ in {
   options.modules.hardware.printing = { enable = mkEnableOption false; };
 
   config = mkIf cfg.enable {
-    user.packages = with pkgs; [ canon-cups-ufr2 cnijfilter2];
+    user.packages = with pkgs; [
+      # carps-cups
+      # cups-bjnp
+      # canon-cups-ufr2
+      # cnijfilter2
+      # gutenprintBin
+      cups-filters
+    ];
+    services.printing.drivers = with pkgs; [
+      cnijfilter2
+      gutenprintBin
+      cups-bjnp
+      carps-cups
+      canon-cups-ufr2
+    ];
     services.printing.enable = true;
     services.avahi.enable = true;
     services.avahi.nssmdns = true;
