@@ -424,98 +424,7 @@ root.buttons(
 )
 -- m
 
-local mpdmap = {
-    {
-        "s",
-        function()
-            awful.util.spawn("mpd")
-        end,
-        "start MPD"
-    },
-    {
-        "S",
-        function()
-            awful.util.spawn("mpd --kill")
-        end,
-        "kill MPD"
-    },
-    {
-        "u",
-        function()
-            awful.util.spawn("mpc update")
-        end,
-        "update MPD"
-    },
-    {
-        "g",
-        function()
-            awful.util.spawn(terminal .. " -e ncmpc")
-        end,
-        "ncmpc"
-    },
-    {
-        "G",
-        function()
-            awful.util.spawn(terminal .. " -e ncmpcpp")
-        end,
-        "ncmpcpp"
-    },
-    {"separator", "Playback"},
-    {
-        "m",
-        function()
-            awful.util.spawn("mpc toggle")
-        end,
-        "Toggle"
-    },
-    {
-        ".",
-        function()
-            awful.util.spawn("mpc next")
-        end,
-        "Next"
-    },
-    {
-        ",",
-        function()
-            awful.util.spawn("mpc prev")
-        end,
-        "Prev"
-    },
-    {"separator", "Volume"},
-    {
-        "k",
-        function()
-            awful.util.spawn("mpc volume +2")
-        end,
-        "+volume"
-    },
-    {
-        "j",
-        function()
-            awful.util.spawn("mpc volume -2")
-        end,
-        "-volume"
-    }
-}
-
 local utilsmap = {
-    {"separator", "Packages"},
-    {
-        "u",
-        function()
-            awful.util.spawn(terminal .. " -e yay -Syu")
-        end,
-        "upd packages"
-    },
-    {
-        "c",
-        function()
-            awful.util.spawn(terminal .. " -e yay -Sc")
-        end,
-        "clear packages cache"
-    },
-    {"separator", "Other"},
     {
         "p",
         function()
@@ -754,6 +663,35 @@ local emacsmap = {
 }
 
 local volumemap = {
+    { "separator", "Spotify" },
+    {
+        "i",
+        function()
+           os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")
+        end,
+        "Pause"
+    },
+    {
+        "=",
+        function()
+           os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play")
+        end,
+        "Play"
+    },
+    {
+        "l",
+        function()
+           os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
+        end,
+        "Next"
+    },
+    {
+        "h",
+        function()
+           os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
+        end,
+        "Prev"
+    },
     {"separator", "ALSA"},
     {
         "k",
@@ -773,24 +711,14 @@ local volumemap = {
         end,
         "-vol"
     },
-    {
-        "m",
-        function()
-            os.execute(
-                string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel)
-            )
-            beautiful.volume.update()
-        end,
-        "toggle vol"
-    },
-    -- { "separator", "Other" },
+    { "separator", "Other" },
     {
         "p",
         function()
             awful.util.spawn("pavucontrol")
         end,
         "pavucontrol"
-    }
+    },
 }
 
 -- Modalbind
@@ -819,6 +747,14 @@ globalkeys =
             modalbind.grab {keymap = mpdmap, name = "MPD", layout = 0, stay_in_mode = true}
         end
     ),
+    -- Spotify & volume map
+    awful.key(
+        {modkey},
+        "i",
+        function()
+            modalbind.grab {keymap = volumemap, name = "Spotify", layout = 0, stay_in_mode = true}
+        end
+    ),
     -- Apps map
     awful.key(
         {modkey},
@@ -833,14 +769,6 @@ globalkeys =
         "e",
         function()
             modalbind.grab {keymap = emacsmap, name = "Emacs", layout = 0, stay_in_mode = false}
-        end
-    ),
-    -- Volume map
-    awful.key(
-        {modkey},
-        "v",
-        function()
-            modalbind.grab {keymap = volumemap, name = "Volume", layout = 0, stay_in_mode = true}
         end
     ),
     -- Utils map
