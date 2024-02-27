@@ -15,6 +15,7 @@
         thunar.enable = true;
         lxappearance.enable = true;
         discord.enable = true;
+        slack.enable = true;
         zoom.enable = true;
         zotero.enable = true;
         sublime-merge.enable = true;
