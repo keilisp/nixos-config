@@ -33,6 +33,7 @@
         config.permittedInsecurePackages = [
           "qtwebkit-5.212.0-alpha4" # for pobfrontend
           "openssl-1.1.1t" # https://www.openssl.org/blog/blog/2023/03/28/1.1.1-EOL/
+          "zotero-6.0.27"
         ];
         overlays = extraOverlays ++ (lib.attrValues self.overlays);
       };
