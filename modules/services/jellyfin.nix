@@ -12,6 +12,14 @@ in {
 
   config = mkIf cfg.enable {
     services.jellyfin.enable = true;
+    services.jellyfin.user = "kei";
+    services.jellyfin.group = "jellyfin";
+
+    environment.systemPackages = with pkgs; [
+      jellyfin
+      jellyfin-web
+      jellyfin-ffmpeg
+    ];
 
     networking.firewall = {
       allowedTCPPorts = [ 8096 ];

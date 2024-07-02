@@ -105,7 +105,8 @@
       # calibre.enable = true;
       docker.enable = true;
       # fail2ban.enable = true;
-      # jellyfin.enable = true;
+      jellyfin.enable = false;
+      plex.enable = true;
       # nginx.enable = true;
       transmission.enable = true;
       # Needed occasionally to help the parental units with PC problems
