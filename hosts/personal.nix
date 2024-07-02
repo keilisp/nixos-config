@@ -8,6 +8,7 @@ with lib; {
       "192.168.1.10" = [ "kuro" ];
       "192.168.1.11" = [ "shiro" ];
       "192.168.1.12" = [ "midori" ];
+      "192.168.1.13" = [ "kon" ];
     };
     hosts = flatten (attrValues hostConfig);
     hostName = config.networking.hostName;
@@ -37,6 +38,8 @@ with lib; {
         "MB3DXEU-TVUX53M-PYRNN2V-2VOB7VD-SW3E4K3-WV24KMA-URDHY25-4JBZLQL";
       mizu.id =
         "XNVEW7V-GO3KOLG-Y5VA6H4-VTBVTOG-SNOAZWQ-VXZQXHV-B4DSOL4-6HVMEQL";
+      kon.id =
+        "Q3OVWHP-7ANF3RH-XFOXRBD-XOU7OBK-U7JYV2G-YCNN3KI-2KZFFNS-ADL3NQA";
 
     };
     folders = let
@@ -48,18 +51,18 @@ with lib; {
       };
     in {
       org =
-        mkShare "personal_files" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" ]
+        mkShare "personal_files" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" "kon" ]
           "sendreceive" "${config.user.home}/org";
 
       passwrds =
-        mkShare "personal_files" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" ]
+        mkShare "personal_files" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" "kon" ]
           "sendreceive" "${config.user.home}/passwrds";
 
-      dox = mkShare "dox" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" ]
+      dox = mkShare "dox" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" "kon" ]
         "sendreceive" "${config.user.home}/dox";
 
-      unik = mkShare "unik" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" ]
-        "sendreceive" "${config.user.home}/unik";
+      # unik = mkShare "unik" [ "kuro" "ao" "ako" "shiro" "aijiro" "mizu" "kon" ]
+      #   "sendreceive" "${config.user.home}/unik";
     };
   };
 }

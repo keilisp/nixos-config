@@ -6,3 +6,4 @@
 + ao (Main Machine)
 + ako (Windows Machine)
 + aijiro (Android)
++ kon (Lenovo Legion 5)
