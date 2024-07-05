@@ -6,5 +6,5 @@ let cfg = config.modules.desktop.apps.dbeaver;
 in {
   options.modules.desktop.apps.dbeaver = { enable = mkEnableOption false; };
 
-  config = mkIf cfg.enable { user.packages = with pkgs; [ unstable.dbeaver ]; };
+  config = mkIf cfg.enable { user.packages = with pkgs; [ unstable.dbeaver-bin ]; };
 }
