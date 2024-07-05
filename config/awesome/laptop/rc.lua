@@ -491,7 +491,8 @@ screen.connect_signal(
 awful.screen.connect_for_each_screen(
     function(s)
         screen_index = s.index
-        awful.tag(my_tags.tags[screen_index].names, s, my_tags.tags[screen_index].layout)
+        -- FIXME for multople screens
+        awful.tag(my_tags.tags[1].names, s, my_tags.tags[1].layout)
         beautiful.at_screen_connect(s)
     end
 )
@@ -843,7 +844,8 @@ local appsmap = {
     {
         "s",
         function()
-            awful.util.spawn("steam")
+            awful.util.spawn("nvidia-offload steam")
+
         end,
         "steam"
     },
@@ -864,6 +866,35 @@ local appsmap = {
 }
 
 local volumemap = {
+    { "separator", "Spotify" },
+    {
+        "i",
+        function()
+           os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")
+        end,
+        "Pause"
+    },
+    {
+        "=",
+        function()
+           os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play")
+        end,
+        "Play"
+    },
+    {
+        "l",
+        function()
+           os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
+        end,
+        "Next"
+    },
+    {
+        "h",
+        function()
+           os.execute("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
+        end,
+        "Prev"
+    },
     {"separator", "ALSA"},
     {
         "k",
@@ -883,24 +914,14 @@ local volumemap = {
         end,
         "-vol"
     },
-    {
-        "m",
-        function()
-            os.execute(
-                string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel)
-            )
-            beautiful.volume.update()
-        end,
-        "toggle vol"
-    },
-    -- { "separator", "Other" },
+    { "separator", "Other" },
     {
         "p",
         function()
             awful.util.spawn("pavucontrol")
         end,
         "pavucontrol"
-    }
+    },
 }
 
 -- Modalbind
@@ -948,7 +969,7 @@ globalkeys =
     -- Volume map
     awful.key(
         {modkey},
-        "v",
+        "i",
         function()
             modalbind.grab {keymap = volumemap, name = "Volume", layout = 0, stay_in_mode = true}
         end
