@@ -144,7 +144,13 @@
       bluetooth.enable = true;
       keyboard = {
         enable = true;
-        capsctrlswap = true;
+        capsctrlswap = false;
+        kmonad = {
+          enable = true;
+          hhkb-colemak-dh = false;
+          t440p-colemak-dh = false;
+          legion-colemak-dh = true;
+        };
       };
     };
   };

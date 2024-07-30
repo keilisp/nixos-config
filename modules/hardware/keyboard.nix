@@ -27,6 +27,7 @@ in {
       enable = mkBoolOpt false;
       hhkb-colemak-dh = mkBoolOpt false;
       t440p-colemak-dh = mkBoolOpt false;
+      legion-colemak-dh = mkBoolOpt false;
     };
   };
 
@@ -36,7 +37,7 @@ in {
       # FIXME make options langs change
       services.xserver.layout = "us, ru, ua";
       services.xserver.xkbOptions =
-        mkIf cfg.kmonad.t440p-colemak-dh "grp:caps_toggle";
+        mkIf (cfg.kmonad.t440p-colemak-dh || cfg.kmonad.legion-colemak-dh) "grp:caps_toggle";
 
       services.udev.extraRules = mkIf cfg.kmonad.enable ''
         # KMonad user access to /dev/uinput
@@ -73,6 +74,16 @@ in {
           };
         };
 
+        keyboards.legion-colemak-dh = mkIf cfg.kmonad.legion-colemak-dh {
+          device = "/dev/input/by-id/usb-ITE_Tech._Inc._ITE_Device_8910_-event-kbd";
+          config = builtins.readFile ../../config/kmonad/legion.kbd;
+
+          defcfg = {
+            enable = true;
+            fallthrough = true;
+            allowCommands = true;
+          };
+        };
       };
 
       user.packages = with pkgs; [ xorg.xmodmap ];
