@@ -842,6 +842,20 @@ local appsmap = {
         "browser incognito"
     },
     {
+       "F",
+       function()
+          awful.util.spawn("firefox")
+       end,
+       "firefox"
+    },
+    {
+       "m",
+       function()
+          awful.util.spawn("spotify")
+       end,
+       "spotify"
+    },
+    {
         "s",
         function()
             awful.util.spawn("nvidia-offload steam")

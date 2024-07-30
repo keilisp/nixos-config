@@ -45,7 +45,7 @@
         # exilence-next.enable = true;
         # emulators.enable = true;
         # emulators.psx.enable = true;
-        lutris.enable = false;
+        lutris.enable = true;
       };
 
       media = {
@@ -109,8 +109,8 @@
       # Needed occasionally to help the parental units with PC problems teamviewer.enable = true;
     };
     # theme.active = "tomorrow-day";
-	# theme.active = "modus-operandi";
-    theme.active = "modus-vivendi";
+    theme.active = "modus-operandi";
+    # theme.active = "modus-vivendi";
     # theme.active = "nord-dark";
     # theme.active = "gruvbox-dark";
     # theme.active = "solarized-light";
