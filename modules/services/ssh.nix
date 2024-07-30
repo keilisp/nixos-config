@@ -16,13 +16,14 @@ in {
       };
     };
 
-    user.openssh.authorizedKeys.keys = if config.user.name == "kei" then [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJq23EnlbR2Q1lcClwnPylX5Dgw+dtpQhVlT4PLjDWnI druksasha@ukr.net"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINb/CqSUgRiZovS5a2CqtixJU4jgL7MbWrRxF3tOXjs6 druksasha@ukr.net "
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJOiIlqjp+a1XKmSq1nzrJxrI0HEacUm6d2qrvdfvZp3 druksasha@ukr.net"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG/qEcYvDtUMwAMsXgfikWWUeobjmtRaUqzSmK5SpeMQ kon"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIAAGN+Nb39JCitt/fIRAOsmB9lb4hQ0veWeepSsBpzU legion"
-    ] else
-      [ ];
+    users.users.${config.user.name}.openssh.authorizedKeys.keys =
+      if config.user.name == "kei" then [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJq23EnlbR2Q1lcClwnPylX5Dgw+dtpQhVlT4PLjDWnI druksasha@ukr.net"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINb/CqSUgRiZovS5a2CqtixJU4jgL7MbWrRxF3tOXjs6 druksasha@ukr.net "
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJOiIlqjp+a1XKmSq1nzrJxrI0HEacUm6d2qrvdfvZp3 druksasha@ukr.net"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG/qEcYvDtUMwAMsXgfikWWUeobjmtRaUqzSmK5SpeMQ kon"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIAAGN+Nb39JCitt/fIRAOsmB9lb4hQ0veWeepSsBpzU legion"
+      ] else
+        [ ];
   };
 }
