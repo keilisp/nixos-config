@@ -10,6 +10,27 @@ in {
 
   config = mkMerge [
     (mkIf (cfg.enable && isKon) {
+
+      specialisation = {
+        on-the-go.configuration = {
+          system.nixos.tags = [ "on-the-go" ];
+          hardware.nvidia = {
+            prime.offload.enable = lib.mkForce true;
+            prime.offload.enableOffloadCmd = lib.mkForce true;
+            prime.sync.enable = lib.mkForce false;
+          };
+        };
+
+        docked.configuration = {
+          system.nixos.tags = [ "docked" ];
+          hardware.nvidia = {
+            prime.offload.enable = lib.mkForce false;
+            prime.offload.enableOffloadCmd = lib.mkForce false;
+            prime.sync.enable = lib.mkForce true;
+          };
+        };
+      };
+
       environment.systemPackages = with pkgs; [ lshw ];
 
       # Enable OpenGL
@@ -52,9 +73,11 @@ in {
 
         prime = {
           offload = {
-            enable = true;
-            enableOffloadCmd = true;
+            enable = false;
+            enableOffloadCmd = false;
           };
+
+          sync.enable = true;
 
           nvidiaBusId = "PCI:1:0:0";
           amdgpuBusId = "PCI:5:0:0";
