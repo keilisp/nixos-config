@@ -9,8 +9,8 @@ in {
   config = mkIf cfg.enable {
     services.openvpn = {
       servers = {
-        freshcodeVPN = {
-          config = "config /home/kei/freshcode/vpn/client.ovpn ";
+        pfmVPN = {
+          config = "config ${config.user.home}/freshcode/vpn/pfm-vk-autolog.ovpn";
           autoStart = false;
         };
       };
