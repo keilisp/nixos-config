@@ -124,8 +124,8 @@ in {
           })
 
           (mkIf desktop.term.alacritty.enable {
-            "alacritty/current-theme.yml".source =
-              ./config/alacritty/current-theme.yml;
+            "alacritty/current-theme.toml".source =
+              ./config/alacritty/current-theme.toml;
           })
 
           (mkIf editors.emacs.enable {
