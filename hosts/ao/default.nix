@@ -188,8 +188,8 @@
 
   # Configure keymap
 
-  # services.xserver.xkbOptions = "grp:caps_toggle";
-  # services.xserver.layout = "us, ru, ua";
+  # services.xserver.xkb.options = "grp:caps_toggle";
+  # services.xserver.xkb.layout = "us, ru, ua";
   # services.xserver.variant = "colemak_dh,,";
 
   # xset r rate 300 50

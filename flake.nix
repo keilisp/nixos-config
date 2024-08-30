@@ -5,11 +5,11 @@
     {
       # Core dependencies.
       # nixpkgs.url = "nixpkgs/nixos-unstable";             # primary nixpkgs
-      nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";                  # primary nixpkgs
+      nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";                  # primary nixpkgs
       nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";      # for packages on the edge
       # home-manager.url = "github:nix-community/home-manager";
 
-      home-manager.url = "github:nix-community/home-manager/release-23.11";
+      home-manager.url = "github:nix-community/home-manager/release-24.05";
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
       agenix.url = "github:ryantm/agenix";
       agenix.inputs.nixpkgs.follows = "nixpkgs";

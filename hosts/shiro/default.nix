@@ -170,10 +170,10 @@
   services.openssh.startWhenNeeded = true;
 
   # Configure keymap
-  # services.xserver.layout = "us, ru, ua";
-  # services.xserver.xkbOptions = "grp:caps_toggle,ctrl:swap_lalt_lctl";
-  # services.xserver.xkbOptions = "grp:rctrl_toggle,ctrl:swapcaps";
-  # services.xserver.xkbOptions = "grp:caps_toggle";
+  # services.xserver.xkb.layout = "us, ru, ua";
+  # services.xserver.xkb.options = "grp:caps_toggle,ctrl:swap_lalt_lctl";
+  # services.xserver.xkb.options = "grp:rctrl_toggle,ctrl:swapcaps";
+  # services.xserver.xkb.options = "grp:caps_toggle";
 
   # xset r rate 300 50
   services.xserver.autoRepeatDelay = 300;

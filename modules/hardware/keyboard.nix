@@ -35,8 +35,8 @@ in {
   config = mkIf cfg.enable (mkMerge [
     {
       # FIXME make options langs change
-      services.xserver.layout = "us, ru, ua";
-      services.xserver.xkbOptions =
+      services.xserver.xkb.layout = "us, ru, ua";
+      services.xserver.xkb.options =
         mkIf (cfg.kmonad.t440p-colemak-dh || cfg.kmonad.legion-colemak-dh) "grp:caps_toggle";
 
       services.udev.extraRules = mkIf cfg.kmonad.enable ''

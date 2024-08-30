@@ -29,9 +29,9 @@ in {
     # master.services.picom.enable = true;
     services = {
       redshift.enable = false;
+      # displayManager.defaultSession = "none+stumpwm";
       xserver = {
         enable = true;
-        # displayManager.defaultSession = "none+stumpwm";
         windowManager.stumpwm.enable = true;
         displayManager.lightdm.enable = true;
         # displayManager.lightdm.greeters.mini.enable = true;

@@ -30,12 +30,14 @@ in {
     services = {
       # picom.enable = true;
       redshift.enable = false;
+      displayManager = {
+        defaultSession = "none+awesome";
+      };
       xserver = {
         # autoRepeatDelay = 300;
         # autoRepeatInterval = 50;
         enable = true;
         displayManager = {
-          defaultSession = "none+awesome";
           lightdm.enable = true;
           # lightdm.greeters.mini.enable = true;
           lightdm.greeters.gtk.enable = true;

@@ -109,7 +109,7 @@ in {
 
 
       # :lang nix
-      nixfmt
+      nixfmt-classic
 
       # :lang sh
       shfmt
