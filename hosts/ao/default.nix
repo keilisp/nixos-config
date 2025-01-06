@@ -239,6 +239,4 @@
     };
   };
 
-  # hardware.opengl.enable = true;
-
 }

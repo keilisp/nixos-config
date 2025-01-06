@@ -7,7 +7,7 @@ in {
   options.modules.services.transmission = { enable = mkBoolOpt false; };
 
   config = mkIf cfg.enable {
-    user.packages = with pkgs; [ transmission-gtk ];
+    user.packages = with pkgs; [ transmission_3-gtk ];
 
     services.transmission = {
       enable = true;

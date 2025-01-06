@@ -240,6 +240,4 @@
   #   };
   # };
 
-  # hardware.opengl.enable = true;
-
 }

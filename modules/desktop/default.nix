@@ -44,7 +44,7 @@ in {
         symbola
         open-sans
         noto-fonts
-        noto-fonts-cjk
+        noto-fonts-cjk-sans
         noto-fonts-emoji
         hack-font
         iosevka
