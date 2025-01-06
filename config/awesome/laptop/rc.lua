@@ -932,9 +932,9 @@ local volumemap = {
     {
         "p",
         function()
-            awful.util.spawn("pavucontrol")
+            awful.util.spawn("pwvucontrol")
         end,
-        "pavucontrol"
+        "pwvucontrol"
     },
 }
 

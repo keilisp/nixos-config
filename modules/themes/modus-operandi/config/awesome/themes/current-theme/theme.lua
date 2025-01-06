@@ -348,7 +348,7 @@ theme.volume.widget:buttons(
             {},
             1,
             function()
-                awful.util.spawn("pavucontrol")
+                awful.util.spawn("pwvucontrol")
                 theme.volume.update()
             end
         )
