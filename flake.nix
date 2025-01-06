@@ -4,8 +4,8 @@
   inputs = 
     {
       # Core dependencies.
-      # nixpkgs.url = "nixpkgs/nixos-unstable";             # primary nixpkgs
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";                  # primary nixpkgs
+      # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
       nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";      # for packages on the edge
       # home-manager.url = "github:nix-community/home-manager";
 
@@ -34,6 +34,7 @@
           "qtwebkit-5.212.0-alpha4" # for pobfrontend
           "openssl-1.1.1t" # https://www.openssl.org/blog/blog/2023/03/28/1.1.1-EOL/
           "zotero-6.0.27"
+          "docker-24.0.9"
         ];
         overlays = extraOverlays ++ (lib.attrValues self.overlays);
       };

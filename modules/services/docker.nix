@@ -18,6 +18,8 @@ in {
 
     modules.shell.zsh.rcFiles = [ "${configDir}/docker/aliases.zsh" ];
 
+    # services.journaldriver.enable = true;
+
     virtualisation = {
       docker = {
         enable = true;
