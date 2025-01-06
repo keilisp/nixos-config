@@ -61,6 +61,7 @@
       term = {
         default = "alacritty";
         alacritty.enable = true;
+        ghostty.enable = true;
       };
       vm = {
         # lxd.enable = true;
