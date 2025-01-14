@@ -11,11 +11,11 @@ in {
   config = mkIf cfg.enable {
     user.packages = with pkgs; [ ghostty ];
 
-    # home.configFile = {
-    #   "ghostty" = {
-    #     source = "${configDir}/ghostty";
-    #     recursive = true;
-    #   };
-    # };
+    home.configFile = {
+      "ghostty" = {
+        source = "${configDir}/ghostty";
+        recursive = true;
+      };
+    };
   };
 }

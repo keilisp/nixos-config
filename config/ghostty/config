@@ -1,0 +1,7 @@
+config-file = /home/kei/.config/ghostty/current-theme
+
+font-family = "Iosevka"
+
+font-size = 15
+
+confirm-close-surface = false

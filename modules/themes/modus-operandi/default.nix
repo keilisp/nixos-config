@@ -138,6 +138,11 @@ in {
               ./config/alacritty/current-theme.toml;
           })
 
+          (mkIf desktop.term.ghostty.enable {
+            "ghostty/current-theme".source =
+              ./config/ghostty/current-theme;
+          })
+
           (mkIf editors.emacs.enable {
             "emacs/current-theme.el".source = ./config/emacs/current-theme.el;
           })
