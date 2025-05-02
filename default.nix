@@ -69,6 +69,7 @@ with lib.my; {
       coreutils
       git
       vim
+      arandr
       wget
       gnumake
       unzip
