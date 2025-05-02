@@ -88,14 +88,14 @@ set foldmethod=indent
 set nofoldenable
 
 set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
+"set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
 set scrolloff=3           " Display at least 3 lines around you cursor
 " (for scrolling)
 
-set guioptions=T          " Enable the toolbar
+"set guioptions=T          " Enable the toolbar
 
 " -- Search
 set ignorecase            " Ignore case when searching
@@ -207,7 +207,7 @@ let g:neocomplcache_enable_at_startup = 1
 " Changing cursor in insert mode
 :autocmd InsertEnter,InsertLeave * set cul!
 " Autoformat on write
-au BufWrite * :Autoformat
+"au BufWrite * :Autoformat
 " F8 turning autoformat off on local file
 nnoremap <F8> :set eventignore=BufWrite<CR>
 
@@ -295,3 +295,4 @@ nnoremap F :% norm $Bd$0Pa jj
 nnoremap gC :yank \| Commentary<CR>
 vnoremap gC :'<,'>yank \| '<,'>Commentary<CR>
 
+color habamax
