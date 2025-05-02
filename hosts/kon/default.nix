@@ -29,8 +29,11 @@
         ngrok.enable = true;
         ledger.enable = true;
         # skype.enable = true;
-        # unity3d.enable = true;
         packet-tracer.enable = false;
+
+        godot.enable = true;
+        ue.enable = false;
+        unity3d.enable = false;
       };
       browsers = {
         default = "brave";
