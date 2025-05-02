@@ -9,10 +9,14 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.plex.enable = true;
-    services.plex.openFirewall = true;
-    services.plex.user = "kei";
-    services.plex.group = "plex";
+    systemd.services.plex.serviceConfig.ProtectHome = lib.mkForce false;
+
+    services.plex = {
+      enable = true;
+      openFirewall = true;
+      user = "kei";
+      group = "plex";
+    };
 
     # networking.firewall = {
     #   allowedTCPPorts = [ 32400 ];
