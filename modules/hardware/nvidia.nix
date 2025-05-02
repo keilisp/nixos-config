@@ -24,12 +24,19 @@ in {
         docked.configuration = {
           system.nixos.tags = [ "docked" ];
           hardware.nvidia = {
-            prime.offload.enable = lib.mkForce false;
-            prime.offload.enableOffloadCmd = lib.mkForce false;
-            prime.sync.enable = lib.mkForce true;
+            # prime.offload.enable = lib.mkForce false;
+            # prime.offload.enableOffloadCmd = lib.mkForce false;
+            # prime.sync.enable = lib.mkForce true;
+            prime.offload.enable = lib.mkForce true;
+            prime.offload.enableOffloadCmd = lib.mkForce true;
+            prime.sync.enable = lib.mkForce false;
           };
         };
       };
+
+      boot.extraModprobeConfig = ''
+        options nvidia NVreg_EnableGpuFirmware=0
+      '';
 
       environment.systemPackages = with pkgs; [ lshw ];
 
@@ -48,7 +55,7 @@ in {
         # Enable this if you have graphical corruption issues or application crashes after waking
         # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
         # of just the bare essentials.
-        powerManagement.enable = false;
+        powerManagement.enable = true;
 
         # Fine-grained power management. Turns off GPU when not in use.
         # Experimental and only works on modern Nvidia GPUs (Turing or newer).
