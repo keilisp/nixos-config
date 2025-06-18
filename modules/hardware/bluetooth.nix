@@ -12,7 +12,12 @@ in {
   };
 
   config = mkIf cfg.enable (mkMerge [
-    { hardware.bluetooth.enable = true; }
+    {
+      hardware.bluetooth = {
+        enable = true;
+        powerOnBoot = true;
+      };
+    }
 
     (mkIf cfg.audio.enable {
       hardware.pulseaudio = {
