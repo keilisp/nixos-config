@@ -230,6 +230,10 @@
     # ${pkgs.xorg.setxkbmap}/bin/setxkbmap -layout "us, ru, ua"
   '';
 
+  services.xserver.displayManager.sessionCommands = ''
+    export XCURSOR_SIZE=24
+  '';
+
   services.cron = {
     enable = true;
     systemCronJobs = [
