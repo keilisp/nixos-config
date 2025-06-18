@@ -17,7 +17,7 @@
         zoom.enable = true;
         zotero.enable = true;
         sublime-merge.enable = true;
-        msteams.enable = false;
+        msteams.enable = true;
         libreoffice.enable = true;
         etcher.enable = false;
         dbeaver.enable = true;
@@ -209,19 +209,7 @@
 
   ### TODO export (seems not working )
   services.xserver.displayManager.setupCommands = ''
-    # 3 monitors 24-vertical
-    # ${pkgs.xorg.xrandr}/bin/xrandr --output DVI-D-0 --brightness 1.0 --gamma 0.76:0.75:0.68 --mode 1920x1080 --pos 4480x0 --rotate right --output HDMI-0 --brightness 1.0 --gamma 0.76:0.75:0.68 --mode 1920x1080 --pos 0x362 --rotate normal --output DP-0 --brightness 1.0 --gamma 0.76:0.75:0.68 --primary --mode 2560x1080 --pos 1920x362 --rotate normal
-
-    # 3 monitors 24-horizontal
-    # ${pkgs.xorg.xrandr}/bin/xrandr --output DVI-D-0 --mode 1920x1080 --pos 4480x0 --rotate normal --output HDMI-0 --brightness 1.0 --gamma 0.76:0.75:0.68 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --brightness 1.0 --gamma 0.76:0.75:0.68 --primary --mode 2560x1080 --pos 1920x0 --rotate normal
-
-    # 2 monitors 24-vertical
-    # ${pkgs.xorg.xrandr}/bin/xrandr --output DVI-D-0 --brightness 1.0 --gamma 0.76:0.75:0.68 --mode 1920x1080 --pos 2560x0 --rotate right --output HDMI-0 --brightness 1.0 --gamma 0.76:0.75:0.68 --off --output DP-0 --brightness 1.0 --gamma 0.76:0.75:0.68 --primary --mode 2560x1080 --pos 0x420 --rotate normal
-
-    # 2 monitors 24-horizontal
-    # ${pkgs.xorg.xrandr}/bin/xrandr --output DVI-D-0 --brightness 1.0 --gamma 0.76:0.75:0.68 --mode 1920x1080 --pos 2560x0 --rotate normal --output HDMI-0 --off --output DP-0 --brightness 1.0 --gamma 0.76:0.75:0.68 --primary --mode 2560x1080 --pos 0x0 --rotate normal
-
-    ${pkgs.xorg.xrandr}/bin/xrandr --output DP-1.5 --mode 2560x1080 --pos 1920x0 --rotate normal --output DP-1.6 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --off --output DP-1 --off --output HDMI-0 --off --output DP-2 --off --output eDP-1-1 --primary --mode 2880x1800 --pos 1920x1080 --rotate normal --output DisplayPort-1-3 --off --output DisplayPort-1-4 --off --output DisplayPort-1-5 --off --output DisplayPort-1-6 --off --output DisplayPort-1-7 --off
+    ${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --off --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-0 --off --output DP-2 --off --output eDP-1-1 --primary --mode 2880x1800 --pos 1760x1080 --rotate normal --output DisplayPort-1-1 --mode 2560x1080 --pos 1920x0 --rotate normal --output DisplayPort-1-2 --off --output DisplayPort-1-3 --off --output DisplayPort-1-4 --off --output DisplayPort-1-5 --off
 
     ${pkgs.xorg.xset}/bin/xset r rate 300 50
 
