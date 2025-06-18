@@ -122,6 +122,7 @@
     # theme.active = "solarized-light";
     dev = {
       cc.enable = true;
+      golang.enable = true;
       python.enable = false;
       java.enable = true;
       clojure.enable = true;
