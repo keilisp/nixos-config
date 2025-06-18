@@ -104,6 +104,7 @@
       borgbackup.enable = true;
       lorri.enable = true;
       openvpn.enable = true;
+      mullvadvpn.enable = true;
       plex.enable = true;
       # calibre.enable = true;
       docker.enable = true;
